@@ -1,9 +1,9 @@
-export type rangaUmiejetnosci = ''
+import cechyType from "./cechyType"
 
 type umiejetnosciType = {
     nazwa: string,
-    ranga: rangaUmiejetnosci,
-    cecha: 0
+    ranga: number,
+    cecha: cechyType
 }
 
 export default umiejetnosciType

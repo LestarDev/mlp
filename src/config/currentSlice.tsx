@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import umiejetnosciType from "./types/umiejetnosciType";
 
 export type choosenType = 'Ekwipunek' | 'Umiejetnosci' | 'Zdolnosci' | 'Handouty';
 
@@ -16,6 +17,7 @@ export interface CurrentState {
     refreshPage: boolean,
     zloteGalopy: number,
     exp: number,
+    umiejetnosci: umiejetnosciType[]
 }
 
 
@@ -31,7 +33,8 @@ export const initialState: CurrentState = {
     wybranyTyp: 'Ekwipunek',
     refreshPage: false,
     exp: 0,
-    zloteGalopy: 0
+    zloteGalopy: 0,
+    umiejetnosci: []
 }
 
 export const thisSlice = createSlice({
