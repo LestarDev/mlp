@@ -1,11 +1,11 @@
 import './App.css'
-import MainPage from './pages/MainPage.tsx/MainPage'
+import ChoosePage from './pages/ChoosePage/ChoosePage'
 
 function App() {
 
   return (
     <>
-     <MainPage />
+     <ChoosePage />
     </>
   )
 }
