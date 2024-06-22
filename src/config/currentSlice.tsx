@@ -74,6 +74,6 @@ export const thisSlice = createSlice({
     }
 })
 
-export const {setNick,  } = thisSlice.actions
+export const {setNick, setCialo, setDodHP, setExp,setIdUzytkownika,setLvl,setSzczescie,setUmysl,setUrok,setZloteGalopy,  } = thisSlice.actions
 
 export default thisSlice.reducer

@@ -1,6 +1,14 @@
+import { useDispatch, useSelector } from "react-redux"
 import cechyType from "../config/types/cechyType"
+import { setCialo, setIdUzytkownika, setSzczescie, setUmysl, setUrok } from "../config/currentSlice";
 
 const usePlayer = () => {
+
+    const dispatch = useDispatch();
+
+    // const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp}: {
+    //     nick: string,         
+    // } = (useSelector((state: any) => state) as any).currency;
 
     const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
 
@@ -20,6 +28,26 @@ const usePlayer = () => {
         if(typeof cecha == "number") return cechy[cecha]
         return cechy.indexOf(cecha)
     } // return name of cecha or id of cecha
+
+    const setNewIdUzytkownika = (newIdUzytkownika: number) => {
+        dispatch(setIdUzytkownika(newIdUzytkownika));
+    }
+
+    const setNewCialo = (newCialo: number) => {
+        dispatch(setCialo(newCialo));
+    }
+
+    const setNewUmysl = (newUmysl: number) => {
+        dispatch(setUmysl(newUmysl));
+    }
+
+    const setNewUrok = (newUrok: number) => {
+        dispatch(setUrok(newUrok));
+    }
+
+    const setNewSzczescie = (newSzczescie: number) => {
+        dispatch(setSzczescie(newSzczescie));
+    }
 
     return ({
         returnCecha, getRangaOfUmiejka
