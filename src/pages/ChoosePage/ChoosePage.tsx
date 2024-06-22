@@ -13,12 +13,18 @@ const ChoosePage = () => {
 
     const [choosenPage, setChoosenPage] = useState(inicjalPage);
 
+    const logIn = () => {
+        setChoosenPage(1);
+    }
+
+    const logOut = () => {
+        setChoosenPage(0);
+    }
+
     return <>
-        <button onClick={()=>{setChoosenPage(1)}}>Main</button>
-        <button onClick={()=>{setChoosenPage(2)}}>Login</button>
         {
-            choosenPage==0 ? <LoginPage /> : 
-            choosenPage==1 ? <MainPage /> :
+            choosenPage==0 ? <LoginPage loginOut={logIn} /> : 
+            choosenPage==1 ? <MainPage loginOut={logOut} /> :
             ''
         }
     </>
