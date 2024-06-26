@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
 import cechyType from "../config/types/cechyType"
-import { setCialo, setIdUzytkownika, setSzczescie, setUmysl, setUrok } from "../config/currentSlice";
+import { choosenType, setCialo, setIdUzytkownika, setRefreshPage, setSzczescie, setUmysl, setUrok } from "../config/currentSlice";
 
 const usePlayer = () => {
 
     const dispatch = useDispatch();
 
-    // const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp}: {
-    //     nick: string,         
-    // } = (useSelector((state: any) => state) as any).currency;
+    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp}: {
+        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType         
+    } = (useSelector((state: any) => state) as any).currency;
 
     const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
 
@@ -16,6 +16,20 @@ const usePlayer = () => {
 
     const checkRangaToAdd = (dane: string): boolean => {
         return !(dane=="Znaczek" || dane=="Wlasciwosc") 
+    }
+
+    //mysle czy jej te kartki podniesc czy nie wypada
+
+    const tabDices = [3, 4, 6, 8, 10, 12, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32]
+
+    const recalculateToDices = (toCal: number, isLvlZero: boolean = false, withK: boolean = false): number | string => {
+        const diceVal: number = isLvlZero ? tabDices[toCal] ?? 0 : tabDices[toCal+1] ?? 1;
+        return withK ?  (diceVal>20 ? "k20"+(diceVal-20) : "k"+(diceVal)) : diceVal
+    }
+
+
+    const calculateHP = (): number => {
+        return Number(recalculateToDices(Cialo)) + Number(recalculateToDices(Umysl)) + dodHP;
     }
 
     const getRangaOfUmiejka = (rangaUmiejki: number, fullName: boolean = false): string => {
@@ -28,6 +42,10 @@ const usePlayer = () => {
         if(typeof cecha == "number") return cechy[cecha]
         return cechy.indexOf(cecha)
     } // return name of cecha or id of cecha
+
+    const runRefreshPage = () => {
+        dispatch(setRefreshPage(!refreshPage))
+    }
 
     const setNewIdUzytkownika = (newIdUzytkownika: number) => {
         dispatch(setIdUzytkownika(newIdUzytkownika));
@@ -50,7 +68,8 @@ const usePlayer = () => {
     }
 
     return ({
-        returnCecha, getRangaOfUmiejka
+        returnCecha, getRangaOfUmiejka, runRefreshPage, calculateHP,
+        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok,
     })
 }
 
