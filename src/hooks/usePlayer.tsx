@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import cechyType from "../config/types/cechyType"
-import { choosenType, setCialo, setIdUzytkownika, setRefreshPage, setSzczescie, setUmysl, setUrok } from "../config/currentSlice";
+import { choosenType, setCialo, setIdUzytkownika, setNick, setRefreshPage, setSzczescie, setUmysl, setUrok } from "../config/currentSlice";
 
 const usePlayer = () => {
 
@@ -10,7 +9,7 @@ const usePlayer = () => {
         nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType         
     } = (useSelector((state: any) => state) as any).currency;
 
-    const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
+    // const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
 
     const rangi: string[] = ["Znaczek", "Podstawowy", "Lvlowy", "Mistrzowski", "Arcymistrzowski", "Pojedynczy", "Polboski", "Boski", "Mutacyjny", "Wlasciwosc"];
 
@@ -38,10 +37,10 @@ const usePlayer = () => {
         return umiejkaRanga
     }
 
-    const returnCecha = (cecha: number | cechyType): string | number => {
-        if(typeof cecha == "number") return cechy[cecha]
-        return cechy.indexOf(cecha)
-    } // return name of cecha or id of cecha
+    // const returnCecha = (cecha: number | cechyType): string | number => {
+    //     if(typeof cecha == "number") return cechy[cecha]
+    //     return cechy.indexOf(cecha)
+    // } // return name of cecha or id of cecha
 
     const runRefreshPage = () => {
         dispatch(setRefreshPage(!refreshPage))
@@ -67,9 +66,14 @@ const usePlayer = () => {
         dispatch(setSzczescie(newSzczescie));
     }
 
+    const setNewNick = (newNick: string) => {
+        dispatch(setNick(newNick));
+    }
+
     return ({
-        returnCecha, getRangaOfUmiejka, runRefreshPage, calculateHP,
-        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok,
+        getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices,
+        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick,
+        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp,
     })
 }
 
