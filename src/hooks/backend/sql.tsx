@@ -3,13 +3,15 @@ import { sqlHostLink } from "../../config/config";
 
 const sql = (query: TemplateStringsArray) => {
 
-    const [datas, setDatas] = useState();
+    const emptyResult: string[] = [];
+
+    const [datas, setDatas] = useState(emptyResult);
 
     const asString = String.raw(query);
     const finalString = asString.split(" ").join("+");
 
     useEffect(()=>{
-        fetch(sqlHostLink+finalString).then(response=>response.json()).then((data: any)=>{
+        fetch(sqlHostLink+finalString).then(response=>response.json()).then((data: string[])=>{
             setDatas(data);
         })
     },[])

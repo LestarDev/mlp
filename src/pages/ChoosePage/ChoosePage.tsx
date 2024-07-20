@@ -27,7 +27,7 @@ const ChoosePage = () => {
         setChoosenPage(0);
     }
 
-    console.log("Effect: ", sql`SELECT nick FROM postac`);
+    console.log("Effect: ", sql`SELECT * FROM postac WHERE postac.id=1`);
 
     return <>
         {
