@@ -1,0 +1,1 @@
+export const sqlHostLink = "https://mlp-rpg.zsti.me/phpData/fetch.php?SQL=";

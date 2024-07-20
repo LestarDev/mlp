@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginPage from "../LoginPage.tsx/LoginPage";
 import MainPage from "../MainPage.tsx/MainPage";
-import useSql from "../../hooks/backend/useSql";
-import usePlayer from "../../hooks/usePlayer";
+import sql from "../../hooks/backend/sql";
 
-const ChoosePage = async () => {
+const ChoosePage = () => {
 
 
     const inicjalPage: number = 0;
@@ -15,10 +14,9 @@ const ChoosePage = async () => {
 
     const [choosenPage, setChoosenPage] = useState(inicjalPage);
 
-    const sql = useSql();
     // usePlayer().setNewNick(sql.getNickFromDemonic())
 
-    console.log(sql.getNickFromDemonic());
+    // console.log(sql.getNickFromDemonic());\
     
 
     const logIn = () => {
@@ -28,6 +26,8 @@ const ChoosePage = async () => {
     const logOut = () => {
         setChoosenPage(0);
     }
+
+    console.log("Effect: ", sql`SELECT nick FROM postac`);
 
     return <>
         {
