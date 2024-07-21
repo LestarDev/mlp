@@ -1,6 +1,4 @@
 import pageType from "../../config/types/pageType";
-import useSql from "../../hooks/backend/sql";
-import usePlayer from "../../hooks/usePlayer"
 
 
 
