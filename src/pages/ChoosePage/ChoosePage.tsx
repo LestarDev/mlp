@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoginPage from "../LoginPage.tsx/LoginPage";
 import MainPage from "../MainPage.tsx/MainPage";
-import sql from "../../hooks/backend/sql";
 
 const ChoosePage = () => {
 
@@ -27,7 +26,7 @@ const ChoosePage = () => {
         setChoosenPage(0);
     }
 
-    console.log("Effect: ", sql`SELECT * FROM postac WHERE postac.id=1`);
+    // console.log("Effect: ", sql`SELECT * FROM postac WHERE postac.id=1`);
 
     return <>
         {

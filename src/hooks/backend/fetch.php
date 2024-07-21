@@ -1,6 +1,6 @@
 <?php
 
-header("Access-Control-Allow-Origin: https://lestardev.github.io");
+header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Accept, Authorization, X-Requested-With, X-Auth-Token, Origin, Application");
 
@@ -15,10 +15,14 @@ $con = mysqli_connect($config["dbHost"],$config["dbUserName"],$config["dbPasswor
  if(!$con){
     mysqli_close($con);
         // header("Location: ".$url);
+echo "Con error";
     exit();
  }else{
     // $query_uzytkownik = "SELECT postacie.nick, postacie.lvl, postacie.HP, postacie.Cialo, postacie.Umysl, postacie.Urok, postacie.Zrecznosc, postacie.Niezlomnosc, postacie.Intuicja, postacie.Szczescie, postacie.Slimaki FROM `postacie` WHERE postacie.id_uzytkownika='$id';";
     $res_uzytkownik = mysqli_query($con, str_replace(array('+'),' ',$sql));
+$tabError = [1];
+$tabError[0] = "0";
+if(!$res_uzytkownik) {echo json_encode($tabError); return;}
     $tab = [mysqli_num_rows($res_uzytkownik)];
     
     for($i=0; $i<mysqli_num_rows($res_uzytkownik); $i++){
@@ -32,7 +36,7 @@ $con = mysqli_connect($config["dbHost"],$config["dbUserName"],$config["dbPasswor
 	    	$tab = array_merge($tab, $row_uzytkownik);
 	    }	
     }
-    
+
     echo json_encode($tab);
     
     

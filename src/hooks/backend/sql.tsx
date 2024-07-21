@@ -1,22 +1,21 @@
-import { useEffect, useState } from "react";
 import { sqlHostLink } from "../../config/config";
 
-const sql = (query: TemplateStringsArray) => {
+const sql = (query: string) => {
 
-    const emptyResult: string[] = [];
+    // const emptyResult: string[] = [];
 
-    const [datas, setDatas] = useState(emptyResult);
+    
+    // const [datas, setDatas] = useState(emptyResult);
+    
+   
 
-    const asString = String.raw(query);
-    const finalString = asString.split(" ").join("+");
-
-    useEffect(()=>{
-        fetch(sqlHostLink+finalString).then(response=>response.json()).then((data: string[])=>{
-            setDatas(data);
-        })
-    },[])
-
-    return datas
+        
+    
+    return [sqlHostLink,query].join("").split(" ").join("+");
+   
+    // return ["1"];
+    // return datas;
+    
 }
 
 export default sql
