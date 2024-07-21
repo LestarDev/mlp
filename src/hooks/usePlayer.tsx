@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
-import { choosenType, setCialo, setIdUzytkownika, setNick, setRefreshPage, setSzczescie, setUmysl, setUrok } from "../config/currentSlice";
+import { choosenType, setCialo, setExp, setIdUzytkownika, setLvl, setNick, setRefreshPage, setSzczescie, setUmysl, setUrok, setZloteGalopy } from "../config/currentSlice";
 
 const usePlayer = () => {
 
     const dispatch = useDispatch();
 
-    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp}: {
-        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType         
+    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp, exp}: {
+        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType, exp: number         
     } = (useSelector((state: any) => state) as any).currency;
 
     // const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
@@ -70,10 +70,22 @@ const usePlayer = () => {
         dispatch(setNick(newNick));
     }
 
+    const setNewLvl = (newLvl: number) => {
+        dispatch(setLvl(newLvl));
+    }
+
+    const setNewExp = (newExp: number) => {
+        dispatch(setExp(newExp));
+    }
+
+    const setNewMonety = (newMonety: number) => {
+        dispatch(setZloteGalopy(newMonety));
+    }
+
     return ({
         getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices,
-        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick,
-        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp,
+        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety,
+        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp
     })
 }
 

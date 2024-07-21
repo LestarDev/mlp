@@ -12,7 +12,18 @@ const LoginPage = ({loginOut}: pageType) => {
 
     const player = usePlayer();
 
+
     useEffect(()=>{
+
+        const tryItem = localStorage.getItem("id");
+
+        if(tryItem){
+            localStorage.removeItem("id");
+            player.setNewIdUzytkownika(Number(tryItem));
+            loginOut();
+            return;
+        }
+
         const login = refLogin.current?.value;
         const password = refPassword.current?.value;
 
@@ -24,8 +35,14 @@ const LoginPage = ({loginOut}: pageType) => {
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
             if(Number(data[0])<=0) return ;
             player.setNewIdUzytkownika(Number(data[1]));
+            // setIdUz(Number(data[1]));
+            // console.log("idUz", idUz.toString())
             loginOut();
         })
+
+        // const player = usePlayer();
+
+        
 
     },[tryToLogin])
 

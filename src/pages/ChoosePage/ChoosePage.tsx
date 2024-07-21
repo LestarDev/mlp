@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginPage from "../LoginPage.tsx/LoginPage";
 import MainPage from "../MainPage.tsx/MainPage";
+import usePlayer from "../../hooks/usePlayer";
 
 const ChoosePage = () => {
 
@@ -13,9 +14,9 @@ const ChoosePage = () => {
 
     const [choosenPage, setChoosenPage] = useState(inicjalPage);
 
-    // usePlayer().setNewNick(sql.getNickFromDemonic())
+   
 
-    // console.log(sql.getNickFromDemonic());\
+    
     
 
     const logIn = () => {

@@ -73,7 +73,7 @@ export const thisSlice = createSlice({
         },
         setRefreshPage: (state, action: PayloadAction<boolean>) => {
             state.refreshPage = action.payload
-        }
+        },
     }
 })
 

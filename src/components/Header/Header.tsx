@@ -7,7 +7,7 @@ const Header = () => {
             <img src="" alt="" />
             <div className="player-main-info-expAndName">
                 <p>{player.nick}</p>
-                <span>EXP: {}</span>
+                <span>EXP: {player.exp}</span>
             </div>
             <div className="player-main-info-lvlAndGalopy">
                 <div><img src="" alt="" />{player.lvl}</div>
