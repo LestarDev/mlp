@@ -3,6 +3,8 @@ import Header from "../../components/Header/Header";
 import pageType from "../../config/types/pageType";
 import usePlayer from "../../hooks/usePlayer";
 import sql from "../../hooks/backend/sql";
+import CechaBox from "../../components/CechaBox/CechaBox";
+import TalentyStack from "../../components/stack/TalentyStack/TalentyStack";
 
 
 
@@ -44,6 +46,15 @@ const MainPage = ({loginOut}: pageType) => {
 
     return <div>
         <Header />
+
+        <div className="stats">
+            <CechaBox cecha="Cialo" value={player.Cialo} />
+            <CechaBox cecha="Umysl" value={player.Umysl} />
+            <CechaBox cecha="Urok" value={player.Urok} />
+        </div>
+
+        <TalentyStack />
+
         <button onClick={loginOut}>Logout</button>
     </div>
 }

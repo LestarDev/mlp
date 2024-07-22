@@ -74,9 +74,12 @@ export const thisSlice = createSlice({
         setRefreshPage: (state, action: PayloadAction<boolean>) => {
             state.refreshPage = action.payload
         },
+        setUmiejetnosci: (state, action: PayloadAction<umiejetnosciType[]>) => {
+            state.umiejetnosci = action.payload
+        }
     }
 })
 
-export const {setNick, setCialo, setDodHP, setExp,setIdUzytkownika,setLvl,setSzczescie,setUmysl,setUrok,setZloteGalopy, setRefreshPage  } = thisSlice.actions
+export const {setNick, setCialo, setDodHP, setExp,setIdUzytkownika,setLvl,setSzczescie,setUmysl,setUrok,setZloteGalopy, setRefreshPage, setUmiejetnosci  } = thisSlice.actions
 
 export default thisSlice.reducer

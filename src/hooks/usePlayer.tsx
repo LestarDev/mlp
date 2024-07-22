@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
-import { choosenType, setCialo, setExp, setIdUzytkownika, setLvl, setNick, setRefreshPage, setSzczescie, setUmysl, setUrok, setZloteGalopy } from "../config/currentSlice";
+import { choosenType, setCialo, setExp, setIdUzytkownika, setLvl, setNick, setRefreshPage, setSzczescie, setUmiejetnosci, setUmysl, setUrok, setZloteGalopy } from "../config/currentSlice";
+import umiejetnosciType from "../config/types/umiejetnosciType";
 
 const usePlayer = () => {
 
     const dispatch = useDispatch();
 
-    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp, exp}: {
-        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType, exp: number         
+    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp, exp, umiejetnosci}: {
+        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType, exp: number, umiejetnosci: umiejetnosciType[],         
     } = (useSelector((state: any) => state) as any).currency;
 
     // const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
@@ -19,16 +20,16 @@ const usePlayer = () => {
 
     //mysle czy jej te kartki podniesc czy nie wypada
 
-    const tabDices = [3, 4, 6, 8, 10, 12, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32]
+    // const tabDices = [3, 4, 6, 8, 10, 12, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32];
 
-    const recalculateToDices = (toCal: number, isLvlZero: boolean = false, withK: boolean = false): number | string => {
-        const diceVal: number = isLvlZero ? tabDices[toCal] ?? 0 : tabDices[toCal+1] ?? 1;
-        return withK ?  (diceVal>20 ? "k20"+(diceVal-20) : "k"+(diceVal)) : diceVal
+    const recalculateToDices = (toCal: number, withK: boolean = false): number | string => {
+        // const diceVal: number = isLvlZero ? tabDices[toCal] ?? 0 : tabDices[toCal+1] ?? -1;
+        return withK ?  (toCal>20 ? "k20+"+(toCal-20) : "k"+(toCal)) : toCal
     }
 
 
     const calculateHP = (): number => {
-        return Number(recalculateToDices(Cialo)) + Number(recalculateToDices(Umysl)) + dodHP;
+        return Cialo + Umysl + dodHP;
     }
 
     const getRangaOfUmiejka = (rangaUmiejki: number, fullName: boolean = false): string => {
@@ -82,10 +83,14 @@ const usePlayer = () => {
         dispatch(setZloteGalopy(newMonety));
     }
 
+    const setNewUmiejetnosci = (newUmiejetnosci: umiejetnosciType[]) => {
+        dispatch(setUmiejetnosci(newUmiejetnosci));
+    }
+
     return ({
         getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices,
-        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety,
-        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp
+        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety, setNewUmiejetnosci,
+        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp, umiejetnosci
     })
 }
 

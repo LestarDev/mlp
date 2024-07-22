@@ -12,7 +12,7 @@ const CechaBox = ({cecha, value}: cechaBoxType) => {
 
     return <div>
         <span>{cecha}</span>
-        <span>{player.recalculateToDices(value, false, true)}</span>
+        <span>{player.recalculateToDices(value, true)}</span>
     </div>
 }
 

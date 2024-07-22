@@ -11,7 +11,7 @@ const Header = () => {
             </div>
             <div className="player-main-info-lvlAndGalopy">
                 <div><img src="" alt="" />{player.lvl}</div>
-                <div><img src="" alt="" />{}</div>
+                <div><img src="" alt="" />{player.calculateHP()}</div>
             </div>
         </div>
     </header>
