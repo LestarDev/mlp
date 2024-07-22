@@ -44,6 +44,13 @@ const MainPage = ({loginOut}: pageType) => {
         })
     },[player.refreshPage])
 
+    const Znaczek = () => {
+        player.umiejetnosci.forEach(umiejka=>{
+            if(umiejka.ranga==1) console.log(umiejka);
+        })
+        return "";
+    }
+
     return <div>
         <Header />
 
@@ -54,6 +61,11 @@ const MainPage = ({loginOut}: pageType) => {
         </div>
 
         <TalentyStack />
+
+        <p onClick={()=>{
+            console.log(player.umiejetnosci)
+        }}>Znaczek</p>
+        {Znaczek()}
 
         <button onClick={loginOut}>Logout</button>
     </div>

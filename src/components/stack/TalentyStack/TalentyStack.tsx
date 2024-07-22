@@ -9,7 +9,7 @@ const TalentyStack = () => {
         
     useEffect(()=>{
 
-        const query = `SELECT nazwa, id_talentType, id,  kostka, imgLink FROM talenty WHERE Id_uzytkownika="${player.idUzytkownika}"; `;
+        const query = `SELECT nazwa, id_talentType, kostka, id, imgLink FROM talenty WHERE Id_uzytkownika="${player.idUzytkownika}" ORDER BY id_talentType; `;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
 
@@ -20,6 +20,7 @@ const TalentyStack = () => {
                     cecha: "Umysl",
                     nazwa: data[i],
                     ranga: Number(data[i+1]),
+                    value: Number(data[i+2]),
                 }
                 // player.setNewUmiejetnosci([...player.umiejetnosci, tempTalent]);
                 // console.log(tempTalent);
