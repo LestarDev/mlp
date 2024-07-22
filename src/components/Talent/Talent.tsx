@@ -1,6 +1,14 @@
 import umiejetnosciType from "../../config/types/umiejetnosciType"
+import usePlayer from "../../hooks/usePlayer";
 
-const Talent = (umiejka: umiejetnosciType) => {
+type talentComponentType = {
+    umiejka: umiejetnosciType;
+}
+
+const Talent = ({umiejka}:talentComponentType) => {
+    
+    const player = usePlayer();
+
     return <div className={
         umiejka.ranga==1 ? "Znaczek" :
         umiejka.ranga==2 ? "Podstawowy" :
@@ -14,8 +22,14 @@ const Talent = (umiejka: umiejetnosciType) => {
         umiejka.ranga==10 ? "Wlasciwosci" :
         "Zerowy"
     }>
-        <span>{umiejka.nazwa}</span>
-
+        <p></p>
+        <span>{umiejka.nazwa} </span>
+        <span>{
+            [1,2,4].includes(umiejka.ranga) ?
+            player.recalculateToDices(umiejka.value) : 
+            [6,9,10,11].includes(umiejka.ranga) ?
+            "" : umiejka.ranga
+        }</span>
     </div>
 }
 

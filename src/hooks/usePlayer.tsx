@@ -22,9 +22,9 @@ const usePlayer = () => {
 
     // const tabDices = [3, 4, 6, 8, 10, 12, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32];
 
-    const recalculateToDices = (toCal: number, withK: boolean = false): number | string => {
+    const recalculateToDices = (toCal: number): string => {
         // const diceVal: number = isLvlZero ? tabDices[toCal] ?? 0 : tabDices[toCal+1] ?? -1;
-        return withK ?  (toCal>20 ? "k20+"+(toCal-20) : "k"+(toCal)) : toCal
+        return toCal>20 ? "k20+"+(toCal-20) : "k"+(toCal)
     }
 
 

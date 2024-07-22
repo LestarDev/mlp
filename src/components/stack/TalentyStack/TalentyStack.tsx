@@ -1,17 +1,24 @@
-import { useEffect } from "react"
+import { useEffect, useId, useState } from "react"
 import sql from "../../../hooks/backend/sql"
 import usePlayer from "../../../hooks/usePlayer"
 import umiejetnosciType from "../../../config/types/umiejetnosciType";
+import Talent from "../../Talent/Talent";
 
 const TalentyStack = () => {
 
     const player = usePlayer();    
-        
+
+    const jsxTab: JSX.Element[] = []
+
+    const [allTalentyJSX, setAllTalentyJSX] = useState(jsxTab);
+
     useEffect(()=>{
 
         const query = `SELECT nazwa, id_talentType, kostka, id, imgLink FROM talenty WHERE Id_uzytkownika="${player.idUzytkownika}" ORDER BY id_talentType; `;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
+
+            setAllTalentyJSX([]);
 
             let umiejetnosciToPush: umiejetnosciType[] = [];
 
@@ -26,17 +33,25 @@ const TalentyStack = () => {
                 // console.log(tempTalent);
                 umiejetnosciToPush.push(tempTalent);
             }
-
+            
             player.setNewUmiejetnosci(umiejetnosciToPush);
-
+            umiejetnosciToPush.forEach((el,i)=>{
+                setAllTalentyJSX(preV=>[...preV, <Talent umiejka={el} key={i+1}/>])
+                
+            })
         })
     },[])
-    
-    
+
+
     return <div onClick={()=>{
         console.log(player.umiejetnosci)
     }}>
- klik
+ {allTalentyJSX}
+
+{
+    
+}
+
     </div>
 }
 
