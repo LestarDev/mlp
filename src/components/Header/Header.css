@@ -1,0 +1,27 @@
+.characterStats{
+    display: flex;
+    height: 10rem;
+}
+
+.characterStats img{
+    height: 100%;
+}
+
+.player-main-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.player-main-info-lvlAndGalopy{
+    display: flex;
+    flex-direction: column;
+    height: 10rem;
+}
+
+.player-main-info-lvlAndGalopy-item{
+    height: 45%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

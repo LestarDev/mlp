@@ -6,8 +6,8 @@ const usePlayer = () => {
 
     const dispatch = useDispatch();
 
-    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp, exp, umiejetnosci, imgLink}: {
-        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType, exp: number, umiejetnosci: umiejetnosciType[], imgLink: string,        
+    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp, exp, umiejetnosci, imgLink, zloteGalopy}: {
+        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType, exp: number, umiejetnosci: umiejetnosciType[], imgLink: string, zloteGalopy: string,       
     } = (useSelector((state: any) => state) as any).currency;
 
     // const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
@@ -108,7 +108,7 @@ const usePlayer = () => {
     return ({
         getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices, clear,
         setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety, setNewUmiejetnosci, setNewImgLink,
-        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp, umiejetnosci, imgLink,
+        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp, umiejetnosci, imgLink, zloteGalopy,
     })
 }
 
