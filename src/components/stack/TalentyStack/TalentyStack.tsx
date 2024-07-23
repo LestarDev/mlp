@@ -3,6 +3,7 @@ import sql from "../../../hooks/backend/sql"
 import usePlayer from "../../../hooks/usePlayer"
 import umiejetnosciType from "../../../config/types/umiejetnosciType";
 import Talent from "../../Talent/Talent";
+import "./TalentyStack.css"
 
 const TalentyStack = () => {
 
@@ -12,13 +13,17 @@ const TalentyStack = () => {
 
     const [allTalentyJSX, setAllTalentyJSX] = useState(jsxTab);
 
+    const [search, setSearch] = useState("");
+
     useEffect(()=>{
 
-        const query = `SELECT nazwa, id_talentType, kostka, id, imgLink FROM talenty WHERE Id_uzytkownika="${player.idUzytkownika}" ORDER BY id_talentType; `;
+        const query = `SELECT nazwa, id_talentType, kostka, id, imgLink FROM talenty WHERE Id_uzytkownika="${player.idUzytkownika}" AND nazwa LIKE "%${search}%" ORDER BY id_talentType; `;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
 
             setAllTalentyJSX([]);
+
+            let lastValue = -1;
 
             let umiejetnosciToPush: umiejetnosciType[] = [];
 
@@ -36,21 +41,22 @@ const TalentyStack = () => {
             
             player.setNewUmiejetnosci(umiejetnosciToPush);
             umiejetnosciToPush.forEach((el,i)=>{
+                if(lastValue!=el.ranga){
+                    setAllTalentyJSX(preV=>[...preV, <span className="otherRanga">{player.getRangaOfUmiejka(el.ranga)}</span>]);
+                    lastValue=el.ranga;
+                }
                 setAllTalentyJSX(preV=>[...preV, <Talent umiejka={el} key={i+1}/>])
-                
             })
         })
-    },[])
+    },[search])
 
 
-    return <div onClick={()=>{
-        console.log(player.umiejetnosci)
-    }}>
+    return <div>
+        <input type="search" name="searchUmiejka" id="searchUmiejka" onChange={(e)=>{
+            setSearch(e.target.value)
+        }} />
  {allTalentyJSX}
 
-{
-    
-}
 
     </div>
 }

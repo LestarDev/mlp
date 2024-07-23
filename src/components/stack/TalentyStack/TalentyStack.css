@@ -1,0 +1,9 @@
+.otherRanga{
+    font-weight: 500;
+    font-size: larger;
+    color: var(--text);
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid var(--text);
+    padding: 0.5rem;
+}

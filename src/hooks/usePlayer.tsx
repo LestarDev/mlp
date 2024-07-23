@@ -12,7 +12,7 @@ const usePlayer = () => {
 
     // const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
 
-    const rangi: string[] = ["Znaczek", "Podstawowy", "Lvlowy", "Mistrzowski", "Arcymistrzowski", "Pojedynczy", "Polboski", "Boski", "Mutacyjny", "Wlasciwosc"];
+    const rangi: string[] = ["Znaczek", "Podstawowy", "Lvlowy", "Mistrzowski", "Arcymistrzowski", "Pojedynczy", "Polboski", "Boski", "Mutacyjny", "Wlasciwosc", "Zero"];
 
     const checkRangaToAdd = (dane: string): boolean => {
         return !(dane=="Znaczek" || dane=="Wlasciwosc") 

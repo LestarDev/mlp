@@ -48,13 +48,7 @@ const MainPage = ({loginOut}: pageType) => {
     return <>
         <Header />
 
-        
-
         <TalentyStack />
-
-        <p onClick={()=>{
-            console.log(player.umiejetnosci)
-        }}>Znaczek</p>
 
         <button onClick={()=>{
             player.clear();

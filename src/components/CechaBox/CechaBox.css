@@ -8,8 +8,18 @@
     width: 5rem;
     height: 5rem;
     justify-content: space-evenly;
+    color: var(--text);
+    font-weight: 500;
 }
 
-.cechaBox:nth-child(n){
-    background: violet;
+.cechaBox:nth-child(1){
+    background: var(--blue);
+}
+
+.cechaBox:nth-child(2){
+    background: var(--violet);
+}
+
+.cechaBox:nth-child(3){
+    background: var(--pink);
 }

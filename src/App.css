@@ -3,6 +3,10 @@
   margin: 0 auto;
   padding: 2rem 0;
   text-align: center;
+  --blue: #b3e7ef;
+  --violet: #dbc4df;
+  --pink: #fad1e4;
+  --text: #6d578d;
 }
 
 .logo {
