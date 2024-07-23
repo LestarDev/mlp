@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
-import { choosenType, setCialo, setExp, setIdUzytkownika, setLvl, setNick, setRefreshPage, setSzczescie, setUmiejetnosci, setUmysl, setUrok, setZloteGalopy } from "../config/currentSlice";
+import { choosenType, setCialo, setExp, setIdUzytkownika, setImgLink, setLvl, setNick, setRefreshPage, setSzczescie, setUmiejetnosci, setUmysl, setUrok, setZloteGalopy } from "../config/currentSlice";
 import umiejetnosciType from "../config/types/umiejetnosciType";
 
 const usePlayer = () => {
 
     const dispatch = useDispatch();
 
-    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp, exp, umiejetnosci}: {
-        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType, exp: number, umiejetnosci: umiejetnosciType[],         
+    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp, exp, umiejetnosci, imgLink}: {
+        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType, exp: number, umiejetnosci: umiejetnosciType[], imgLink: string,        
     } = (useSelector((state: any) => state) as any).currency;
 
     // const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
@@ -87,10 +87,28 @@ const usePlayer = () => {
         dispatch(setUmiejetnosci(newUmiejetnosci));
     }
 
+    const setNewImgLink = (newImgLink: string) => {
+        dispatch(setImgLink(newImgLink));
+    }
+
+    const clear = () => {
+        setNewIdUzytkownika(-1);
+        setNewCialo(0);
+        setNewExp(0);
+        setNewLvl(0);
+        setNewMonety(0);
+        setNewNick("");
+        setNewSzczescie(0);
+        setNewUmiejetnosci([]);
+        setNewUmysl(0);
+        setNewUrok(0);
+        setNewImgLink("");
+    }
+
     return ({
-        getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices,
-        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety, setNewUmiejetnosci,
-        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp, umiejetnosci
+        getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices, clear,
+        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety, setNewUmiejetnosci, setNewImgLink,
+        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp, umiejetnosci, imgLink,
     })
 }
 

@@ -41,33 +41,25 @@ const MainPage = ({loginOut}: pageType) => {
             player.setNewUmysl(Number(data[5]));
             player.setNewUrok(Number(data[6]));
             player.setNewMonety(Number(data[7]));
+            player.setNewImgLink(data[8]);
         })
     },[player.refreshPage])
-
-    const Znaczek = () => {
-        player.umiejetnosci.forEach(umiejka=>{
-            if(umiejka.ranga==1) console.log(umiejka);
-        })
-        return "";
-    }
 
     return <div>
         <Header />
 
-        <div className="stats">
-            <CechaBox cecha="Cialo" value={player.Cialo} />
-            <CechaBox cecha="Umysl" value={player.Umysl} />
-            <CechaBox cecha="Urok" value={player.Urok} />
-        </div>
+        
 
         <TalentyStack />
 
         <p onClick={()=>{
             console.log(player.umiejetnosci)
         }}>Znaczek</p>
-        {Znaczek()}
 
-        <button onClick={loginOut}>Logout</button>
+        <button onClick={()=>{
+            player.clear();
+            loginOut();
+        }}>Logout</button>
     </div>
 }
 

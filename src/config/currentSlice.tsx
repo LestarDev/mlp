@@ -17,7 +17,8 @@ export interface CurrentState {
     refreshPage: boolean,
     zloteGalopy: number,
     exp: number,
-    umiejetnosci: umiejetnosciType[]
+    umiejetnosci: umiejetnosciType[],
+    imgLink: string,
 }
 
 
@@ -34,7 +35,8 @@ export const initialState: CurrentState = {
     refreshPage: false,
     exp: 0,
     zloteGalopy: 0,
-    umiejetnosci: []
+    umiejetnosci: [],
+    imgLink: ""
 }
 
 export const thisSlice = createSlice({
@@ -76,10 +78,13 @@ export const thisSlice = createSlice({
         },
         setUmiejetnosci: (state, action: PayloadAction<umiejetnosciType[]>) => {
             state.umiejetnosci = action.payload
-        }
+        },
+        setImgLink: (state, action: PayloadAction<string>) => {
+            state.imgLink = action.payload;
+        },
     }
 })
 
-export const {setNick, setCialo, setDodHP, setExp,setIdUzytkownika,setLvl,setSzczescie,setUmysl,setUrok,setZloteGalopy, setRefreshPage, setUmiejetnosci  } = thisSlice.actions
+export const {setNick, setCialo, setDodHP, setExp,setIdUzytkownika,setLvl,setSzczescie,setUmysl,setUrok,setZloteGalopy, setRefreshPage, setUmiejetnosci, setImgLink  } = thisSlice.actions
 
 export default thisSlice.reducer

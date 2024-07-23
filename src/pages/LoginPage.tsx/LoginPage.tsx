@@ -46,12 +46,15 @@ const LoginPage = ({loginOut}: pageType) => {
 
     },[tryToLogin])
 
-    return <div>
+    return <form>
         <div>
             <label>Login: <input type="text" ref={refLogin} /></label>
             <label>Hasło: <input type="password" ref={refPassword} /></label>
         </div>
-        <button onClick={()=>{setTryToLogin(preV=>!preV)}}>Login</button>
-    </div>
+        <button role="submit" onClick={(e)=>{
+            e.preventDefault();
+            setTryToLogin(preV=>!preV)
+            }}>Login</button>
+    </form>
 }
 export default LoginPage
