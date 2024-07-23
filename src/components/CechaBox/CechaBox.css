@@ -7,4 +7,9 @@
     align-content: center;
     width: 5rem;
     height: 5rem;
+    justify-content: space-evenly;
+}
+
+.cechaBox:nth-child(n){
+    background: violet;
 }

@@ -45,7 +45,7 @@ const MainPage = ({loginOut}: pageType) => {
         })
     },[player.refreshPage])
 
-    return <div>
+    return <>
         <Header />
 
         
@@ -60,7 +60,7 @@ const MainPage = ({loginOut}: pageType) => {
             player.clear();
             loginOut();
         }}>Logout</button>
-    </div>
+    </>
 }
 
 export default MainPage

@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoginPage from "../LoginPage.tsx/LoginPage";
 import MainPage from "../MainPage.tsx/MainPage";
-import usePlayer from "../../hooks/usePlayer";
 
 const ChoosePage = () => {
 
