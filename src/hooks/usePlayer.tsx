@@ -95,6 +95,10 @@ const usePlayer = () => {
         dispatch(setWybranyTyp(newSection));
     }
 
+    const rerollPage = () => {
+        dispatch(setRefreshPage(!refreshPage));
+    }
+
     const clear = () => {
         setNewIdUzytkownika(-1);
         setNewCialo(0);
@@ -110,7 +114,7 @@ const usePlayer = () => {
     }
 
     return ({
-        getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices, clear,
+        getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices, clear, rerollPage,
         setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety, setNewUmiejetnosci, setNewImgLink, setNewSection,
         nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp, umiejetnosci, imgLink, zloteGalopy,
     })

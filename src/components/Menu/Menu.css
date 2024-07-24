@@ -15,6 +15,23 @@
     }
 }
 
+@keyframes menuOpenSmall {
+    0%{
+        background: none;
+        width: 3rem;
+    }
+    50%{
+        background: white;
+        width: 30%;
+        height: 3rem;
+    }
+    100%{
+        background: white;
+        width: 100%;
+        height: 10rem;
+    }
+}
+
 @keyframes showButtonsInMenu {
     from{
         opacity: 0;
@@ -45,7 +62,7 @@
 .openedMenu{
     animation-name: menuOpen;
     animation-duration: 0.7s;
-    animation-delay: 0;
+    animation-delay: 0s;
     animation-fill-mode: forwards;
 }
 
@@ -88,7 +105,7 @@
 
 .innerOpen-close{
     position: absolute;
-    left: 1rem;
+    right: 1rem;
     font-weight: 700;
     cursor: pointer;
     color: black;
@@ -98,4 +115,33 @@
 .innerOpen-close:hover{
     color: var(--text);
     text-shadow: 2px 1px var(--blue);
+}
+
+@media only screen and (max-width: 825px) {
+    .openedMenu{
+        animation-name: menuOpenSmall;
+    }
+    .characterStats{
+        flex-direction: column;
+        gap: 0.5rem;
+        height: unset;
+        padding: 1rem 0;
+    }
+    .player-main-info{
+        width: 100%;
+    }
+    .player-main-info > img{
+        height: 10rem;
+    }
+    .cechaBox{
+        width: 7rem;
+        height: 7rem;
+        font-size: x-large;
+    }
+    .player-main-info-expAndName > p{
+        font-size: xx-large;
+    }
+    .player-main-info-lvlAndGalopy-item{
+        font-size: large;
+    }
 }

@@ -5,6 +5,7 @@ import usePlayer from "../../hooks/usePlayer";
 import sql from "../../hooks/backend/sql";
 import Menu from "../../components/Menu/Menu";
 import StackSelect from "../../components/stack/StackSelect/StackSelect";
+import RefreshButton from "../../components/RefreshButton/RefreshButton";
 
 
 
@@ -54,11 +55,15 @@ const MainPage = ({loginOut}: pageType) => {
 
         <StackSelect />
 
-        <button onClick={()=>{
-            document.title="Mlp - login";
-            player.clear();
-            loginOut();
-        }}>Logout</button>
+        <div>
+            <button onClick={()=>{
+                document.title="Mlp - login";
+                player.clear();
+                loginOut();
+            }}>Logout</button>
+            <RefreshButton />
+        </div>
+
     </>
 }
 
