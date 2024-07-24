@@ -12,7 +12,7 @@ const TalentyStack = () => {
     const jsxTab: JSX.Element[] = [];
 
     player.umiejetnosci.forEach((el, i)=>{
-        jsxTab.push(<Talent umiejka={el} key={i} />)
+        jsxTab.push(<Talent umiejka={el} key={'firstTalent'+i} />)
     })
 
     const [allTalentyJSX, setAllTalentyJSX] = useState(jsxTab);
@@ -52,7 +52,7 @@ const TalentyStack = () => {
                 setAllTalentyJSX(preV=>[...preV, <Talent umiejka={el} key={i+1}/>])
             })
         })
-    },[search])
+    },[search, player.refreshPage])
 
 
     return <div>
