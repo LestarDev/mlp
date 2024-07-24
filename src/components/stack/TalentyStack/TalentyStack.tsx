@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from "react"
+import { useEffect, useState } from "react"
 import sql from "../../../hooks/backend/sql"
 import usePlayer from "../../../hooks/usePlayer"
 import umiejetnosciType from "../../../config/types/umiejetnosciType";

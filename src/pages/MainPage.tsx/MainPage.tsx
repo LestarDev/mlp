@@ -35,6 +35,7 @@ const MainPage = ({loginOut}: pageType) => {
                 return;
             }
             player.setNewNick(data[1]);
+            document.title=`Mlp - ${data[1]}`;
             player.setNewLvl(Number(data[2]));
             player.setNewExp(Number(data[3]));
             player.setNewCialo(Number(data[4]));
@@ -54,6 +55,7 @@ const MainPage = ({loginOut}: pageType) => {
         <StackSelect />
 
         <button onClick={()=>{
+            document.title="Mlp - login";
             player.clear();
             loginOut();
         }}>Logout</button>
