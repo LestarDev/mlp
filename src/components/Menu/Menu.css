@@ -85,3 +85,17 @@
     width: 50%;
     justify-content: space-evenly;
 }
+
+.innerOpen-close{
+    position: absolute;
+    left: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: black;
+    font-size: larger;
+}
+
+.innerOpen-close:hover{
+    color: var(--text);
+    text-shadow: 2px 1px var(--blue);
+}

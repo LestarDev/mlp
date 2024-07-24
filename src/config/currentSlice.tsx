@@ -31,7 +31,7 @@ export const initialState: CurrentState = {
     Szczescie: 0,
     Umysl: 0,
     Urok: 0,
-    wybranyTyp: 'Ekwipunek',
+    wybranyTyp: 'Talenty',
     refreshPage: false,
     exp: 0,
     zloteGalopy: 0,

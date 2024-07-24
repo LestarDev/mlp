@@ -14,6 +14,9 @@ const Menu = () => {
 
     {
         isMenuOpened ? <div className="innerOpen">
+            <div className="innerOpen-close" onClick={()=>{
+                setIsMenuOpened(false);
+            }}>x</div>
                 <span>Sekcje</span>
                 <div className="innerOpen-sectionConteiner">
                     <div>

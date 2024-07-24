@@ -9,7 +9,11 @@ const TalentyStack = () => {
 
     const player = usePlayer();    
 
-    const jsxTab: JSX.Element[] = []
+    const jsxTab: JSX.Element[] = [];
+
+    player.umiejetnosci.forEach((el, i)=>{
+        jsxTab.push(<Talent umiejka={el} key={i} />)
+    })
 
     const [allTalentyJSX, setAllTalentyJSX] = useState(jsxTab);
 
