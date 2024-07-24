@@ -52,7 +52,7 @@ const TalentyStack = () => {
 
 
     return <div>
-        <input type="search" name="searchUmiejka" id="searchUmiejka" onChange={(e)=>{
+        <input type="search" name="searchUmiejka" id="searchUmiejka" placeholder="Szukaj" onChange={(e)=>{
             setSearch(e.target.value)
         }} />
  {allTalentyJSX}

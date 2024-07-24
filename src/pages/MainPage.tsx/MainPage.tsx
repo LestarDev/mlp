@@ -3,8 +3,8 @@ import Header from "../../components/Header/Header";
 import pageType from "../../config/types/pageType";
 import usePlayer from "../../hooks/usePlayer";
 import sql from "../../hooks/backend/sql";
-import CechaBox from "../../components/CechaBox/CechaBox";
-import TalentyStack from "../../components/stack/TalentyStack/TalentyStack";
+import Menu from "../../components/Menu/Menu";
+import StackSelect from "../../components/stack/StackSelect/StackSelect";
 
 
 
@@ -46,9 +46,12 @@ const MainPage = ({loginOut}: pageType) => {
     },[player.refreshPage])
 
     return <>
+
+        <Menu />
+
         <Header />
 
-        <TalentyStack />
+        <StackSelect />
 
         <button onClick={()=>{
             player.clear();

@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import umiejetnosciType from "./types/umiejetnosciType";
 
-export type choosenType = 'Ekwipunek' | 'Umiejetnosci' | 'Zaklecia' | 'Handouty';
+export type choosenType = 'Ekwipunek' | 'Talenty' | 'Zaklecia' | 'Handouty';
 
 
 export interface CurrentState {
@@ -82,9 +82,12 @@ export const thisSlice = createSlice({
         setImgLink: (state, action: PayloadAction<string>) => {
             state.imgLink = action.payload;
         },
+        setWybranyTyp: (state, action: PayloadAction<choosenType>) => {
+            state.wybranyTyp = action.payload
+        }
     }
 })
 
-export const {setNick, setCialo, setDodHP, setExp,setIdUzytkownika,setLvl,setSzczescie,setUmysl,setUrok,setZloteGalopy, setRefreshPage, setUmiejetnosci, setImgLink  } = thisSlice.actions
+export const {setNick, setCialo, setDodHP, setExp,setIdUzytkownika,setLvl,setSzczescie,setUmysl,setUrok,setZloteGalopy, setRefreshPage, setUmiejetnosci, setImgLink, setWybranyTyp  } = thisSlice.actions
 
 export default thisSlice.reducer

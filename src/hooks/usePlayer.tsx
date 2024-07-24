@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { choosenType, setCialo, setExp, setIdUzytkownika, setImgLink, setLvl, setNick, setRefreshPage, setSzczescie, setUmiejetnosci, setUmysl, setUrok, setZloteGalopy } from "../config/currentSlice";
+import { choosenType, setCialo, setExp, setIdUzytkownika, setImgLink, setLvl, setNick, setRefreshPage, setSzczescie, setUmiejetnosci, setUmysl, setUrok, setWybranyTyp, setZloteGalopy } from "../config/currentSlice";
 import umiejetnosciType from "../config/types/umiejetnosciType";
 
 const usePlayer = () => {
@@ -91,6 +91,10 @@ const usePlayer = () => {
         dispatch(setImgLink(newImgLink));
     }
 
+    const setNewSection = (newSection: choosenType) => {
+        dispatch(setWybranyTyp(newSection));
+    }
+
     const clear = () => {
         setNewIdUzytkownika(-1);
         setNewCialo(0);
@@ -107,7 +111,7 @@ const usePlayer = () => {
 
     return ({
         getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices, clear,
-        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety, setNewUmiejetnosci, setNewImgLink,
+        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety, setNewUmiejetnosci, setNewImgLink, setNewSection,
         nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp, umiejetnosci, imgLink, zloteGalopy,
     })
 }

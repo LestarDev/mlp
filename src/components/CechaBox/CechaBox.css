@@ -5,11 +5,12 @@
     /* justify-content: space-between; */
     /* justify-items: ; */
     align-content: center;
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     justify-content: space-evenly;
     color: var(--text);
     font-weight: 500;
+    font-size: larger;
 }
 
 .cechaBox:nth-child(1){

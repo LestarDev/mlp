@@ -13,6 +13,21 @@
     width: 60%;
 }
 
+.player-main-info-expAndName{
+    padding: 0 1rem;
+}
+
+.player-main-info-expAndName p{
+    color: var(--text);
+    font-weight: 500;
+    font-size: larger;
+}
+
+.player-main-info-expAndName span{
+    font-weight: 600;
+    font-size: x-large;
+}
+
 .player-main-info-lvlAndGalopy{
     display: flex;
     flex-direction: column;
