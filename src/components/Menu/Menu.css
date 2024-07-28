@@ -147,7 +147,7 @@
     .player-main-info-expAndName{
         padding: 0;
     }
-    .otherRanga{
+    span.otherRanga{
         padding: 0.5rem 0;
     }
 }
