@@ -138,9 +138,9 @@
         height: 7rem;
         font-size: x-large;
     }
-    .player-main-info-expAndName > p{
+    /* .player-main-info-expAndName > p{
         font-size: xx-large;
-    }
+    } */
     .player-main-info-lvlAndGalopy-item{
         font-size: large;
     }
