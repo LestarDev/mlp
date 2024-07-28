@@ -150,4 +150,7 @@
     span.otherRanga{
         padding: 0.5rem 0;
     }
+    .menu{
+        right: 0;
+    }
 }

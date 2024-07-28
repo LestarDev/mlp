@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./Menu.css"
 import usePlayer from "../../hooks/usePlayer";
+import RefreshButton from "../RefreshButton/RefreshButton";
 
 const Menu = () => {
 
@@ -35,6 +36,7 @@ const Menu = () => {
                             player.setNewSection("Handouty");
                         }}>Handouty</button>
                     </div>
+                    <RefreshButton />
                 </div>
                 
             
