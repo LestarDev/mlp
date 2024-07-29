@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import pageType from "../../config/types/pageType"
 import sql from "../../hooks/backend/sql";
 import usePlayer from "../../hooks/usePlayer";
+import "./LoginPage.css"
 
 const LoginPage = ({loginOut}: pageType) => {
 
@@ -46,7 +47,7 @@ const LoginPage = ({loginOut}: pageType) => {
 
     },[tryToLogin])
 
-    return <form>
+    return <form className="loginForm">
         <div>
             <label>Login: <input type="text" ref={refLogin} /></label>
             <label>Hasło: <input type="password" ref={refPassword} /></label>
