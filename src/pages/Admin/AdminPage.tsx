@@ -21,6 +21,9 @@ const AdminPage = ({setPage}: pageType) => {
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
+            for(let i=1; i<Number(data[0])+1; i+=3){
+                console.log(data[i], data[i+1], data[i+2]);
+            }
         })
 
     },[player.refreshPage])
