@@ -2,8 +2,10 @@ import { useState } from "react"
 import "./Menu.css"
 import usePlayer from "../../hooks/usePlayer";
 import RefreshButton from "../RefreshButton/RefreshButton";
+import LogoutButton from "../LogoutButton/LogoutButton";
+import pageType from "../../config/types/pageType";
 
-const Menu = () => {
+const Menu = ({setPage}: pageType) => {
 
     const [isMenuOpened, setIsMenuOpened] = useState(false);
 
@@ -36,7 +38,10 @@ const Menu = () => {
                             player.setNewSection("Handouty");
                         }}>Handouty</button>
                     </div>
-                    <RefreshButton />
+                    <div>
+                        <LogoutButton setPage={setPage} />
+                        <RefreshButton />
+                    </div>
                 </div>
                 
             

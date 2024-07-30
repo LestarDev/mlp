@@ -52,7 +52,7 @@ const MainPage = ({setPage}: pageType) => {
 
     return <>
 
-        <Menu />
+        <Menu setPage={setPage} />
 
         <Header />
 
