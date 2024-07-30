@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LoginPage from "../LoginPage.tsx/LoginPage";
 import MainPage from "../MainPage.tsx/MainPage";
+import AdminPage from "../Admin/AdminPage";
 
 const ChoosePage = () => {
 
@@ -24,6 +25,7 @@ const ChoosePage = () => {
         {
             choosenPage==0 ? <LoginPage setPage={setChoosenPage} /> : 
             choosenPage==1 ? <MainPage setPage={setChoosenPage} /> :
+            choosenPage==3 ? <AdminPage /> :
             ''
         }
     </>
