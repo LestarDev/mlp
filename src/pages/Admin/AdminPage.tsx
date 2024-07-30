@@ -17,12 +17,12 @@ const AdminPage = ({setPage}: pageType) => {
             setPage(loginPageID);
         }
 
-        const query = `SELECT * FROM uzytkownik`;
+        const query = `SELECT uzytkownik.id, uzytkownik.login, uzytkownik.password, postac.nick FROM uzytkownik INNER JOIN postac ON postac.Id_uzytkownika = uzytkownik.id`;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
-            for(let i=1; i<Number(data[0])+1; i+=3){
-                console.log(data[i], data[i+1], data[i+2]);
+            for(let i=1; i<Number(data[0])+1; i+=4){
+                console.log(data[i], data[i+1], data[i+2], data[i+3]);
             }
         })
 
