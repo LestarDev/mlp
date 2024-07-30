@@ -25,7 +25,7 @@ const ChoosePage = () => {
         {
             choosenPage==0 ? <LoginPage setPage={setChoosenPage} /> : 
             choosenPage==1 ? <MainPage setPage={setChoosenPage} /> :
-            choosenPage==3 ? <AdminPage /> :
+            choosenPage==3 ? <AdminPage setPage={setChoosenPage} /> :
             ''
         }
     </>
