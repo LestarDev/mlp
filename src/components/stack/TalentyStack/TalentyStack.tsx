@@ -4,12 +4,13 @@ import usePlayer from "../../../hooks/usePlayer"
 import umiejetnosciType from "../../../config/types/umiejetnosciType";
 import Talent from "../../Talent/Talent";
 import "./TalentyStack.css"
+import React from "react";
 
 const TalentyStack = () => {
 
     const player = usePlayer();    
 
-    const jsxTab: JSX.Element[] = [];
+    const jsxTab: React.JSX.Element[] = [];
 
     player.umiejetnosci.forEach((el, i)=>{
         jsxTab.push(<Talent umiejka={el} key={'firstTalent'+i} />)
