@@ -22,7 +22,7 @@ const LoginPage = ({setPage}: pageType) => {
         if(tryItem){
             localStorage.removeItem("id");
             player.setNewIdUzytkownika(Number(tryItem));
-            setPage(adminPageID); // przepisac funkcje void na React.dispatch<choosePage>
+            setPage(mainPageID); // przepisac funkcje void na React.dispatch<choosePage>
             return;
         }
 
@@ -34,7 +34,7 @@ const LoginPage = ({setPage}: pageType) => {
 
         if(login=="Admin" && password=="op9001!"){
             player.setNewIdUzytkownika(Number(-999));
-
+            setPage(adminPageID)
             return;
         }
 
