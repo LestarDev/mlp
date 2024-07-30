@@ -8,6 +8,7 @@ import StackSelect from "../../components/stack/StackSelect/StackSelect";
 import RefreshButton from "../../components/RefreshButton/RefreshButton";
 import { loginPageID } from "../../config/config";
 import "./MainPage.css";
+import LogoutButton from "../../components/LogoutButton/LogoutButton";
 
 
 
@@ -58,11 +59,7 @@ const MainPage = ({setPage}: pageType) => {
         <StackSelect />
 
         <div className="buttons-down">
-            <button onClick={()=>{
-                document.title="Mlp - login";
-                player.clear();
-                setPage(loginPageID);
-            }}>Logout</button>
+            <LogoutButton setPage={setPage} />
             <RefreshButton />
         </div>
 
