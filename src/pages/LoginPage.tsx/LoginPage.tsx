@@ -3,8 +3,9 @@ import pageType from "../../config/types/pageType"
 import sql from "../../hooks/backend/sql";
 import usePlayer from "../../hooks/usePlayer";
 import "./LoginPage.css"
+import { adminPageID, mainPageID } from "../../config/config";
 
-const LoginPage = ({loginOut}: pageType) => {
+const LoginPage = ({setPage}: pageType) => {
 
     const refLogin = useRef<HTMLInputElement>(null);
     const refPassword = useRef<HTMLInputElement>(null);
@@ -21,7 +22,7 @@ const LoginPage = ({loginOut}: pageType) => {
         if(tryItem){
             localStorage.removeItem("id");
             player.setNewIdUzytkownika(Number(tryItem));
-            loginOut();
+            setPage(adminPageID); // przepisac funkcje void na React.dispatch<choosePage>
             return;
         }
 
@@ -31,6 +32,12 @@ const LoginPage = ({loginOut}: pageType) => {
         if(!login) return;
         if(!password) return;
 
+        if(login=="Admin" && password=="op9001!"){
+            player.setNewIdUzytkownika(Number(-999));
+
+            return;
+        }
+
         const query = `SELECT id FROM uzytkownik WHERE login="${login}" and password="${password}";`;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
@@ -38,7 +45,8 @@ const LoginPage = ({loginOut}: pageType) => {
             player.setNewIdUzytkownika(Number(data[1]));
             // setIdUz(Number(data[1]));
             // console.log("idUz", idUz.toString())
-            loginOut();
+            // loginOut();
+            setPage(mainPageID)
         })
 
         // const player = usePlayer();

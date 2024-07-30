@@ -1,5 +1,5 @@
 type pageType = {
-    loginOut: () => void
+    setPage: React.Dispatch<React.SetStateAction<number>>
 }
 
 export default pageType

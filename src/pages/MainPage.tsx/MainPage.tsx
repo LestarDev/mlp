@@ -6,10 +6,11 @@ import sql from "../../hooks/backend/sql";
 import Menu from "../../components/Menu/Menu";
 import StackSelect from "../../components/stack/StackSelect/StackSelect";
 import RefreshButton from "../../components/RefreshButton/RefreshButton";
+import { loginPageID } from "../../config/config";
 
 
 
-const MainPage = ({loginOut}: pageType) => {
+const MainPage = ({setPage}: pageType) => {
 
     const player = usePlayer();
 
@@ -32,7 +33,7 @@ const MainPage = ({loginOut}: pageType) => {
             console.log(data);
             if(Number(data[0])<=0) {
                 console.log("brak postaci");
-                loginOut();
+                setPage(loginPageID);
                 return;
             }
             player.setNewNick(data[1]);
@@ -59,7 +60,7 @@ const MainPage = ({loginOut}: pageType) => {
             <button onClick={()=>{
                 document.title="Mlp - login";
                 player.clear();
-                loginOut();
+                setPage(loginPageID);
             }}>Logout</button>
             <RefreshButton />
         </div>
