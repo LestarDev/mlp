@@ -117,21 +117,21 @@ const AdminPage = ({setPage}: pageType) => {
                                 <label>Value: <select name="value" id="value">
                                     {
                                         umiejkaToChange.ranga==3 ? <>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
+                                            <option value="1" selected={umiejkaToChange.value==1}>1</option>
+                                            <option value="2" selected={umiejkaToChange.value==2}>2</option>
+                                            <option value="3" selected={umiejkaToChange.value==3}>3</option>
+                                            <option value="4" selected={umiejkaToChange.value==4}>4</option>
+                                            <option value="5" selected={umiejkaToChange.value==5}>5</option>
+                                            <option value="6" selected={umiejkaToChange.value==6}>6</option>
                                         </> : <>
-                                            <option value="3" hidden={umiejkaToChange.ranga==11}>k3</option>
-                                            <option value="4">k4</option>
-                                            <option value="6">k6</option>
-                                            <option value="8">k8</option>
-                                            <option value="10">k10</option>
-                                            <option value="12">k12</option>
+                                            <option value="3" selected={umiejkaToChange.value==3} hidden={umiejkaToChange.ranga==11}>k3</option>
+                                            <option value="4" selected={umiejkaToChange.value==4}>k4</option>
+                                            <option value="6" selected={umiejkaToChange.value==6}>k6</option>
+                                            <option value="8" selected={umiejkaToChange.value==8}>k8</option>
+                                            <option value="10" selected={umiejkaToChange.value==10}>k10</option>
+                                            <option value="12" selected={umiejkaToChange.value==12}>k12</option>
                                             {
-                                                umiejkaToChange.ranga!=4 && umiejkaToChange.ranga!=5 ? <option value="20">k20</option> : ''
+                                                umiejkaToChange.ranga!=4 && umiejkaToChange.ranga!=5 ? <option selected={umiejkaToChange.value==20} value="20">k20</option> : ''
                                             }
                                             
                                         </>
@@ -139,23 +139,23 @@ const AdminPage = ({setPage}: pageType) => {
                                     
                                     {
                                         umiejkaToChange.ranga==1 || umiejkaToChange.ranga==2 ? <>
-                                            <option value="21">k20+1</option>
-                                            <option value="22">k20+2</option>
-                                            <option value="23">k20+3</option>
-                                            <option value="24">k20+4</option>
-                                            <option value="25">k20+5</option>
-                                            <option value="26">k20+6</option>
+                                            <option value="21" selected={umiejkaToChange.value==21}>k20+1</option>
+                                            <option value="22" selected={umiejkaToChange.value==22}>k20+2</option>
+                                            <option value="23" selected={umiejkaToChange.value==23}>k20+3</option>
+                                            <option value="24" selected={umiejkaToChange.value==24}>k20+4</option>
+                                            <option value="25" selected={umiejkaToChange.value==25}>k20+5</option>
+                                            <option value="26" selected={umiejkaToChange.value==26}>k20+6</option>
                                         </> : ''
                                     }
                                     
                                     {
                                         umiejkaToChange.ranga==1 ? <>
-                                            <option value="27">k20+7</option>
-                                            <option value="28">k20+8</option>
-                                            <option value="29">k20+9</option>
-                                            <option value="30">k20+10</option>
-                                            <option value="31">k20+11</option>
-                                            <option value="32">k20+12</option>
+                                            <option value="27" selected={umiejkaToChange.value==27}>k20+7</option>
+                                            <option value="28" selected={umiejkaToChange.value==28}>k20+8</option>
+                                            <option value="29" selected={umiejkaToChange.value==29}>k20+9</option>
+                                            <option value="30" selected={umiejkaToChange.value==30}>k20+10</option>
+                                            <option value="31" selected={umiejkaToChange.value==31}>k20+11</option>
+                                            <option value="32" selected={umiejkaToChange.value==32}>k20+12</option>
                                         </> : ''
                                     }   
                                     
