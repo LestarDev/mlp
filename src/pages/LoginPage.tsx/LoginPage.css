@@ -3,3 +3,8 @@
     flex-direction: column;
     gap: 0.5rem;
 }
+
+.loginForm > div label{
+    display: flex;
+    gap: 0.5rem;
+}

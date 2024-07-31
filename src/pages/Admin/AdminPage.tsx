@@ -20,13 +20,14 @@ const AdminPage = ({setPage}: pageType) => {
         if(player.idUzytkownika!=-999){
             player.clear();
             setPage(loginPageID);
+            return;
         }
 
         const query = `SELECT uzytkownik.id, postac.nick, postac.lvl, postac.exp FROM uzytkownik INNER JOIN postac ON postac.Id_uzytkownika = uzytkownik.id`;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
-            for(let i=1; i<Number(data[0])+1; i+=4){
+            for(let i=1; i<Number(data[0])*4; i+=4){
                 console.log(data[i], data[i+1], data[i+2], data[i+3]);
                 setAllUsers(prevV=>[...prevV, <p className="admin-singleUser">
                     <span>{data[i]}</span>
