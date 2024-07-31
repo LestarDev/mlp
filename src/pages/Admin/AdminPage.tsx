@@ -112,8 +112,54 @@ const AdminPage = ({setPage}: pageType) => {
                                     <option value="8" selected={umiejkaToChange.ranga==8}>{player.getRangaOfUmiejka(8, true)}</option>
                                     <option value="9" selected={umiejkaToChange.ranga==9}>{player.getRangaOfUmiejka(9, true)}</option>
                                     <option value="10" selected={umiejkaToChange.ranga==10}>{player.getRangaOfUmiejka(10, true)}</option>    
+                                    <option value="11" selected={umiejkaToChange.ranga==11}>{player.getRangaOfUmiejka(11, true)}</option>
                                 </select></label>
-                                <label>Value: <input type="number" value={umiejkaToChange.value} /></label>
+                                <label>Value: <select name="value" id="value">
+                                    {
+                                        umiejkaToChange.ranga==3 ? <>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                        </> : <>
+                                            <option value="3" hidden={umiejkaToChange.ranga==11}>k3</option>
+                                            <option value="4">k4</option>
+                                            <option value="6">k6</option>
+                                            <option value="8">k8</option>
+                                            <option value="10">k10</option>
+                                            <option value="12">k12</option>
+                                            {
+                                                umiejkaToChange.ranga!=4 && umiejkaToChange.ranga!=5 ? <option value="20">k20</option> : ''
+                                            }
+                                            
+                                        </>
+                                    }
+                                    
+                                    {
+                                        umiejkaToChange.ranga==1 || umiejkaToChange.ranga==2 ? <>
+                                            <option value="21">k20+1</option>
+                                            <option value="22">k20+2</option>
+                                            <option value="23">k20+3</option>
+                                            <option value="24">k20+4</option>
+                                            <option value="25">k20+5</option>
+                                            <option value="26">k20+6</option>
+                                        </> : ''
+                                    }
+                                    
+                                    {
+                                        umiejkaToChange.ranga==1 ? <>
+                                            <option value="27">k20+7</option>
+                                            <option value="28">k20+8</option>
+                                            <option value="29">k20+9</option>
+                                            <option value="30">k20+10</option>
+                                            <option value="31">k20+11</option>
+                                            <option value="32">k20+12</option>
+                                        </> : ''
+                                    }   
+                                    
+                                </select></label>
                                 <input type="hidden" name="id" value={umiejkaToChange.id} />
                                 <input type="submit" value="Zapisz zmiany" />
                             </form>
