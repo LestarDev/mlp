@@ -93,14 +93,26 @@ const AdminPage = ({setPage}: pageType) => {
                         typeOfForm.typeOf == 1 ? <> {umiejkaToChange.ranga>0 ? <>
                             <form>
                                 <label>Cecha: <select name="cecha" id="cecha">
-                                    <option value="Cialo"></option>
-                                    <option value="Umysl"></option>
-                                    <option value="Urok"></option>
+                                    <option value="Cialo" selected={umiejkaToChange.cecha=="Cialo"}>Cialo</option>
+                                    <option value="Umysl" selected={umiejkaToChange.cecha=="Umysl"}>Umysl</option>
+                                    <option value="Urok" selected={umiejkaToChange.cecha=="Urok"}>Urok</option>
                                 </select></label>
                                 <label>Nazwa: <input type="text" value={umiejkaToChange.nazwa}/></label>
-                                <label>Ranga: <input type="number" value={umiejkaToChange.ranga} /></label>
+                                <label>Ranga: <select name="ranga" id="ranga">
+                                    <option value="1" selected={umiejkaToChange.ranga==1}>{player.getRangaOfUmiejka(1, true)}</option>
+                                    <option value="2" selected={umiejkaToChange.ranga==2}>{player.getRangaOfUmiejka(2, true)}</option>
+                                    <option value="3" selected={umiejkaToChange.ranga==3}>{player.getRangaOfUmiejka(3, true)}</option>
+                                    <option value="4" selected={umiejkaToChange.ranga==4}>{player.getRangaOfUmiejka(4, true)}</option>
+                                    <option value="5" selected={umiejkaToChange.ranga==5}>{player.getRangaOfUmiejka(5, true)}</option>
+                                    <option value="6" selected={umiejkaToChange.ranga==6}>{player.getRangaOfUmiejka(6, true)}</option>
+                                    <option value="7" selected={umiejkaToChange.ranga==7}>{player.getRangaOfUmiejka(7, true)}</option>
+                                    <option value="8" selected={umiejkaToChange.ranga==8}>{player.getRangaOfUmiejka(8, true)}</option>
+                                    <option value="9" selected={umiejkaToChange.ranga==9}>{player.getRangaOfUmiejka(9, true)}</option>
+                                    <option value="10" selected={umiejkaToChange.ranga==10}>{player.getRangaOfUmiejka(10, true)}</option>    
+                                </select></label>
                                 <label>Value: <input type="number" value={umiejkaToChange.value} /></label>
                                 <input type="hidden" name="id" value={umiejkaToChange.id} />
+                                <input type="submit" value="Zapisz zmiany" />
                             </form>
                         </> : ''} <TalentyStack id={typeOfForm.idUz} isAdmin={true} adminSet={setUmiejkaToChange} /></>
                         : ''
