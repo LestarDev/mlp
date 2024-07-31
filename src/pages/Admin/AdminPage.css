@@ -1,0 +1,8 @@
+.admin-singleUser, .admin-allUsers{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.admin-allUsers{
+    flex-direction: column;
+}

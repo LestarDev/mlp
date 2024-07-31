@@ -6,6 +6,7 @@ import RefreshButton from "../../components/RefreshButton/RefreshButton";
 import sql from "../../hooks/backend/sql";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import React from "react";
+import "./AdminPage.css"
 
 const AdminPage = ({setPage}: pageType) => {
 
