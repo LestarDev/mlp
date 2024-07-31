@@ -79,7 +79,7 @@ const AdminPage = ({setPage}: pageType) => {
             {
                 typeOfForm.idUz>=0 ? <>
                     {
-                        typeOfForm.typeOf == 1 ? <TalentyStack id={typeOfForm.idUz} /> : ''
+                        typeOfForm.typeOf == 1 ? <TalentyStack id={typeOfForm.idUz} isAdmin={true} /> : ''
                     }
                 </> : ''
             }

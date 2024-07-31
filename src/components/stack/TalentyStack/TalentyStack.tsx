@@ -6,7 +6,7 @@ import Talent from "../../Talent/Talent";
 import "./TalentyStack.css"
 import React from "react";
 
-const TalentyStack = ({id}: {id: number}) => {
+const TalentyStack = ({id, isAdmin}: {id: number, isAdmin: boolean}) => {
 
     const player = usePlayer();    
 
@@ -47,7 +47,7 @@ const TalentyStack = ({id}: {id: number}) => {
             player.setNewUmiejetnosci(umiejetnosciToPush);
             umiejetnosciToPush.forEach((el,i)=>{
                 if(lastValue!=el.ranga){
-                    setAllTalentyJSX(preV=>[...preV, <span className="otherRanga">{player.getRangaOfUmiejka(el.ranga)}</span>]);
+                    setAllTalentyJSX(preV=>[...preV, <span className="otherRanga">{player.getRangaOfUmiejka(el.ranga)} {isAdmin ? <button>Edit</button> : ''}</span>]);
                     lastValue=el.ranga;
                 }
                 setAllTalentyJSX(preV=>[...preV, <Talent umiejka={el} key={i+1}/>])

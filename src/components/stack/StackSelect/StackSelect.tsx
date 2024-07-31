@@ -7,7 +7,7 @@ const StackSelect = () => {
 
     return <>
         {
-            player.wybranyTyp=="Talenty" ? <TalentyStack id={player.idUzytkownika} /> :
+            player.wybranyTyp=="Talenty" ? <TalentyStack id={player.idUzytkownika} isAdmin={false} /> :
             ''
         }
     </>
