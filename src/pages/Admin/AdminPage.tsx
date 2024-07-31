@@ -22,6 +22,7 @@ const AdminPage = ({setPage}: pageType) => {
 
     const refKostka = useRef<HTMLSelectElement>(null);
     const refRanga = useRef<HTMLSelectElement>(null);
+    const refNazwa = useRef<HTMLInputElement>(null);
 
     const emptyUserList: React.JSX.Element[] = [];
 
@@ -104,7 +105,7 @@ const AdminPage = ({setPage}: pageType) => {
                                     <option value="Umysl" selected={umiejkaToChange.cecha=="Umysl"}>Umysl</option>
                                     <option value="Urok" selected={umiejkaToChange.cecha=="Urok"}>Urok</option>
                                 </select></label>
-                                <label>Nazwa: <input type="text" value={umiejkaToChange.nazwa}/></label>
+                                <label>Nazwa: <input ref={refNazwa} type="text" value={umiejkaToChange.nazwa}/></label>
                                 <label>Ranga: <select name="ranga" id="ranga" ref={refRanga}>
                                     <option value="1" selected={umiejkaToChange.ranga==1}>{player.getRangaOfUmiejka(1, true)}</option>
                                     <option value="2" selected={umiejkaToChange.ranga==2}>{player.getRangaOfUmiejka(2, true)}</option>
@@ -169,7 +170,7 @@ const AdminPage = ({setPage}: pageType) => {
                                 <input type="hidden" name="id" value={umiejkaToChange.id} />
                                 <input type="submit" value="Zapisz zmiany" onClick={(e)=>{
                                     e.preventDefault();
-                                    fetch(sqlPush(`UPDATE talenty SET nazwa='${umiejkaToChange.nazwa}', kostka='${refKostka.current!.value}', id_talentType='${refRanga.current!.value}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
+                                    fetch(sqlPush(`UPDATE talenty SET nazwa='${refNazwa.current!.value}', kostka='${refKostka.current!.value}', id_talentType='${refRanga.current!.value}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
                                         console.log(data);
                                         player.rerollPage();
                                     })
