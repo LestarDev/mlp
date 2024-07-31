@@ -163,7 +163,8 @@ const AdminPage = ({setPage}: pageType) => {
                                     
                                 </select></label>
                                 <input type="hidden" name="id" value={umiejkaToChange.id} />
-                                <input type="submit" value="Zapisz zmiany" onClick={()=>{
+                                <input type="submit" value="Zapisz zmiany" onClick={(e)=>{
+                                    e.preventDefault();
                                     fetch(sql(`UPDATE talenty SET nazwa='${umiejkaToChange.nazwa}', kostka='${umiejkaToChange.value}', id_talentType='${umiejkaToChange.ranga}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
                                         console.log(data);
                                         player.rerollPage();
