@@ -30,7 +30,7 @@ const Talent = ({umiejka}:talentComponentType) => {
             [1,2,4].includes(umiejka.ranga) ?
             player.recalculateToDices(umiejka.value) : 
             [6,9,10,11].includes(umiejka.ranga) ?
-            "" : umiejka.ranga
+            "" : umiejka.value
         }</span>
     </div>
 }
