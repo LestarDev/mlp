@@ -8,3 +8,7 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.admin-talent:hover{
+    color: var(--text);
+}

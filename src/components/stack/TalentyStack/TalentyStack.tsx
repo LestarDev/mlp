@@ -50,7 +50,9 @@ const TalentyStack = ({id, isAdmin}: {id: number, isAdmin: boolean}) => {
                     setAllTalentyJSX(preV=>[...preV, <span className="otherRanga">{player.getRangaOfUmiejka(el.ranga)}</span>]);
                     lastValue=el.ranga;
                 }
-                setAllTalentyJSX(preV=>[...preV, <div><Talent umiejka={el} key={i+1}/>{isAdmin ? <button>Edit</button> : ''}</div>])
+                setAllTalentyJSX(preV=>[...preV, <div className={isAdmin ? "admin-talent" : ''} onClick={()=>{
+                    console.log("DOBRA TRZEBA TO ZROBIC, talentySLACK.tsx > 54")
+                }}><Talent umiejka={el} key={i+1}/></div>])
             })
         })
     },[search, player.refreshPage])
