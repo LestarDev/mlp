@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import pageType from "../../config/types/pageType"
 import usePlayer from "../../hooks/usePlayer"
 import { loginPageID, mainPageID } from "../../config/config";
@@ -19,6 +19,9 @@ type typeForm  = {
 const AdminPage = ({setPage}: pageType) => {
 
     const player = usePlayer();
+
+    const refKostka = useRef<HTMLSelectElement>(null);
+    const refRanga = useRef<HTMLSelectElement>(null);
 
     const emptyUserList: React.JSX.Element[] = [];
 
@@ -102,7 +105,7 @@ const AdminPage = ({setPage}: pageType) => {
                                     <option value="Urok" selected={umiejkaToChange.cecha=="Urok"}>Urok</option>
                                 </select></label>
                                 <label>Nazwa: <input type="text" value={umiejkaToChange.nazwa}/></label>
-                                <label>Ranga: <select name="ranga" id="ranga">
+                                <label>Ranga: <select name="ranga" id="ranga" ref={refRanga}>
                                     <option value="1" selected={umiejkaToChange.ranga==1}>{player.getRangaOfUmiejka(1, true)}</option>
                                     <option value="2" selected={umiejkaToChange.ranga==2}>{player.getRangaOfUmiejka(2, true)}</option>
                                     <option value="3" selected={umiejkaToChange.ranga==3}>{player.getRangaOfUmiejka(3, true)}</option>
@@ -115,7 +118,7 @@ const AdminPage = ({setPage}: pageType) => {
                                     <option value="10" selected={umiejkaToChange.ranga==10}>{player.getRangaOfUmiejka(10, true)}</option>    
                                     <option value="11" selected={umiejkaToChange.ranga==11}>{player.getRangaOfUmiejka(11, true)}</option>
                                 </select></label>
-                                <label>Value: <select name="value" id="value">
+                                <label>Value: <select name="value" id="value" ref={refKostka}>
                                     {
                                         umiejkaToChange.ranga==3 ? <>
                                             <option value="1" selected={umiejkaToChange.value==1}>1</option>
@@ -166,7 +169,7 @@ const AdminPage = ({setPage}: pageType) => {
                                 <input type="hidden" name="id" value={umiejkaToChange.id} />
                                 <input type="submit" value="Zapisz zmiany" onClick={(e)=>{
                                     e.preventDefault();
-                                    fetch(sqlPush(`UPDATE talenty SET nazwa='${umiejkaToChange.nazwa}', kostka='${umiejkaToChange.value}', id_talentType='${umiejkaToChange.ranga}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
+                                    fetch(sqlPush(`UPDATE talenty SET nazwa='${umiejkaToChange.nazwa}', kostka='${refKostka.current!.value}', id_talentType='${refRanga.current!.value}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
                                         console.log(data);
                                         player.rerollPage();
                                     })
