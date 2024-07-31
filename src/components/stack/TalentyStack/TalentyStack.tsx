@@ -52,7 +52,7 @@ const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, ad
                     lastValue=el.ranga;
                 }
                 setAllTalentyJSX(preV=>[...preV, <div className={isAdmin ? "admin-talent" : ''} onClick={()=>{
-                    console.log("DOBRA TRZEBA TO ZROBIC, talentySLACK.tsx > 54")
+                    // console.log("DOBRA TRZEBA TO ZROBIC, talentySLACK.tsx > 54")
                     adminSet(el);
                 }}><Talent umiejka={el} key={i+1}/></div>])
             })

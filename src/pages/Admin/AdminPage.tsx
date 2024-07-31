@@ -9,6 +9,7 @@ import React from "react";
 import "./AdminPage.css"
 import TalentyStack from "../../components/stack/TalentyStack/TalentyStack";
 import umiejetnosciType from "../../config/types/umiejetnosciType";
+import sqlPush from "../../hooks/backend/sqlPush";
 
 type typeForm  = {
     idUz: number,
@@ -165,7 +166,7 @@ const AdminPage = ({setPage}: pageType) => {
                                 <input type="hidden" name="id" value={umiejkaToChange.id} />
                                 <input type="submit" value="Zapisz zmiany" onClick={(e)=>{
                                     e.preventDefault();
-                                    fetch(sql(`UPDATE talenty SET nazwa='${umiejkaToChange.nazwa}', kostka='${umiejkaToChange.value}', id_talentType='${umiejkaToChange.ranga}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
+                                    fetch(sqlPush(`UPDATE talenty SET nazwa='${umiejkaToChange.nazwa}', kostka='${umiejkaToChange.value}', id_talentType='${umiejkaToChange.ranga}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
                                         console.log(data);
                                         player.rerollPage();
                                     })

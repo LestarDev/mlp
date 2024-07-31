@@ -20,29 +20,12 @@ echo "Con error";
  }else{
     // $query_uzytkownik = "SELECT postacie.nick, postacie.lvl, postacie.HP, postacie.Cialo, postacie.Umysl, postacie.Urok, postacie.Zrecznosc, postacie.Niezlomnosc, postacie.Intuicja, postacie.Szczescie, postacie.Slimaki FROM `postacie` WHERE postacie.id_uzytkownika='$id';";
     $res_uzytkownik = mysqli_query($con, str_replace(array('+'),' ',$sql));
-$tabError = [1];
-$tabError[0] = "0";
-if(!$res_uzytkownik) {echo json_encode($tabError); return;}
-    $tab = [mysqli_num_rows($res_uzytkownik)];
     
-    for($i=0; $i<mysqli_num_rows($res_uzytkownik); $i++){
-    	
-    	 $row_uzytkownik=mysqli_fetch_row($res_uzytkownik);
-    	 if($row_uzytkownik==null){
-	    	echo "Error id";
-	    	return;
-	    }else{
-	    	//echo json_encode($row_uzytkownik);
-	    	$tab = array_merge($tab, $row_uzytkownik);
-	    }	
-    }
+    if(!$res_uzytkownik) {echo json_encode($tabError); return;}
 
-    echo json_encode($tab);
-    
+    echo $res_uzytkownik;
     
     
  }
-
-// echo $login.' '.$password;
 
 ?>
