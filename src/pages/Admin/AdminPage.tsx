@@ -82,6 +82,14 @@ const AdminPage = ({setPage}: pageType) => {
                     }}>
                         Edit
                     </button>
+                    <button onClick={()=>{
+                        setTypeOfForm({
+                            idUz: Number(data[i]),
+                            typeOf: 0
+                        })
+                    }}>
+                        Dodaj
+                    </button>
                 </p>])
             }
         })
@@ -98,6 +106,32 @@ const AdminPage = ({setPage}: pageType) => {
             {
                 typeOfForm.idUz>=0 ? <>
                     {
+                        typeOfForm.typeOf == 0 ? <>
+                            <form>
+                                <label>Cecha: <select name="cecha" id="cecha">
+                                    <option value="Cialo">Cialo</option>
+                                    <option value="Umysl">Umysl</option>
+                                    <option value="Urok">Urok</option>
+                                </select></label>
+                                <label>Nazwa: <input ref={refNazwa} type="text" value={umiejkaToChange.nazwa}/></label>
+                                <label>Ranga: <select name="ranga" id="ranga" ref={refRanga}>
+                                    <option value="1" selected={umiejkaToChange.ranga==1}>{player.getRangaOfUmiejka(1, true)}</option>
+                                    <option value="2" selected={umiejkaToChange.ranga==2}>{player.getRangaOfUmiejka(2, true)}</option>
+                                    <option value="3" selected={umiejkaToChange.ranga==3}>{player.getRangaOfUmiejka(3, true)}</option>
+                                    <option value="4" selected={umiejkaToChange.ranga==4}>{player.getRangaOfUmiejka(4, true)}</option>
+                                    <option value="5" selected={umiejkaToChange.ranga==5}>{player.getRangaOfUmiejka(5, true)}</option>
+                                    <option value="6" selected={umiejkaToChange.ranga==6}>{player.getRangaOfUmiejka(6, true)}</option>
+                                    <option value="7" selected={umiejkaToChange.ranga==7}>{player.getRangaOfUmiejka(7, true)}</option>
+                                    <option value="8" selected={umiejkaToChange.ranga==8}>{player.getRangaOfUmiejka(8, true)}</option>
+                                    <option value="9" selected={umiejkaToChange.ranga==9}>{player.getRangaOfUmiejka(9, true)}</option>
+                                    <option value="10" selected={umiejkaToChange.ranga==10}>{player.getRangaOfUmiejka(10, true)}</option>    
+                                    <option value="11" selected={umiejkaToChange.ranga==11}>{player.getRangaOfUmiejka(11, true)}</option>
+                                </select></label>
+                                <label>Kostka: <input type="number" /></label>
+                                <input type="hidden" name="idUz" value={typeOfForm.idUz} />
+                                <input type="submit" value="Dodaj" />
+                            </form>
+                        </> :
                         typeOfForm.typeOf == 1 ? <> {umiejkaToChange.ranga>0 ? <>
                             <form>
                                 <label>Cecha: <select name="cecha" id="cecha">
