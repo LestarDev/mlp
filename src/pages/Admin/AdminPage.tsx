@@ -44,11 +44,14 @@ const AdminPage = ({setPage}: pageType) => {
     // 1 => Edytuj umiejke [plansza gracza]
     // 
 
+    document.title="Mlp - admin panel";
+
     useEffect(()=>{
 
         if(player.idUzytkownika!=-999){
             player.clear();
             setPage(loginPageID);
+            document.title="Mlp - login";
             return;
         }
 
