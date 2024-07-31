@@ -8,6 +8,7 @@ import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import React from "react";
 import "./AdminPage.css"
 import TalentyStack from "../../components/stack/TalentyStack/TalentyStack";
+import umiejetnosciType from "../../config/types/umiejetnosciType";
 
 type typeForm  = {
     idUz: number,
@@ -21,6 +22,16 @@ const AdminPage = ({setPage}: pageType) => {
     const emptyUserList: React.JSX.Element[] = [];
 
     const [allUsers, setAllUsers] = useState(emptyUserList);
+
+    const emptyUmiejkaToChange: umiejetnosciType = {
+        cecha: "Cialo",
+        nazwa: "",
+        ranga: -1,
+        value: -999,
+        id: -999
+    }
+
+    const [umiejkaToChange, setUmiejkaToChange] = useState(emptyUmiejkaToChange);
 
     const inicjalOfForm: typeForm = {
         idUz: -999,
@@ -79,7 +90,20 @@ const AdminPage = ({setPage}: pageType) => {
             {
                 typeOfForm.idUz>=0 ? <>
                     {
-                        typeOfForm.typeOf == 1 ? <TalentyStack id={typeOfForm.idUz} isAdmin={true} /> : ''
+                        typeOfForm.typeOf == 1 ? <> {umiejkaToChange.ranga>0 ? <>
+                            <form>
+                                <label>Cecha: <select name="cecha" id="cecha">
+                                    <option value="Cialo"></option>
+                                    <option value="Umysl"></option>
+                                    <option value="Urok"></option>
+                                </select></label>
+                                <label>Nazwa: <input type="text" value={umiejkaToChange.nazwa}/></label>
+                                <label>Ranga: <input type="number" value={umiejkaToChange.ranga} /></label>
+                                <label>Value: <input type="number" value={umiejkaToChange.value} /></label>
+                                <input type="hidden" name="id" value={umiejkaToChange.id} />
+                            </form>
+                        </> : ''} <TalentyStack id={typeOfForm.idUz} isAdmin={true} adminSet={setUmiejkaToChange} /></>
+                        : ''
                     }
                 </> : ''
             }

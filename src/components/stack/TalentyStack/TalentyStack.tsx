@@ -6,7 +6,7 @@ import Talent from "../../Talent/Talent";
 import "./TalentyStack.css"
 import React from "react";
 
-const TalentyStack = ({id, isAdmin}: {id: number, isAdmin: boolean}) => {
+const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, adminSet: React.Dispatch<React.SetStateAction<umiejetnosciType>>}) => {
 
     const player = usePlayer();    
 
@@ -38,6 +38,7 @@ const TalentyStack = ({id, isAdmin}: {id: number, isAdmin: boolean}) => {
                     nazwa: data[i],
                     ranga: Number(data[i+1]),
                     value: Number(data[i+2]),
+                    id: Number(data[i+3])
                 }
                 // player.setNewUmiejetnosci([...player.umiejetnosci, tempTalent]);
                 // console.log(tempTalent);
@@ -52,6 +53,7 @@ const TalentyStack = ({id, isAdmin}: {id: number, isAdmin: boolean}) => {
                 }
                 setAllTalentyJSX(preV=>[...preV, <div className={isAdmin ? "admin-talent" : ''} onClick={()=>{
                     console.log("DOBRA TRZEBA TO ZROBIC, talentySLACK.tsx > 54")
+                    adminSet(el);
                 }}><Talent umiejka={el} key={i+1}/></div>])
             })
         })

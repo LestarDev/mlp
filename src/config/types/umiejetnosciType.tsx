@@ -5,6 +5,7 @@ type umiejetnosciType = {
     ranga: number,
     cecha: cechyType,
     value: number,
+    id: number,
 }
 
 export default umiejetnosciType
