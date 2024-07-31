@@ -113,7 +113,7 @@ const AdminPage = ({setPage}: pageType) => {
                                     <option value="Umysl">Umysl</option>
                                     <option value="Urok">Urok</option>
                                 </select></label>
-                                <label>Nazwa: <input ref={refNazwa} type="text" value={umiejkaToChange.nazwa}/></label>
+                                <label>Nazwa: <input ref={refNazwa} type="text"/></label>
                                 <label>Ranga: <select name="ranga" id="ranga" ref={refRanga}>
                                     <option value="1" selected={umiejkaToChange.ranga==1}>{player.getRangaOfUmiejka(1, true)}</option>
                                     <option value="2" selected={umiejkaToChange.ranga==2}>{player.getRangaOfUmiejka(2, true)}</option>
@@ -129,7 +129,10 @@ const AdminPage = ({setPage}: pageType) => {
                                 </select></label>
                                 <label>Kostka: <input type="number" /></label>
                                 <input type="hidden" name="idUz" value={typeOfForm.idUz} />
-                                <input type="submit" value="Dodaj" />
+                                <input type="submit" value="Dodaj" onClick={(e)=>{
+                                    e.preventDefault();
+                                    console.log(refKostka.current, refNazwa.current, refRanga.current)
+                                }} />
                             </form>
                         </> :
                         typeOfForm.typeOf == 1 ? <> {umiejkaToChange.ranga>0 ? <>
