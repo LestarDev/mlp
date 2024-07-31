@@ -124,7 +124,9 @@ const AdminPage = ({setPage}: pageType) => {
                                             <option value="5" selected={umiejkaToChange.value==5}>5</option>
                                             <option value="6" selected={umiejkaToChange.value==6}>6</option>
                                         </> : <>
-                                            <option value="3" selected={umiejkaToChange.value==3} hidden={umiejkaToChange.ranga==11}>k3</option>
+                                            {
+                                                umiejkaToChange.ranga==11 || umiejkaToChange.ranga==4 || umiejkaToChange.ranga==5 ? <option value="3" selected={umiejkaToChange.value==3}>k3</option> : ''
+                                            }
                                             <option value="4" selected={umiejkaToChange.value==4}>k4</option>
                                             <option value="6" selected={umiejkaToChange.value==6}>k6</option>
                                             <option value="8" selected={umiejkaToChange.value==8}>k8</option>
