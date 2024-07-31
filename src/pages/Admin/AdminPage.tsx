@@ -7,6 +7,12 @@ import sql from "../../hooks/backend/sql";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import React from "react";
 import "./AdminPage.css"
+import TalentyStack from "../../components/stack/TalentyStack/TalentyStack";
+
+type typeForm  = {
+    idUz: number,
+    typeOf: number
+}
 
 const AdminPage = ({setPage}: pageType) => {
 
@@ -15,7 +21,18 @@ const AdminPage = ({setPage}: pageType) => {
     const emptyUserList: React.JSX.Element[] = [];
 
     const [allUsers, setAllUsers] = useState(emptyUserList);
-    
+
+    const inicjalOfForm: typeForm = {
+        idUz: -999,
+        typeOf: 0
+    }
+
+    const [typeOfForm, setTypeOfForm] = useState(inicjalOfForm);
+
+    // 0 => Dodaj umiejke
+    // 1 => Edytuj umiejke [plansza gracza]
+    // 
+
     useEffect(()=>{
 
         if(player.idUzytkownika!=-999){
@@ -38,6 +55,14 @@ const AdminPage = ({setPage}: pageType) => {
                         setPage(mainPageID);
                         return;
                     }}>Show</button>
+                    <button onClick={()=>{
+                        setTypeOfForm({
+                            idUz: Number(data[i]),
+                            typeOf: 1
+                        });
+                    }}>
+                        Edit
+                    </button>
                 </p>])
             }
         })
@@ -51,6 +76,13 @@ const AdminPage = ({setPage}: pageType) => {
                 allUsers
             }
         </div>
+            {
+                typeOfForm.idUz>=0 ? <>
+                    {
+                        typeOfForm.typeOf == 1 ? <TalentyStack id={typeOfForm.idUz} /> : ''
+                    }
+                </> : ''
+            }
         <div className="buttons-down">
             <LogoutButton  setPage={setPage} />
             <RefreshButton />

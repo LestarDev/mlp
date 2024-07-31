@@ -6,7 +6,7 @@ import Talent from "../../Talent/Talent";
 import "./TalentyStack.css"
 import React from "react";
 
-const TalentyStack = () => {
+const TalentyStack = ({id}: {id: number}) => {
 
     const player = usePlayer();    
 
@@ -22,7 +22,7 @@ const TalentyStack = () => {
 
     useEffect(()=>{
 
-        const query = `SELECT nazwa, id_talentType, kostka, id, imgLink FROM talenty WHERE Id_uzytkownika="${player.idUzytkownika}" AND nazwa LIKE "%${search}%" ORDER BY id_talentType; `;
+        const query = `SELECT nazwa, id_talentType, kostka, id, imgLink FROM talenty WHERE Id_uzytkownika="${id}" AND nazwa LIKE "%${search}%" ORDER BY id_talentType; `;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
 
