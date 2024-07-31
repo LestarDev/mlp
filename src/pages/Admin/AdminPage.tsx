@@ -127,7 +127,34 @@ const AdminPage = ({setPage}: pageType) => {
                                     <option value="10" selected={umiejkaToChange.ranga==10}>{player.getRangaOfUmiejka(10, true)}</option>    
                                     <option value="11" selected={umiejkaToChange.ranga==11}>{player.getRangaOfUmiejka(11, true)}</option>
                                 </select></label>
-                                <label>Kostka: <input type="number" /></label>
+                                <label>Kostka: <select name="kostka" id="kostka" ref={refKostka}>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="8">8</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="20">20</option>
+                                    <option value="21">k20+1</option>
+                                    <option value="22">k20+2</option>
+                                    <option value="23">k20+3</option>
+                                    <option value="24">k20+4</option>
+                                    <option value="25">k20+5</option>
+                                    <option value="26">k20+6</option>
+                                    <option value="27">k20+7</option>
+                                    <option value="28">k20+8</option>
+                                    <option value="29">k20+9</option>
+                                    <option value="30">k20+10</option>
+                                    <option value="31">k20+11</option>
+                                    <option value="32">k20+12</option>    
+                                </select></label>
+
+                                {
+                                    //dodac selecta z options a nie inputa z numberem => todo
+                                }
                                 <input type="hidden" name="idUz" value={typeOfForm.idUz} />
                                 <input type="submit" value="Dodaj" onClick={(e)=>{
                                     e.preventDefault();
