@@ -171,7 +171,7 @@ const AdminPage = ({setPage}: pageType) => {
                                     e.preventDefault();
                                     fetch(sqlPush(`UPDATE talenty SET nazwa='${umiejkaToChange.nazwa}', kostka='${refKostka.current!.value}', id_talentType='${refRanga.current!.value}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
                                         console.log(data);
-                                        player.rerollPage();
+                                        // player.rerollPage();
                                     })
                                 }} />
                             </form>
