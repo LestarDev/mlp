@@ -47,10 +47,10 @@ const TalentyStack = ({id, isAdmin}: {id: number, isAdmin: boolean}) => {
             player.setNewUmiejetnosci(umiejetnosciToPush);
             umiejetnosciToPush.forEach((el,i)=>{
                 if(lastValue!=el.ranga){
-                    setAllTalentyJSX(preV=>[...preV, <span className="otherRanga">{player.getRangaOfUmiejka(el.ranga)} {isAdmin ? <button>Edit</button> : ''}</span>]);
+                    setAllTalentyJSX(preV=>[...preV, <span className="otherRanga">{player.getRangaOfUmiejka(el.ranga)}</span>]);
                     lastValue=el.ranga;
                 }
-                setAllTalentyJSX(preV=>[...preV, <Talent umiejka={el} key={i+1}/>])
+                setAllTalentyJSX(preV=>[...preV, <div><Talent umiejka={el} key={i+1}/>{isAdmin ? <button>Edit</button> : ''}</div>])
             })
         })
     },[search, player.refreshPage])
