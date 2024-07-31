@@ -1,8 +1,10 @@
 .admin-singleUser, .admin-allUsers{
     display: flex;
     gap: 0.5rem;
+    align-items: center;
 }
 
 .admin-allUsers{
     flex-direction: column;
+    justify-content: center;
 }
