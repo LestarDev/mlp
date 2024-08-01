@@ -161,6 +161,11 @@ const AdminPage = ({setPage}: pageType) => {
                                     console.log(refKostka.current, refNazwa.current, refRanga.current)
                                     fetch(sqlPush(`INSERT INTO talenty(id, Id_uzytkownika, nazwa, kostka, id_talentType, imgLink) VALUES (NULL, '${typeOfForm.idUz}', '${refNazwa.current!.value}', '${refKostka.current!.value}', '${refRanga.current!.value}', '');`)).then(response=>response.text()).then((data: string)=>{
                                         console.log(data);
+                                        setTypeOfForm({
+                                            idUz: typeOfForm.idUz,
+                                            typeOf: -1
+                                        })
+                                        player.rerollPage();
                                     })
                                 }} />
                             </form>
