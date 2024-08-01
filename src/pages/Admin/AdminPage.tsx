@@ -159,7 +159,7 @@ const AdminPage = ({setPage}: pageType) => {
                                 <input type="submit" value="Dodaj" onClick={(e)=>{
                                     e.preventDefault();
                                     console.log(refKostka.current, refNazwa.current, refRanga.current)
-                                    fetch(sqlPush(`INSERT INTO talenty(id, Id_uzytkownika, nazwa, kostka, id_talentType, imgLink) VALUES (NULL, '${refNazwa.current!.value}', '${refKostka.current!.value}', '${refRanga.current!.value}', '');`)).then(response=>response.text()).then((data: string)=>{
+                                    fetch(sqlPush(`INSERT INTO talenty(id, Id_uzytkownika, nazwa, kostka, id_talentType, imgLink) VALUES (NULL, '${typeOfForm.idUz}', '${refNazwa.current!.value}', '${refKostka.current!.value}', '${refRanga.current!.value}', '');`)).then(response=>response.text()).then((data: string)=>{
                                         console.log(data);
                                     })
                                 }} />
