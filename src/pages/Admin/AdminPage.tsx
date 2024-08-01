@@ -238,6 +238,7 @@ const AdminPage = ({setPage}: pageType) => {
                                 <input type="submit" value="Usun" onClick={(e)=>{
                                     e.preventDefault();
                                     fetch(sqlPush(`DELETE FROM talenty WHERE talenty.id = ${umiejkaToChange.id}`))
+                                    player.rerollPage();
                                 }} />
                                 <input type="submit" value="Zapisz zmiany" onClick={(e)=>{
                                     e.preventDefault();
