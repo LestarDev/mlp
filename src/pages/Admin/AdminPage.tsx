@@ -235,6 +235,10 @@ const AdminPage = ({setPage}: pageType) => {
                                     
                                 </select></label>
                                 <input type="hidden" name="id" value={umiejkaToChange.id} />
+                                <input type="submit" value="Usun" onClick={(e)=>{
+                                    e.preventDefault();
+                                    fetch(sqlPush(`DELETE FROM talenty WHERE talenty.id = ${umiejkaToChange.id}`))
+                                }} />
                                 <input type="submit" value="Zapisz zmiany" onClick={(e)=>{
                                     e.preventDefault();
                                     fetch(sqlPush(`UPDATE talenty SET nazwa='${refNazwa.current!.value}', kostka='${refKostka.current!.value}', id_talentType='${refRanga.current!.value}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
