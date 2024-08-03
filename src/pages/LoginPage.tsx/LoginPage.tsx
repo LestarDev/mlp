@@ -29,8 +29,10 @@ const LoginPage = ({setPage}: pageType) => {
         const login = refLogin.current?.value;
         const password = refPassword.current?.value;
 
-        if(!login) return;
-        if(!password) return;
+        if(!login || !password){
+            setTryToLogin(-1);
+            return;
+        }
 
         if(login=="Admin" && password=="op9001!"){
             player.setNewIdUzytkownika(Number(-999));
@@ -41,7 +43,7 @@ const LoginPage = ({setPage}: pageType) => {
         const query = `SELECT id FROM uzytkownik WHERE login="${login}" and password="${password}";`;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
-            console.log("LoginPage > fetch > data", data);
+            // console.log("LoginPage > fetch > data", data);
             if(Number(data[0])!=1) {
                 setTryToLogin(-1);
                 return;
