@@ -70,6 +70,7 @@ const LoginPage = ({setPage}: pageType) => {
             tryToLogin==-1 ? <p>Zly login albo haslo</p> :
             ""
         }
+        <p>Try to login: {tryToLogin}</p>
         <button role="submit" onClick={(e)=>{
             e.preventDefault();
             setTryToLogin(preV=>preV++)
