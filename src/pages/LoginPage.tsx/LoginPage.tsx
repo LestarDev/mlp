@@ -59,7 +59,7 @@ const LoginPage = ({setPage}: pageType) => {
     },[tryToLogin])
 
     const increment = (v: number) => {
-        return v++;
+        return v+1;
     }
 
     return <form className="loginForm">
