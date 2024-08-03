@@ -1,30 +1,65 @@
-# React + TypeScript + Vite
+# My Little Pony RPG App
+## By LestarDev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### config
 
-Currently, two official plugins are available:
+- npm v10.2.4
+- yarn v1.22.22
+- node v21.4.0
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- config.tsx :
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```TS
+export const sqlHostLink = "https://mlp-rpg.zsti.me/phpData/fetch.php?SQL=";
+export const sqlHostPush = "https://mlp-rpg.zsti.me/phpData/push.php?SQL=";
+export const loginPageID = 0;
+export const mainPageID = 1;
+export const shopPageID = 2;
+export const adminPageID = 3;
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- vite.config.ts : 
+
+```TS
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base: "/mlp/"
+})
+```
+
+- hooks/backend/dbConfig.php :
+
+```PHP
+<?php
+
+    return array(
+        'dbUserName' => 'lestardev',
+        'dbPassword' => 'OptimusPrime9001!',
+        'dbHost' => 'localhost',
+        'dbName' => 'lestardev_mlp'
+    )
+
+?>
+```
+
+***
+
+### More info
+
+> Site [zsti.me][1] is only for schoolers of ZSTI Gliwice in Poland made by [Michal Pasierbski][2]
+> In  [/backend/] you can find file named "mlp_db.sql", it's database for your site with a few users
+> Remember to put all [.php] files from backend in your server 
+
+---
+
+## Graphics by Wera
+
+Portfolio: [todo][3]
+
+[1]: https://zsti.me/
+[2]: https://pasierb.ski/ 
+[3]: https://blank.com/
