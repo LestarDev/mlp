@@ -41,10 +41,11 @@ const LoginPage = ({setPage}: pageType) => {
         const query = `SELECT id FROM uzytkownik WHERE login="${login}" and password="${password}";`;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
-            if(Number(data[0])<=0) {
+            if(Number(data[0])!=1) {
                 setTryToLogin(-1);
                 return;
             }
+
             player.setNewIdUzytkownika(Number(data[1]));
             // setIdUz(Number(data[1]));
             // console.log("idUz", idUz.toString())
