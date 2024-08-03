@@ -41,6 +41,7 @@ const LoginPage = ({setPage}: pageType) => {
         const query = `SELECT id FROM uzytkownik WHERE login="${login}" and password="${password}";`;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
+            console.log("LoginPage > fetch > data", data);
             if(Number(data[0])!=1) {
                 setTryToLogin(-1);
                 return;
