@@ -69,7 +69,7 @@ const LoginPage = ({setPage}: pageType) => {
         </div>
         {
             tryToLogin>0 ? <p>Fetching...</p> : 
-            tryToLogin==-1 ? <p>Zly login albo haslo</p> :
+            tryToLogin==-1 ? <p className="wrongLogin">Zly login lub haslo</p> :
             ""
         }
         <button role="submit" onClick={(e)=>{

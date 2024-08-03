@@ -8,3 +8,8 @@
     display: flex;
     gap: 0.5rem;
 }
+
+.wrongLogin{
+    color: red;
+    font-style: italic;
+}
