@@ -60,7 +60,7 @@ export default defineConfig({
 
 * App: **v0.1.0**
 * Backend: **v1.0.3**
-*  Images: **v0.0.2**
+* Images: **v0.0.2**
 * Documentation: **v0.0.0** - no exists [yet]
 
 ## Graphics by Wera
