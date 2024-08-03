@@ -7,19 +7,18 @@ const StackSelect = () => {
 
     const player = usePlayer();
 
-    const emptyUmiejkiForNothing: umiejetnosciType = {
+    const [nothing, setNothing] = useState<umiejetnosciType>({
         cecha: "Cialo",
         nazwa: '',
         ranga: -1,
         value: -999,
         id: -999
-    }
-
-    const [nothing, setNothing] = useState(emptyUmiejkiForNothing);
+    });
 
     return <>
         {
-            player.wybranyTyp=="Talenty" ? <TalentyStack id={player.idUzytkownika} isAdmin={false} adminSet={setNothing} /> :
+            player.wybranyTyp=="Talenty" ? 
+            <TalentyStack id={player.idUzytkownika} isAdmin={false} adminSet={setNothing} /> :
             nothing.nazwa
         }
     </>

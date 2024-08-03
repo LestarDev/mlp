@@ -10,6 +10,8 @@ const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, ad
 
     const player = usePlayer();    
 
+    const talentyStackId = useId();
+
     const jsxTab: React.JSX.Element[] = [];
 
     player.umiejetnosci.forEach((el, i)=>{
@@ -19,8 +21,6 @@ const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, ad
     const [allTalentyJSX, setAllTalentyJSX] = useState(jsxTab);
 
     const [search, setSearch] = useState("");
-
-    const getUniqueID = () => useId(); 
 
     useEffect(()=>{
 
@@ -42,8 +42,6 @@ const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, ad
                     value: Number(data[i+2]),
                     id: Number(data[i+3])
                 }
-                // player.setNewUmiejetnosci([...player.umiejetnosci, tempTalent]);
-                // console.log(tempTalent);
                 umiejetnosciToPush.push(tempTalent);
             }
             
@@ -53,21 +51,21 @@ const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, ad
                     setAllTalentyJSX(preV=>[...preV, <span className="otherRanga">{player.getRangaOfUmiejka(el.ranga)}</span>]);
                     lastValue=el.ranga;
                 }
-                setAllTalentyJSX(preV=>[...preV, <div className={isAdmin ? "admin-talent" : ''} onClick={()=>{
-                    // console.log("DOBRA TRZEBA TO ZROBIC, talentySLACK.tsx > 54")
-                    adminSet(el);
-                }}><Talent umiejka={el} key={i+getUniqueID()}/></div>])
+                setAllTalentyJSX(preV=>[...preV, 
+                <div className={isAdmin ? "admin-talent" : ''} onClick={()=>adminSet(el)}>
+                    <Talent umiejka={el} key={i+talentyStackId}/>
+                </div>])
             })
         })
     },[search, player.refreshPage])
 
 
     return <div className="allTalenty">
-        <input type="search" name="searchUmiejka" id="searchUmiejka" placeholder="Szukaj" onChange={(e)=>{
-            setSearch(e.target.value)
-        }} />
- {allTalentyJSX}
-
+        
+        <input type="search" name="searchUmiejka" id="searchUmiejka" placeholder="Szukaj" onChange={(e)=>setSearch(e.target.value)} />
+        {
+            allTalentyJSX
+        }
 
     </div>
 }
