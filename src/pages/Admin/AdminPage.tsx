@@ -51,6 +51,10 @@ const AdminPage = ({setPage}: pageType) => {
 
     document.title="Mlp - admin panel";
 
+
+    const [isNowPending, setIsNowPending] = useState<boolean>(true);
+
+
     useEffect(()=>{
 
         if(player.idUzytkownika!=-999){
@@ -64,8 +68,9 @@ const AdminPage = ({setPage}: pageType) => {
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
+            setIsNowPending(preV=>!preV);
             for(let i=1; i<Number(data[0])*4; i+=4){
-                console.log(data[i], data[i+1], data[i+2], data[i+3]);
+                // console.log(data[i], data[i+1], data[i+2], data[i+3]);
                 setAllUsers(prevV=>[...prevV, <p className="admin-singleUser">
                     <span>{data[i]}</span>
                     <span>{data[i+1]}</span>
@@ -96,8 +101,12 @@ const AdminPage = ({setPage}: pageType) => {
 
     },[player.refreshPage])
 
+
     return <div>
         <h1>Admin Panel</h1>
+        {
+            isNowPending ? <p>Loading...</p> : ''
+        }
         <div className="admin-allUsers">
             {
                 allUsers

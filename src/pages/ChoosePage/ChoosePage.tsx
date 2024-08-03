@@ -16,7 +16,6 @@ const ChoosePage = () => {
     const [choosenPage, setChoosenPage] = useState(inicjalPage);
 
    
-
     
 
     // console.log("Effect: ", sql`SELECT * FROM postac WHERE postac.id=1`);
