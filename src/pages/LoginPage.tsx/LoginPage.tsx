@@ -29,10 +29,10 @@ const LoginPage = ({setPage}: pageType) => {
         const login = refLogin.current?.value;
         const password = refPassword.current?.value;
 
-        console.log("tTLi", tryToLogin);
+        // console.log("tTLi", tryToLogin);
 
         if((!login || !password) && tryToLogin!=0){
-            console.log("tTLi 2", tryToLogin);
+            // console.log("tTLi 2", tryToLogin);
             setTryToLogin(-1);
             return;
         }
@@ -47,8 +47,7 @@ const LoginPage = ({setPage}: pageType) => {
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
             // console.log("LoginPage > fetch > data", data);
-            if(Number(data[0])!=1) {
-                console.log("tTLi 3", tryToLogin);
+            if(Number(data[0])!=1 && tryToLogin!=0) {
                 setTryToLogin(-1);
                 return;
             }
