@@ -73,7 +73,7 @@ const LoginPage = ({setPage}: pageType) => {
         <p>Try to login: {tryToLogin}</p>
         <button role="submit" onClick={(e)=>{
             e.preventDefault();
-            setTryToLogin(preV=>preV++)
+            setTryToLogin(preV=>preV+1)
             }}>Login</button>
         
     </form>
