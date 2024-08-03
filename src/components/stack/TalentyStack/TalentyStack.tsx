@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useId, useState } from "react"
 import sql from "../../../hooks/backend/sql"
 import usePlayer from "../../../hooks/usePlayer"
 import umiejetnosciType from "../../../config/types/umiejetnosciType";
@@ -19,6 +19,8 @@ const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, ad
     const [allTalentyJSX, setAllTalentyJSX] = useState(jsxTab);
 
     const [search, setSearch] = useState("");
+
+    const getUniqueID = () => useId(); 
 
     useEffect(()=>{
 
@@ -54,7 +56,7 @@ const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, ad
                 setAllTalentyJSX(preV=>[...preV, <div className={isAdmin ? "admin-talent" : ''} onClick={()=>{
                     // console.log("DOBRA TRZEBA TO ZROBIC, talentySLACK.tsx > 54")
                     adminSet(el);
-                }}><Talent umiejka={el} key={i+1}/></div>])
+                }}><Talent umiejka={el} key={i+getUniqueID()}/></div>])
             })
         })
     },[search, player.refreshPage])
