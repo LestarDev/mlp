@@ -50,18 +50,18 @@ export default defineConfig({
 
 ### More info
 
-> Site [zsti.me][1] is only for schoolers of ZSTI Gliwice in Poland made by [Michal Pasierbski][2]
-> In  [/backend/] you can find file named "mlp_db.sql", it's database for your site with a few users
-> Remember to put all [.php] files from backend in your server 
+* Site [zsti.me][1] is only for schoolers of ZSTI Gliwice in Poland made by [Michal Pasierbski][2]
+* In  [/backend/] you can find file named "mlp_db.sql", it's database for your site with a few users
+* Remember to put all [.php] files from backend in your server 
 
 ---
 
 ### Versions
 
-* App: **v0.1.0**
-* Backend: **v1.0.3**
-* Images: **v0.0.2**
-* Documentation: **v0.0.0** - no exists [yet]
+> App: **v0.1.0**
+> Backend: **v1.0.3**
+> Images: **v0.0.2**
+> Documentation: **v0.0.0** - no exists [yet]
 
 ## Graphics by Wera
 
