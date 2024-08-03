@@ -31,9 +31,9 @@ const LoginPage = ({setPage}: pageType) => {
 
         // console.log("tTLi", tryToLogin);
 
-        if((!login || !password) && tryToLogin!=0){
+        if(!login || !password){
             // console.log("tTLi 2", tryToLogin);
-            setTryToLogin(-1);
+            if(tryToLogin!=0) setTryToLogin(-1);
             return;
         }
 
