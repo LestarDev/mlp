@@ -29,6 +29,8 @@ const LoginPage = ({setPage}: pageType) => {
         const login = refLogin.current?.value;
         const password = refPassword.current?.value;
 
+        console.log("tTLi", tryToLogin);
+
         if((!login || !password) && tryToLogin!=0){
             setTryToLogin(-1);
             return;
