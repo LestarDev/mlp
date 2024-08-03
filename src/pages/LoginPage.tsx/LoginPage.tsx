@@ -10,7 +10,7 @@ const LoginPage = ({setPage}: pageType) => {
     const refLogin = useRef<HTMLInputElement>(null);
     const refPassword = useRef<HTMLInputElement>(null);
 
-    const [tryToLogin, setTryToLogin] = useState(true);
+    const [tryToLogin, setTryToLogin] = useState(0);
 
     const player = usePlayer();
 
@@ -55,15 +55,21 @@ const LoginPage = ({setPage}: pageType) => {
 
     },[tryToLogin])
 
+    
+
     return <form className="loginForm">
         <div>
             <label>Login: <input type="text" ref={refLogin} /></label>
             <label>Hasło: <input type="password" ref={refPassword} /></label>
         </div>
+        {
+            tryToLogin>0 ? <p>Fetching...</p> : ""
+        }
         <button role="submit" onClick={(e)=>{
             e.preventDefault();
-            setTryToLogin(preV=>!preV)
+            setTryToLogin(preV=>preV++)
             }}>Login</button>
+        
     </form>
 }
 export default LoginPage
