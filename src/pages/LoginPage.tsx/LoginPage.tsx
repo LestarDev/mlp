@@ -48,6 +48,7 @@ const LoginPage = ({setPage}: pageType) => {
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
             // console.log("LoginPage > fetch > data", data);
             if(Number(data[0])!=1) {
+                console.log("tTLi 3", tryToLogin);
                 setTryToLogin(-1);
                 return;
             }
