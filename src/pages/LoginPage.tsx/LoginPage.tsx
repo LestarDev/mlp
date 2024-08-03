@@ -22,17 +22,14 @@ const LoginPage = ({setPage}: pageType) => {
         if(tryItem){
             localStorage.removeItem("id");
             player.setNewIdUzytkownika(Number(tryItem));
-            setPage(mainPageID); // przepisac funkcje void na React.dispatch<choosePage>
+            setPage(mainPageID);
             return;
         }
 
         const login = refLogin.current?.value;
         const password = refPassword.current?.value;
 
-        // console.log("tTLi", tryToLogin);
-
         if(!login || !password){
-            // console.log("tTLi 2", tryToLogin);
             if(tryToLogin!=0) setTryToLogin(-1);
             return;
         }
@@ -46,21 +43,15 @@ const LoginPage = ({setPage}: pageType) => {
         const query = `SELECT id FROM uzytkownik WHERE login="${login}" and password="${password}";`;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
-            // console.log("LoginPage > fetch > data", data);
+
             if(Number(data[0])!=1 && tryToLogin!=0) {
                 setTryToLogin(-1);
                 return;
             }
 
             player.setNewIdUzytkownika(Number(data[1]));
-            // setIdUz(Number(data[1]));
-            // console.log("idUz", idUz.toString())
-            // loginOut();
             setPage(mainPageID)
         })
-
-        // const player = usePlayer();
-
         
 
     },[tryToLogin])

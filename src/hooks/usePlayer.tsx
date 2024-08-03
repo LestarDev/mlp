@@ -14,18 +14,9 @@ const usePlayer = () => {
 
     const rangi: string[] = ["Znaczek", "Podstawowy", "Lvlowy", "Mistrzowski", "Arcymistrzowski", "Pojedynczy", "Polboski", "Boski", "Mutacyjny", "Wlasciwosc", "Zero"];
 
-    const checkRangaToAdd = (dane: string): boolean => {
-        return !(dane=="Znaczek" || dane=="Wlasciwosc") 
-    }
+    const checkRangaToAdd = (dane: string): boolean => !(dane=="Znaczek" || dane=="Wlasciwosc") 
 
-    //mysle czy jej te kartki podniesc czy nie wypada
-
-    // const tabDices = [3, 4, 6, 8, 10, 12, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32];
-
-    const recalculateToDices = (toCal: number): string => {
-        // const diceVal: number = isLvlZero ? tabDices[toCal] ?? 0 : tabDices[toCal+1] ?? -1;
-        return toCal>20 ? "k20+"+(toCal-20) : "k"+(toCal)
-    }
+    const recalculateToDices = (toCal: number): string => toCal>20 ? "k20+"+(toCal-20) : "k"+(toCal);
 
 
     const calculateHP = (): number => {
@@ -37,11 +28,6 @@ const usePlayer = () => {
         if(fullName && checkRangaToAdd(umiejkaRanga)) return ["Talent", umiejkaRanga].join(' ');  
         return umiejkaRanga
     }
-
-    // const returnCecha = (cecha: number | cechyType): string | number => {
-    //     if(typeof cecha == "number") return cechy[cecha]
-    //     return cechy.indexOf(cecha)
-    // } // return name of cecha or id of cecha
 
     const runRefreshPage = () => {
         dispatch(setRefreshPage(!refreshPage))

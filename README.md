@@ -1,5 +1,5 @@
 # My Little Pony RPG App
-## By LestarDev
+## Coded by LestarDev
 
 ### config
 
