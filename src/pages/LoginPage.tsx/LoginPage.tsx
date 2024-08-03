@@ -41,7 +41,10 @@ const LoginPage = ({setPage}: pageType) => {
         const query = `SELECT id FROM uzytkownik WHERE login="${login}" and password="${password}";`;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
-            if(Number(data[0])<=0) return ;
+            if(Number(data[0])<=0) {
+                setTryToLogin(-1);
+                return;
+            }
             player.setNewIdUzytkownika(Number(data[1]));
             // setIdUz(Number(data[1]));
             // console.log("idUz", idUz.toString())
@@ -63,7 +66,9 @@ const LoginPage = ({setPage}: pageType) => {
             <label>Hasło: <input type="password" ref={refPassword} /></label>
         </div>
         {
-            tryToLogin>0 ? <p>Fetching...</p> : ""
+            tryToLogin>0 ? <p>Fetching...</p> : 
+            tryToLogin==-1 ? <p>Zly login albo haslo</p> :
+            ""
         }
         <button role="submit" onClick={(e)=>{
             e.preventDefault();
