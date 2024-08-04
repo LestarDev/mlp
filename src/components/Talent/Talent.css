@@ -1,3 +1,10 @@
 .diceIcon{
-    width: 5rem;
+    width: 2rem;
+}
+
+.singleTalent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.1rem 0;
 }

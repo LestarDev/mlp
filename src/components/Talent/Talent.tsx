@@ -24,7 +24,7 @@ const Talent = ({umiejka}:talentComponentType) => {
     // "Zerowy"
 
     return <div className={
-        player.getRangaOfUmiejka(umiejka.ranga)
+        player.getRangaOfUmiejka(umiejka.ranga)+" singleTalent"
     }>
         <span>{umiejka.nazwa} </span>
         <span>{
