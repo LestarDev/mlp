@@ -53,6 +53,7 @@ const AdminPage = ({setPage}: pageType) => {
 
 
     const [isNowPending, setIsNowPending] = useState<boolean>(true);
+    const [errorHere, setErrorHere] = useState("");
 
 
     useEffect(()=>{
@@ -66,38 +67,46 @@ const AdminPage = ({setPage}: pageType) => {
 
         const query = `SELECT uzytkownik.id, postac.nick, postac.lvl, postac.exp FROM uzytkownik INNER JOIN postac ON postac.Id_uzytkownika = uzytkownik.id`;
 
-        fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
-            console.log(data);
-            setIsNowPending(preV=>!preV);
-            for(let i=1; i<Number(data[0])*4; i+=4){
-                // console.log(data[i], data[i+1], data[i+2], data[i+3]);
-                setAllUsers(prevV=>[...prevV, <p className="admin-singleUser">
-                    <span>{data[i]}</span>
-                    <span>{data[i+1]}</span>
-                    <button onClick={()=>{
-                        player.setNewIdUzytkownika(Number(data[i]));
-                        setPage(mainPageID);
-                        return;
-                    }}>Show</button>
-                    <button onClick={()=>{
-                        setTypeOfForm({
-                            idUz: Number(data[i]),
-                            typeOf: 1
-                        });
-                    }}>
-                        Edit
-                    </button>
-                    <button onClick={()=>{
-                        setTypeOfForm({
-                            idUz: Number(data[i]),
-                            typeOf: 0
-                        })
-                    }}>
-                        Dodaj
-                    </button>
-                </p>])
-            }
-        })
+
+        try{
+            fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
+                console.log(data);
+                setIsNowPending(preV=>!preV);
+                for(let i=1; i<Number(data[0])*4; i+=4){
+                    // console.log(data[i], data[i+1], data[i+2], data[i+3]);
+                    setAllUsers(prevV=>[...prevV, <p className="admin-singleUser">
+                        <span>{data[i]}</span>
+                        <span>{data[i+1]}</span>
+                        <button onClick={()=>{
+                            player.setNewIdUzytkownika(Number(data[i]));
+                            setPage(mainPageID);
+                            return;
+                        }}>Show</button>
+                        <button onClick={()=>{
+                            setTypeOfForm({
+                                idUz: Number(data[i]),
+                                typeOf: 1
+                            });
+                        }}>
+                            Edit
+                        </button>
+                        <button onClick={()=>{
+                            setTypeOfForm({
+                                idUz: Number(data[i]),
+                                typeOf: 0
+                            })
+                        }}>
+                            Dodaj
+                        </button>
+                    </p>])
+                }
+            })
+        }catch(e){
+            setIsNowPending(false);
+            setErrorHere("Blad: "+(e as string));
+        }
+
+        
 
     },[player.refreshPage])
 
@@ -105,7 +114,7 @@ const AdminPage = ({setPage}: pageType) => {
     return <div>
         <h1>Admin Panel</h1>
         {
-            isNowPending ? <p>Loading...</p> : ''
+            isNowPending ? <p>Loading...</p> : errorHere
         }
         <div className="admin-allUsers">
             {
