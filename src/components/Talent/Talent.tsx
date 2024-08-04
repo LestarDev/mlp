@@ -1,5 +1,7 @@
 import umiejetnosciType from "../../config/types/umiejetnosciType"
 import usePlayer from "../../hooks/usePlayer";
+import diceIcon from "./../../assets/d20.png";
+import "./Talent.css"
 
 type talentComponentType = {
     umiejka: umiejetnosciType;
@@ -24,7 +26,6 @@ const Talent = ({umiejka}:talentComponentType) => {
     return <div className={
         player.getRangaOfUmiejka(umiejka.ranga)
     }>
-        <p></p>
         <span>{umiejka.nazwa} </span>
         <span>{
             [1,2,4].includes(umiejka.ranga) ?
@@ -32,6 +33,7 @@ const Talent = ({umiejka}:talentComponentType) => {
             [6,9,10,11].includes(umiejka.ranga) ?
             "" : umiejka.value
         }</span>
+        <img src={diceIcon} alt="[check]" className="diceIcon" />
     </div>
 }
 
