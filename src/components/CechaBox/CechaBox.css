@@ -13,14 +13,14 @@
     font-size: larger;
 }
 
-.cechaBox:nth-child(1){
+.cechaBox:nth-child(3n+1){
     background: var(--blue);
 }
 
-.cechaBox:nth-child(2){
+.cechaBox:nth-child(3n+2){
     background: var(--violet);
 }
 
-.cechaBox:nth-child(3){
+.cechaBox:nth-child(3n){
     background: var(--pink);
 }

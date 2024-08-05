@@ -20,6 +20,9 @@ const Header = () => {
             </div>
         </div>
         <div className="stats" style={{"--howManyCechy": 6} as React.CSSProperties}>
+            {
+                // todo: autocount CechaBox for --howManyCechy
+            }
             <CechaBox cecha="Cialo" value={player.Cialo} showAs={1} />
             <CechaBox cecha="Umysl" value={player.Umysl} showAs={2} />
             <CechaBox cecha="Urok" value={player.Urok} showAs={3} />
