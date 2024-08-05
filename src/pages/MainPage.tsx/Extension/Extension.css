@@ -13,29 +13,34 @@
     }
 }
 
-.stats{
-    position: relative;
-    overflow: hidden;
-    width: 80vw;
-    height: 20rem;
-    text-align: center;
+@media only screen and (max-width: 825px) {
+    .stats{
+        position: relative;
+        overflow: hidden;
+        width: 80vw;
+        height: 20rem;
+        text-align: center;
+    }
+    
+    .slider{
+        position: absolute;
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+        animation: showAsMove 15s linear infinite;
+        width: 200px;
+        height: 250px;
+        left: calc(50% - 100px)
+    }
+    
+    .cechaBox{
+        position: absolute;
+        inset: 0 0 0 0;
+        left: calc(50% - 3.5rem);
+        transform: 
+            rotateY(calc( (var(--showAs) - 1) * (360 / var(--howManyCechy) * 1deg)))
+            translateZ(200px);
+        box-shadow: 0px 0px 20px 5px black;
+    }
+
 }
 
-.slider{
-    position: absolute;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    animation: showAsMove 15s linear infinite;
-    width: 200px;
-    height: 250px;
-    left: calc(50% - 100px)
-}
-
-.cechaBox{
-    position: absolute;
-    inset: 0 0 0 0;
-    left: calc(50% - 3.5rem);
-    transform: 
-        rotateY(calc( (var(--showAs) - 1) * (360 / var(--howManyCechy) * 1deg)))
-        translateZ(200px)
-}
