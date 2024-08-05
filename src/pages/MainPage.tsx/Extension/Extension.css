@@ -31,6 +31,10 @@
         height: 250px;
         left: calc(50% - 100px)
     }
+
+    .stats:hover .slider{
+        animation-timing-function: cubic-bezier(0, 0, 0, 0);
+    }
     
     .cechaBox{
         position: absolute;
