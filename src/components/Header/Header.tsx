@@ -23,12 +23,15 @@ const Header = () => {
             {
                 // todo: autocount CechaBox for --howManyCechy
             }
-            <CechaBox cecha="Cialo" value={player.Cialo} showAs={1} />
-            <CechaBox cecha="Umysl" value={player.Umysl} showAs={2} />
-            <CechaBox cecha="Urok" value={player.Urok} showAs={3} />
-            <CechaBox cecha="Cialo" value={player.Cialo} showAs={4} />
-            <CechaBox cecha="Umysl" value={player.Umysl} showAs={5} />
-            <CechaBox cecha="Urok" value={player.Urok} showAs={6} />
+            <div className="slider">
+                <CechaBox cecha="Cialo" value={player.Cialo} showAs={1} />
+                <CechaBox cecha="Umysl" value={player.Umysl} showAs={2} />
+                <CechaBox cecha="Urok" value={player.Urok} showAs={3} />
+                <CechaBox cecha="Cialo" value={player.Cialo} showAs={4} />
+                <CechaBox cecha="Umysl" value={player.Umysl} showAs={5} />
+                <CechaBox cecha="Urok" value={player.Urok} showAs={6} />
+            </div>
+            
         </div>
     </header>
 }
