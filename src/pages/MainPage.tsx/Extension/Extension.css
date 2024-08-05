@@ -5,14 +5,12 @@
 @keyframes showAsMove {
     from{
         transform: 
-            rotateY(calc( (var(--showAs) - 1) * (360 / var(--howManyCechy) * 1deg)))
-            translateZ(200px)
+        perspective(1000px)
             rotateY(0deg)
     }
     to{
         transform: 
-            rotateY(calc( (var(--showAs) - 1) * (360 / var(--howManyCechy) * 1deg)))
-            translateZ(200px)
+        perspective(1000px)
             rotateY(360deg)
     }
 }
