@@ -3,6 +3,7 @@ import CechaBox from "../CechaBox/CechaBox";
 import lvlIcon from "./../../assets/lvl_icon.png"
 import goldGalop from "./../../assets/galop.png"
 import "./Header.css"
+import React from "react";
 
 const Header = () => {
     const player = usePlayer();
@@ -18,7 +19,7 @@ const Header = () => {
                 <div className="player-main-info-lvlAndGalopy-item"><img src={goldGalop} alt="gold galop" />{player.zloteGalopy}</div>
             </div>
         </div>
-        <div className="stats">
+        <div className="stats" style={{"--howManyCechy": 6} as React.CSSProperties}>
             <CechaBox cecha="Cialo" value={player.Cialo} showAs={1} />
             <CechaBox cecha="Umysl" value={player.Umysl} showAs={2} />
             <CechaBox cecha="Urok" value={player.Urok} showAs={3} />
