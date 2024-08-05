@@ -25,6 +25,6 @@
     background: var(--pink);
 }
 
-.cechaBox:nth-child(n+3){
+.cechaBox:nth-child(n+4){
     display: none;
 }
