@@ -24,3 +24,7 @@
 .cechaBox:nth-child(3n){
     background: var(--pink);
 }
+
+.cechaBox:nth-child(n+3){
+    display: none;
+}

@@ -42,5 +42,9 @@
         box-shadow: 0px 0px 20px 5px black;
     }
 
+    .cechaBox:nth-child(n+3){
+        display: flex;
+    }
+
 }
 
