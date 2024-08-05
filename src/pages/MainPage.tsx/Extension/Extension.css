@@ -1,3 +1,8 @@
+:root{
+    --howManyCechy: 3
+}
+
+
 .stats{
     position: relative;
     overflow: hidden;
@@ -7,4 +12,5 @@
 .cechaBox{
     position: absolute;
     inset: 0 0 0 0;
+    transform: rotateY(calc( (var(--showAs) - 1) * (360 / var(--howManyCechy) * 1deg)));
 }
