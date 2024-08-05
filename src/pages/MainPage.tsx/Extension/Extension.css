@@ -5,12 +5,12 @@
 @keyframes showAsMove {
     from{
         transform: 
-        perspective(1000px)
+            perspective(1000px)
             rotateY(0deg)
     }
     to{
         transform: 
-        perspective(1000px)
+            perspective(1000px)
             rotateY(360deg)
     }
 }
@@ -28,6 +28,7 @@
 .cechaBox{
     position: absolute;
     inset: 0 0 0 0;
+    left: calc(50% - 3.5rem);
     transform: 
         rotateY(calc( (var(--showAs) - 1) * (360 / var(--howManyCechy) * 1deg)))
         translateZ(200px)
