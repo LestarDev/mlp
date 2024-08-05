@@ -17,7 +17,7 @@
     .stats{
         position: relative;
         overflow: hidden;
-        width: 80vw;
+        width: max(80vw, 350px);
         height: 20rem;
         text-align: center;
     }
@@ -38,7 +38,8 @@
         left: calc(50% - 3.5rem);
         transform: 
             rotateY(calc( (var(--showAs) - 1) * (360 / var(--howManyCechy) * 1deg)))
-            translateZ(200px);
+            translateZ(min(calc(50px + 20vw), 200px))
+            ;
         box-shadow: 0px 0px 20px 5px black;
     }
 
