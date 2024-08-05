@@ -25,7 +25,7 @@
     position: absolute;
     transform-style: preserve-3d;
     transform: perspective(1000px);
-    animation: showAsMove 20s linear infinite;
+    animation: showAsMove 15s linear infinite;
     width: 200px;
     height: 250px;
     left: calc(50% - 100px)
@@ -34,6 +34,7 @@
 .cechaBox{
     position: absolute;
     inset: 0 0 0 0;
+    left: calc(50% - 3.5rem);
     transform: 
         rotateY(calc( (var(--showAs) - 1) * (360 / var(--howManyCechy) * 1deg)))
         translateZ(200px)
