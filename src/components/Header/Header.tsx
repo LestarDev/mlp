@@ -19,9 +19,9 @@ const Header = () => {
             </div>
         </div>
         <div className="stats">
-            <CechaBox cecha="Cialo" value={player.Cialo} />
-            <CechaBox cecha="Umysl" value={player.Umysl} />
-            <CechaBox cecha="Urok" value={player.Urok} />
+            <CechaBox cecha="Cialo" value={player.Cialo} showAs={1} />
+            <CechaBox cecha="Umysl" value={player.Umysl} showAs={2} />
+            <CechaBox cecha="Urok" value={player.Urok} showAs={3} />
         </div>
     </header>
 }

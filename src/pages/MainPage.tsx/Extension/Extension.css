@@ -1,0 +1,10 @@
+.stats{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cechaBox{
+    position: absolute;
+    inset: 0 0 0 0;
+}

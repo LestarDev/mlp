@@ -9,6 +9,7 @@ import RefreshButton from "../../components/RefreshButton/RefreshButton";
 import { loginPageID } from "../../config/config";
 import "./MainPage.css";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
+import "./Extension/Extension.css"
 
 
 
