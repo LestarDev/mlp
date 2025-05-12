@@ -40,7 +40,9 @@ const MainPage = ({setPage}: pageType) => {
             player.setNewUmysl(playerData.umysl);
             player.setNewUrok(playerData.urok);
             player.setNewSection("Talenty")
-            player.setNewUmiejetnosci(playerData.talents);
+            player.setNewUmiejetnosci(playerData.talents.sort(function(a, b) {
+                return a.ranga - b.ranga;
+            }));
            
         });
         // console.log("Player id:",player.idUzytkownika);
