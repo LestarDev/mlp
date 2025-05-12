@@ -15,6 +15,13 @@
                     "nazwa": "Bijatyka",
                     "value": 12,
                     "cecha": "Cialo"
+                },
+                {
+                    "id": 2,
+                    "ranga": 2,
+                    "cecha": "Umysl",
+                    "nazwa": "Tradycja(Śmierci)",
+                    "value": 12
                 }
             ]
         }
