@@ -13,7 +13,7 @@ const LoginPage = ({setPage}: pageType) => {
 
     const player = usePlayer();
 
-    console.log("login page randered")
+    // console.log("login page randered")
 
 
     useEffect(()=>{

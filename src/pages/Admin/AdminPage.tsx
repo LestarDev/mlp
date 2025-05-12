@@ -10,6 +10,7 @@ import "./AdminPage.css"
 import TalentyStack from "../../components/stack/TalentyStack/TalentyStack";
 import umiejetnosciType from "../../config/types/umiejetnosciType";
 import sqlPush from "../../hooks/backend/sqlPush";
+import singlePlayerType from "../../config/types/databaseType";
 
 type typeForm  = {
     idUz: number,
@@ -65,26 +66,25 @@ const AdminPage = ({setPage}: pageType) => {
             return;
         }
 
-        const query = `SELECT uzytkownik.id, postac.nick, postac.lvl, postac.exp FROM uzytkownik INNER JOIN postac ON postac.Id_uzytkownika = uzytkownik.id`;
+        // const query = `SELECT uzytkownik.id, postac.nick, postac.lvl, postac.exp FROM uzytkownik INNER JOIN postac ON postac.Id_uzytkownika = uzytkownik.id`;
 
 
         try{
-            fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
+            fetch("http://localhost:3000/accounts/").then(response=>response.json()).then((data: singlePlayerType[])=>{
                 console.log(data);
                 setIsNowPending(preV=>!preV);
-                for(let i=1; i<Number(data[0])*4; i+=4){
-                    // console.log(data[i], data[i+1], data[i+2], data[i+3]);
+                data.forEach((el, i)=>{
                     setAllUsers(prevV=>[...prevV, <p className="admin-singleUser">
-                        <span>{data[i]}</span>
-                        <span>{data[i+1]}</span>
+                        <span>{el.id}</span>
+                        <span>{el.nick}</span>
                         <button onClick={()=>{
-                            player.setNewIdUzytkownika(Number(data[i]));
+                            player.setNewIdUzytkownika(Number(data[i].id));
                             setPage(mainPageID);
                             return;
                         }}>Show</button>
                         <button onClick={()=>{
                             setTypeOfForm({
-                                idUz: Number(data[i]),
+                                idUz: Number(data[i].id),
                                 typeOf: 1
                             });
                         }}>
@@ -92,14 +92,14 @@ const AdminPage = ({setPage}: pageType) => {
                         </button>
                         <button onClick={()=>{
                             setTypeOfForm({
-                                idUz: Number(data[i]),
+                                idUz: Number(data[i].id),
                                 typeOf: 0
                             })
                         }}>
                             Dodaj
                         </button>
                     </p>])
-                }
+                })
             })
         }catch(e){
             setIsNowPending(false);
