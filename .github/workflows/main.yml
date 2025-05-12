@@ -37,8 +37,6 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Start json-server
-        run: npx json-server src/hooks/backend/db.json
       - name: Build
         run: npm run build
       - name: Setup Pages
