@@ -55,6 +55,10 @@ const AdminPage = ({setPage}: pageType) => {
     const [isNowPending, setIsNowPending] = useState<boolean>(true);
     const [errorHere, setErrorHere] = useState("");
 
+    const generateUserData = () => {
+        console.log(JSON.stringify(player))
+    }
+
 
     useEffect(()=>{
 
@@ -65,15 +69,18 @@ const AdminPage = ({setPage}: pageType) => {
             return;
         }
 
+        
+
         // const query = `SELECT uzytkownik.id, postac.nick, postac.lvl, postac.exp FROM uzytkownik INNER JOIN postac ON postac.Id_uzytkownika = uzytkownik.id`;
 
 
         try{
-            fetch("https://github.com/LestarDev/mlp/tree/main/src/hooks/backend/db.json").then(response=>response.json()).then((data: singlePlayerType[])=>{
+            fetch("https://my-json-server.typicode.com/lestardev/mlp/accounts").then(response=>response.json()).then((data: singlePlayerType[])=>{
                 console.log(data);
+                setAllUsers([]);
                 setIsNowPending(preV=>!preV);
                 data.forEach((el, i)=>{
-                    setAllUsers(prevV=>[...prevV, <p className="admin-singleUser">
+                    setAllUsers(prevV=>[...prevV, <p className="admin-singleUser" key={`admin${i}`}>
                         <span>{el.id}</span>
                         <span>{el.nick}</span>
                         <button onClick={()=>{
@@ -82,6 +89,7 @@ const AdminPage = ({setPage}: pageType) => {
                             return;
                         }}>Show</button>
                         <button onClick={()=>{
+                            player.setNewUmiejetnosci(el.talents)
                             setTypeOfForm({
                                 idUz: Number(data[i].id),
                                 typeOf: 1
@@ -90,6 +98,7 @@ const AdminPage = ({setPage}: pageType) => {
                             Edit
                         </button>
                         <button onClick={()=>{
+                            
                             setTypeOfForm({
                                 idUz: Number(data[i].id),
                                 typeOf: 0
@@ -105,7 +114,7 @@ const AdminPage = ({setPage}: pageType) => {
             setErrorHere("Blad: "+(e as string));
         }
 
-        
+        setIsNowPending(false);
 
     },[player.refreshPage])
 
@@ -281,6 +290,7 @@ const AdminPage = ({setPage}: pageType) => {
             }
         <div className="buttons-down">
             <LogoutButton  setPage={setPage} />
+            <button onClick={()=>generateUserData()}>Generate user Data</button>
             <RefreshButton />
         </div>
     </div>

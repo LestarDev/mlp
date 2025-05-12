@@ -22,7 +22,7 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
 
     const [search, setSearch] = useState("");
 
-    // console.log(player)
+    console.log(player)
 
     function capitalizeFirstLetter(val: string) {
         return String(val).charAt(0).toUpperCase() + String(val).slice(1);
