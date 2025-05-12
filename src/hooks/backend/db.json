@@ -1,0 +1,23 @@
+{
+    "accounts": [
+        {
+            "id": 1,
+            "nick": "Ambrose",
+            "lvl": 3,
+            "exp": 2,
+            "cialo": 8,
+            "umysl": 8,
+            "urok": 4,
+            "talents": [
+                {
+                    "id": 1,
+                    "ranga": 1,
+                    "nazwa": "Bijatyka",
+                    "value": 12,
+                    "cecha": "Cialo"
+                }
+            ]
+        }
+    ]
+  }
+
