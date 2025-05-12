@@ -12,52 +12,81 @@ const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, ad
 
     const talentyStackId = useId();
 
-    const jsxTab: React.JSX.Element[] = [];
+    // const jsxTab: React.JSX.Element[] = [];
 
-    player.umiejetnosci.forEach((el, i)=>{
-        jsxTab.push(<Talent umiejka={el} key={'firstTalent'+i} />)
-    })
+    // player.umiejetnosci.forEach((el, i)=>{
+    //     jsxTab.push(<Talent umiejka={el} key={'firstTalent'+i} />)
+    //     console.log(jsxTab)
+    // })
 
-    const [allTalentyJSX, setAllTalentyJSX] = useState(jsxTab);
+    const [allTalentyJSX, setAllTalentyJSX] = useState<React.JSX.Element[]>([]);
 
     const [search, setSearch] = useState("");
 
+    // console.log(player)
+
+    function capitalizeFirstLetter(val: string) {
+        return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+    }
+
     useEffect(()=>{
 
-        const query = `SELECT nazwa, id_talentType, kostka, id, imgLink FROM talenty WHERE Id_uzytkownika="${id}" AND nazwa LIKE "%${search}%" ORDER BY id_talentType; `;
+        // const query = `SELECT nazwa, id_talentType, kostka, id, imgLink FROM talenty WHERE Id_uzytkownika="${id}" AND nazwa LIKE "%${search}%" ORDER BY id_talentType; `;
 
-        fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
-
-            setAllTalentyJSX([]);
+        setAllTalentyJSX([]);
 
             let lastValue = -1;
 
-            let umiejetnosciToPush: umiejetnosciType[] = [];
+            // let umiejetnosciToPush: umiejetnosciType[] = [];
 
-            for(let i = 1; i<(Number(data[0])*5)+1; i+=5){
-                const tempTalent: umiejetnosciType = {
-                    cecha: "Umysl",
-                    nazwa: data[i],
-                    ranga: Number(data[i+1]),
-                    value: Number(data[i+2]),
-                    id: Number(data[i+3])
-                }
-                umiejetnosciToPush.push(tempTalent);
-            }
+        // fetch("http://localhost:3000/").then(response=>response.json()).then((data: string[])=>{
+
+        //     setAllTalentyJSX([]);
+
+        //     let lastValue = -1;
+
+        //     let umiejetnosciToPush: umiejetnosciType[] = [];
+
+        //     for(let i = 1; i<(Number(data[0])*5)+1; i+=5){
+        //         const tempTalent: umiejetnosciType = {
+        //             cecha: "Umysl",
+        //             nazwa: data[i],
+        //             ranga: Number(data[i+1]),
+        //             value: Number(data[i+2]),
+        //             id: Number(data[i+3])
+        //         }
+        //         umiejetnosciToPush.push(tempTalent);
+        //     }
             
-            player.setNewUmiejetnosci(umiejetnosciToPush);
-            umiejetnosciToPush.forEach((el,i)=>{
+        //     player.setNewUmiejetnosci(umiejetnosciToPush);
+        //     umiejetnosciToPush.forEach((el,i)=>{
+        //         if(lastValue!=el.ranga){
+        //             setAllTalentyJSX(preV=>[...preV, <span className="otherRanga">{player.getRangaOfUmiejka(el.ranga)}</span>]);
+        //             lastValue=el.ranga;
+        //         }
+        //         setAllTalentyJSX(preV=>[...preV, 
+        //         <div className={isAdmin ? "admin-talent" : ''} onClick={()=>adminSet(el)}>
+        //             <Talent umiejka={el} key={i+talentyStackId}/>
+        //         </div>])
+        //     })
+        // })
+
+            player.umiejetnosci.forEach((el,i)=>{
+                if(!(el.nazwa.includes(capitalizeFirstLetter(search)) || el.nazwa.includes(search.toLowerCase()))) return;
                 if(lastValue!=el.ranga){
-                    setAllTalentyJSX(preV=>[...preV, <span className="otherRanga">{player.getRangaOfUmiejka(el.ranga)}</span>]);
+                    setAllTalentyJSX(preV=>[...preV, <span className="otherRanga" key={"1"+i+talentyStackId}>{player.getRangaOfUmiejka(el.ranga)}</span>]);
                     lastValue=el.ranga;
                 }
                 setAllTalentyJSX(preV=>[...preV, 
-                <div className={isAdmin ? "admin-talent" : ''} onClick={()=>adminSet(el)}>
+                <div className={isAdmin ? "admin-talent" : ''} key={"2"+i+talentyStackId} onClick={()=>adminSet(el)}>
                     <Talent umiejka={el} key={i+talentyStackId}/>
                 </div>])
             })
-        })
-    },[search, player.refreshPage])
+
+            // player.rerollPage();
+
+
+    },[search, player.umiejetnosci])
 
 
     return <div className="allTalenty">

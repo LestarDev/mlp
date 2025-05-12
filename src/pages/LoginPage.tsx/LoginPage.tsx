@@ -14,6 +14,8 @@ const LoginPage = ({setPage}: pageType) => {
 
     const player = usePlayer();
 
+    console.log("login page randered")
+
 
     useEffect(()=>{
 
@@ -40,18 +42,24 @@ const LoginPage = ({setPage}: pageType) => {
             return;
         }
 
-        const query = `SELECT id FROM uzytkownik WHERE login="${login}" and password="${password}";`;
+        // const query = `SELECT id FROM uzytkownik WHERE login="${login}" and password="${password}";`;
 
-        fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
+        // fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
 
-            if(Number(data[0])!=1 && tryToLogin!=0) {
-                setTryToLogin(-1);
-                return;
-            }
+        //     if(Number(data[0])!=1 && tryToLogin!=0) {
+        //         setTryToLogin(-1);
+        //         return;
+        //     }
 
-            player.setNewIdUzytkownika(Number(data[1]));
-            setPage(mainPageID)
-        })
+        //     player.setNewIdUzytkownika(Number(data[1]));
+        //     setPage(mainPageID)
+        // })
+
+        if (login=="x" && password=="x"){
+            player.setNewIdUzytkownika(1);
+            setPage(mainPageID);
+        } 
+
         
 
     },[tryToLogin])
