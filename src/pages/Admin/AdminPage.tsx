@@ -3,7 +3,6 @@ import pageType from "../../config/types/pageType"
 import usePlayer from "../../hooks/usePlayer"
 import { loginPageID, mainPageID } from "../../config/config";
 import RefreshButton from "../../components/RefreshButton/RefreshButton";
-import sql from "../../hooks/backend/sql";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import React from "react";
 import "./AdminPage.css"
