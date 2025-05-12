@@ -69,7 +69,7 @@ const AdminPage = ({setPage}: pageType) => {
 
 
         try{
-            fetch("http://localhost:3000/accounts/").then(response=>response.json()).then((data: singlePlayerType[])=>{
+            fetch("https://github.com/LestarDev/mlp/tree/main/src/hooks/backend/db.json").then(response=>response.json()).then((data: singlePlayerType[])=>{
                 console.log(data);
                 setIsNowPending(preV=>!preV);
                 data.forEach((el, i)=>{
