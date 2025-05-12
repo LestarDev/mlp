@@ -30,7 +30,7 @@ const MainPage = ({setPage}: pageType) => {
     },[])
 
     useEffect(()=>{
-        fetch(`http://localhost:3000/accounts?id=${player.idUzytkownika}`).then(data => data.json()).then(v => {
+        fetch(`https://my-json-server.typicode.com/lestardev/json-server/accounts?id=${player.idUzytkownika}`).then(data => data.json()).then(v => {
             const playerData = v[0] as singlePlayerType;
             player.setNewNick(playerData.nick);
             document.title=`Uniwerse RPG - ${playerData.nick}`
