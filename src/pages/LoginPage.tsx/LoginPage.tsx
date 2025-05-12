@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import pageType from "../../config/types/pageType"
-import sql from "../../hooks/backend/sql";
 import usePlayer from "../../hooks/usePlayer";
 import "./LoginPage.css"
 import { adminPageID, mainPageID } from "../../config/config";

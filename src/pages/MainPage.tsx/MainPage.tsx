@@ -1,12 +1,10 @@
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import Header from "../../components/Header/Header";
 import pageType from "../../config/types/pageType";
 import usePlayer from "../../hooks/usePlayer";
-import sql from "../../hooks/backend/sql";
 import Menu from "../../components/Menu/Menu";
 import StackSelect from "../../components/stack/StackSelect/StackSelect";
 import RefreshButton from "../../components/RefreshButton/RefreshButton";
-import { loginPageID } from "../../config/config";
 import "./MainPage.css";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import "./Extension/Extension.css"

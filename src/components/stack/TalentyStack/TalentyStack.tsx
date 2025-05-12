@@ -1,12 +1,11 @@
 import { useEffect, useId, useState } from "react"
-import sql from "../../../hooks/backend/sql"
 import usePlayer from "../../../hooks/usePlayer"
 import umiejetnosciType from "../../../config/types/umiejetnosciType";
 import Talent from "../../Talent/Talent";
 import "./TalentyStack.css"
 import React from "react";
 
-const TalentyStack = ({id, isAdmin, adminSet}: {id: number, isAdmin: boolean, adminSet: React.Dispatch<React.SetStateAction<umiejetnosciType>>}) => {
+const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminSet: React.Dispatch<React.SetStateAction<umiejetnosciType>>}) => {
 
     const player = usePlayer();    
 
