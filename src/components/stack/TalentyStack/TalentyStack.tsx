@@ -69,7 +69,7 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
         //         </div>])
         //     })
         // })
-
+            
             player.umiejetnosci.forEach((el,i)=>{
                 if(!(el.nazwa.includes(capitalizeFirstLetter(search)) || el.nazwa.includes(search.toLowerCase()))) return;
                 if(lastValue!=el.ranga){

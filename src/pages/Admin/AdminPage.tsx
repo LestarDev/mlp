@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import pageType from "../../config/types/pageType"
 import usePlayer from "../../hooks/usePlayer"
-import { loginPageID, mainPageID } from "../../config/config";
+import { dbPath, loginPageID, mainPageID } from "../../config/config";
 import RefreshButton from "../../components/RefreshButton/RefreshButton";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import React from "react";
@@ -10,6 +10,15 @@ import TalentyStack from "../../components/stack/TalentyStack/TalentyStack";
 import umiejetnosciType from "../../config/types/umiejetnosciType";
 import sqlPush from "../../hooks/backend/sqlPush";
 import singlePlayerType from "../../config/types/databaseType";
+
+import fs from 'vite-plugin-fs/browser';
+
+// To read a file
+const file = await fs.readFile(dbPath);
+// console.log("file: ",file);
+
+// console.log(JSON.parse(file))
+
 
 type typeForm  = {
     idUz: number,
@@ -55,8 +64,16 @@ const AdminPage = ({setPage}: pageType) => {
     const [isNowPending, setIsNowPending] = useState<boolean>(true);
     const [errorHere, setErrorHere] = useState("");
 
+    const generateUserData = () => {
+        console.log(JSON.stringify(player))
+    }
+
+    let db = JSON.parse(file)
+    
 
     useEffect(()=>{
+
+        const data = db.accounts as singlePlayerType[]
 
         if(player.idUzytkownika!=-999){
             player.clear();
@@ -65,15 +82,13 @@ const AdminPage = ({setPage}: pageType) => {
             return;
         }
 
-        // const query = `SELECT uzytkownik.id, postac.nick, postac.lvl, postac.exp FROM uzytkownik INNER JOIN postac ON postac.Id_uzytkownika = uzytkownik.id`;
-
-
         try{
-            fetch("https://github.com/LestarDev/mlp/tree/main/src/hooks/backend/db.json").then(response=>response.json()).then((data: singlePlayerType[])=>{
-                console.log(data);
+            // fetch("https://my-json-server.typicode.com/lestardev/mlp/accounts").then(response=>response.json()).then((data: singlePlayerType[])=>{
+            // console.log(data);
+                setAllUsers([]);
                 setIsNowPending(preV=>!preV);
                 data.forEach((el, i)=>{
-                    setAllUsers(prevV=>[...prevV, <p className="admin-singleUser">
+                    setAllUsers(prevV=>[...prevV, <p className="admin-singleUser" key={`admin${i}`}>
                         <span>{el.id}</span>
                         <span>{el.nick}</span>
                         <button onClick={()=>{
@@ -82,6 +97,7 @@ const AdminPage = ({setPage}: pageType) => {
                             return;
                         }}>Show</button>
                         <button onClick={()=>{
+                            player.setNewUmiejetnosci(el.talents)
                             setTypeOfForm({
                                 idUz: Number(data[i].id),
                                 typeOf: 1
@@ -90,6 +106,7 @@ const AdminPage = ({setPage}: pageType) => {
                             Edit
                         </button>
                         <button onClick={()=>{
+                            
                             setTypeOfForm({
                                 idUz: Number(data[i].id),
                                 typeOf: 0
@@ -99,13 +116,13 @@ const AdminPage = ({setPage}: pageType) => {
                         </button>
                     </p>])
                 })
-            })
+            // })
         }catch(e){
             setIsNowPending(false);
             setErrorHere("Blad: "+(e as string));
         }
 
-        
+        setIsNowPending(false);
 
     },[player.refreshPage])
 
@@ -131,7 +148,7 @@ const AdminPage = ({setPage}: pageType) => {
                                     <option value="Urok">Urok</option>
                                 </select></label>
                                 <label>Nazwa: <input ref={refNazwa} type="text"/></label>
-                                <label>Ranga: <select name="ranga" id="ranga" ref={refRanga}>
+                                <label>Ranga: <select defaultValue={2} name="ranga" id="ranga" ref={refRanga}>
                                     <option value="1" selected={umiejkaToChange.ranga==1}>{player.getRangaOfUmiejka(1, true)}</option>
                                     <option value="2" selected={umiejkaToChange.ranga==2}>{player.getRangaOfUmiejka(2, true)}</option>
                                     <option value="3" selected={umiejkaToChange.ranga==3}>{player.getRangaOfUmiejka(3, true)}</option>
@@ -175,6 +192,7 @@ const AdminPage = ({setPage}: pageType) => {
                                 <input type="hidden" name="idUz" value={typeOfForm.idUz} />
                                 <input type="submit" value="Dodaj" onClick={(e)=>{
                                     e.preventDefault();
+                                    
                                     console.log(refKostka.current, refNazwa.current, refRanga.current)
                                     fetch(sqlPush(`INSERT INTO talenty(id, Id_uzytkownika, nazwa, kostka, id_talentType, imgLink) VALUES (NULL, '${typeOfForm.idUz}', '${refNazwa.current!.value}', '${refKostka.current!.value}', '${refRanga.current!.value}', '');`)).then(response=>response.text()).then((data: string)=>{
                                         console.log(data);
@@ -259,19 +277,38 @@ const AdminPage = ({setPage}: pageType) => {
                                 <input type="hidden" name="id" value={umiejkaToChange.id} />
                                 <input type="submit" value="Usun" onClick={(e)=>{
                                     e.preventDefault();
-                                    fetch(sqlPush(`DELETE FROM talenty WHERE talenty.id = ${umiejkaToChange.id}`))
-                                    setTypeOfForm({
-                                        idUz: typeOfForm.idUz,
-                                        typeOf: -1
-                                    })
-                                    player.rerollPage();
+                                    (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents = (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.filter(singleTalent => singleTalent.id!=umiejkaToChange.id)
+                                    
+                                    console.log(JSON.stringify(db))
+                                    fs.writeFile(dbPath, JSON.stringify(db));
+                                    // setPage(loginPageID);
+                                    // player.rerollPage();
                                 }} />
                                 <input type="submit" value="Zapisz zmiany" onClick={(e)=>{
                                     e.preventDefault();
-                                    fetch(sqlPush(`UPDATE talenty SET nazwa='${refNazwa.current!.value}', kostka='${refKostka.current!.value}', id_talentType='${refRanga.current!.value}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
-                                        console.log(data);
-                                        player.rerollPage();
-                                    })
+                                    (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents = (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.map(el => {
+                                        return el.id==umiejkaToChange.id ? {
+                                            id: el.id,
+                                            cecha: el.cecha,
+                                            nazwa: refNazwa.current!.value,
+                                            ranga: Number(refRanga.current!.value),
+                                            value: Number(refKostka.current!.value)
+                                        } as umiejetnosciType : el
+                                    });
+                                    (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.sort(function(a, b) {
+                                            return a.ranga - b.ranga;
+                                        });
+                                        // console.log((db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.sort(function(a, b) {
+                                        //     return a.ranga - b.ranga;
+                                        // }))
+                                    // console.log(db.accounts)
+                                    fs.writeFile(dbPath, JSON.stringify(db))
+                                    // fetch(sqlPush(`UPDATE talenty SET nazwa='${refNazwa.current!.value}', kostka='${refKostka.current!.value}', id_talentType='${refRanga.current!.value}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
+                                    //     console.log(data);
+                                    //     player.rerollPage();
+                                    // })
+                                    // setPage(loginPageID);
+                                    // player.rerollPage();
                                 }} />
                             </form>
                         </> : ''} <TalentyStack id={typeOfForm.idUz} isAdmin={true} adminSet={setUmiejkaToChange} /></>
@@ -281,6 +318,7 @@ const AdminPage = ({setPage}: pageType) => {
             }
         <div className="buttons-down">
             <LogoutButton  setPage={setPage} />
+            <button onClick={()=>generateUserData()}>Generate user Data</button>
             <RefreshButton />
         </div>
     </div>

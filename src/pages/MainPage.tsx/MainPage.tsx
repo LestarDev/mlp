@@ -9,8 +9,11 @@ import "./MainPage.css";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import "./Extension/Extension.css"
 import singlePlayerType from "../../config/types/databaseType";
+import fs from "vite-plugin-fs/browser";
+import { dbPath } from "../../config/config";
 
-
+const file = await fs.readFile(dbPath);
+const db = await JSON.parse(file);
 
 const MainPage = ({setPage}: pageType) => {
 
@@ -29,9 +32,9 @@ const MainPage = ({setPage}: pageType) => {
         }
     },[])
 
-    useEffect(()=>{
-        fetch(`https://my-json-server.typicode.com/lestardev/mlp/accounts?id=${player.idUzytkownika}`).then(data => data.json()).then(v => {
-            const playerData = v[0] as singlePlayerType;
+        // fetch(`https://my-json-server.typicode.com/lestardev/mlp/accounts?id=${player.idUzytkownika}`).then(data => data.json()).then(v => {
+            console.log("x",db.accounts, player.idUzytkownika)
+            let playerData = db.accounts[player.idUzytkownika-1] as singlePlayerType;
             player.setNewNick(playerData.nick);
             document.title=`Uniwerse RPG - ${playerData.nick}`
             player.setNewLvl(playerData.lvl);
@@ -40,11 +43,9 @@ const MainPage = ({setPage}: pageType) => {
             player.setNewUmysl(playerData.umysl);
             player.setNewUrok(playerData.urok);
             player.setNewSection("Talenty")
-            player.setNewUmiejetnosci(playerData.talents.sort(function(a, b) {
-                return a.ranga - b.ranga;
-            }));
+            player.setNewUmiejetnosci(playerData.talents)
            
-        });
+        // });
         // console.log("Player id:",player.idUzytkownika);
         // fetch(sql(`SELECT nick, lvl, exp, cialo, umysl, urok, monety, portret, rnHP, maxChar, dodNici, dodHP FROM postac WHERE Id_uzytkownika="${player.idUzytkownika}"`)).then(response=>response.json()).then((data: string[])=>{
         //     console.log(data);
@@ -63,7 +64,6 @@ const MainPage = ({setPage}: pageType) => {
         //     player.setNewMonety(Number(data[7]));
         //     player.setNewImgLink(data[8]);
         // })
-    },[player.refreshPage])
 
     return <>
 
