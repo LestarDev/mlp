@@ -69,6 +69,16 @@ const LoginPage = ({setPage}: pageType) => {
             setPage(mainPageID)
         }
 
+        if(login=="haslo" && password=="1234"){
+            player.setNewIdUzytkownika(3)
+            setPage(mainPageID)
+        }
+
+        if(login=="chęć" && password=="4321"){
+            player.setNewIdUzytkownika(5)
+            setPage(mainPageID)
+        }
+
         
 
     },[tryToLogin])
