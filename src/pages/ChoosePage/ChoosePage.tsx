@@ -14,7 +14,7 @@ const ChoosePage = () => {
     // 3 => Admin Page
 
     const [choosenPage, setChoosenPage] = useState(inicjalPage);
-    console.log("choose page randered")
+    // console.log("choose page randered")
 
    
     

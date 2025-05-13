@@ -4,3 +4,5 @@ export const loginPageID = 0;
 export const mainPageID = 1;
 export const shopPageID = 2;
 export const adminPageID = 3;
+
+export const dbPath = 'db.json';

@@ -22,7 +22,7 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
 
     const [search, setSearch] = useState("");
 
-    console.log(player)
+    // console.log(player)
 
     function capitalizeFirstLetter(val: string) {
         return String(val).charAt(0).toUpperCase() + String(val).slice(1);
@@ -69,7 +69,7 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
         //         </div>])
         //     })
         // })
-
+            
             player.umiejetnosci.forEach((el,i)=>{
                 if(!(el.nazwa.includes(capitalizeFirstLetter(search)) || el.nazwa.includes(search.toLowerCase()))) return;
                 if(lastValue!=el.ranga){
