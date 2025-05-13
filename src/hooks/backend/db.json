@@ -1,0 +1,255 @@
+{
+    "accounts": [
+        {
+            "id": 1,
+            "nick": "Ambrose",
+            "lvl": 3,
+            "exp": 2,
+            "cialo": 8,
+            "umysl": 8,
+            "urok": 4,
+            "talents": [
+                {
+                    "id": 1,
+                    "ranga": 1,
+                    "nazwa": "Bijatyka",
+                    "value": 12,
+                    "cecha": "Cialo"
+                },
+                {
+                    "id": 2,
+                    "ranga": 2,
+                    "cecha": "Umysl",
+                    "nazwa": "Tradycja Śmierci",
+                    "value": 12
+                },
+                {
+                    "id": 3,
+                    "ranga": 2,
+                    "cecha": "Cialo",
+                    "value": 6
+                },
+                {
+                    "id": 4,
+                    "cecha": "Umysl",
+                    "nazwa": "Zaklecie ( Kontrola Plomieni )",
+                    "ranga": 2,
+                    "value": 6
+                },
+                {
+                    "id": 5,
+                    "cecha":"Umysl",
+                    "nazwa": "Zaklecie ( Rozbłysk )",
+                    "ranga": 2,
+                    "value": 4
+                },
+                {
+                    "id": 6,
+                    "cecha":"Umysl",
+                    "nazwa": "Zaklecie ( Tarcza Telekinetyczna )",
+                    "ranga": 2,
+                    "value":8
+                },
+                {
+                    "id":7,
+                    "cecha":"Umysl",
+                    "nazwa":"Drzewko Magii ( Biomancja )",
+                    "ranga": 2,
+                    "value": 8
+                },
+                {
+                    "id": 8,
+                    "cecha":"Cialo",
+                    "nazwa":"Spostrzegawczosc",
+                    "ranga": 2,
+                    "value":4
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "nick": "Erin",
+            "cialo": 6,
+            "exp": 1,
+            "lvl": 4,
+            "talents": [
+                {
+                    "id": 1,
+                    "ranga": 1,
+                    "nazwa": "Aktorstwo",
+                    "value": 8,
+                    "cecha": "Urok"
+                },
+                {
+                    "id": 2,
+                    "ranga":2,
+                    "cecha":"Umysl",
+                    "nazwa":"Tradycja Cienia",
+                    "value": 20
+                },
+                {
+                    "id": 3,
+                    "ranga": 2,
+                    "cecha":"Cialo",
+                    "nazwa":"Leczenie",
+                    "value": 4
+                },
+                {
+                    "id":4,
+                    "ranga":2,
+                    "cecha":"Umysl",
+                    "nazwa":"Tradycja Chaosu ( Tzeench )",
+                    "value": 10
+                },
+                {
+                    "id":5,
+                    "ranga":3,
+                    "cecha":"Umysl",
+                    "nazwa":"Mistrz Sfery Zamentu",
+                    "value": 6
+                },
+                {
+                    "id":6,
+                    "ranga":2,
+                    "cecha":"Umysl",
+                    "nazwa":"Zaklecie ( Tarcza Telekinetyczna )",
+                    "value": 6
+                },
+                {
+                    "id":7,
+                    "ranga":2,
+                    "cecha":"Umysl",
+                    "nazwa":"Zaklecie ( Kontrola Plomieni )",
+                    "value":8
+                },
+                {
+                    "id":8,
+                    "ranga":2,
+                    "cecha":"Umysl",
+                    "nazwa":"Drzewko Magii ( Telekineza )",
+                    "value": 10
+                },
+                {
+                    "id": 9,
+                    "ranga":2,
+                    "cecha":"Umysl",
+                    "nazwa":"Jezyk Ehlnofex",
+                    "value":4
+                },
+                {
+                    "id": 10,
+                    "cecha": "Cialo",
+                    "nazwa":"Unik",
+                    "ranga":2,
+                    "value":6
+                }
+            ],
+            "umysl": 10,
+            "urok": 6
+        },
+        {
+            "id": 3,
+            "nick": "Kayn",
+            "lvl": 2,
+            "exp": 0,
+            "cialo": 8,
+            "umysl": 4,
+            "urok": 6,
+            "talents": [
+                {
+                    "id": 1,
+                    "ranga": 1,
+                    "nazwa": "Walka(Kosa)",
+                    "value": 10,
+                    "cecha": "Cialo"
+                },
+                {
+                    "id": 2,
+                    "ranga": 2,
+                    "cecha": "Cialo",
+                    "nazwa": "Bijatyka",
+                    "value": 6
+                },
+                {
+                    "id": 3,
+                    "ranga": 2,
+                    "cecha": "Cialo",
+                    "nazwa": "Kontratak",
+                    "value": 4
+                },
+                {
+                    "id": 4,
+                    "ranga": 2,
+                    "cecha": "Cialo",
+                    "nazwa": "Latanie",
+                    "value": 6
+                  }
+            ]
+        },
+        {
+            "id": 4,
+            "nick": "Neferii",
+            "lvl": 2,
+            "exp": 0,
+            "cialo": 6,
+            "umysl": 8,
+            "urok": 4,
+            "talents": [
+                {
+                    "id": 1,
+                    "ranga": 1,
+                    "nazwa": "Przepowiadanie Przyszlosci",
+                    "value": 6,
+                    "cecha": "Umysl"
+                },
+                {
+                    "id": 2,
+                    "ranga": 2,
+                    "cecha": "Umysl",
+                    "nazwa": "Tradycja(Metalu)",
+                    "value": 8
+                },
+                {
+                    "id": 3,
+                    "ranga": 2,
+                    "cecha": "Umysl",
+                    "nazwa": "Medycyna",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "nick": "Malphite",
+            "lvl": 2,
+            "exp": 0,
+            "cialo": 8,
+            "umysl": 4,
+            "urok": 4,
+            "talents": 
+            [
+                {
+                    "id": 1,
+                    "ranga": 1,
+                    "nazwa": "Walka wrecz",
+                    "value": 6,
+                    "cecha": "Cialo"
+                },
+                {
+                    "id": 2,
+                    "ranga": 2,
+                    "cecha": "Cialo",
+                    "nazwa": "Bijatyka",
+                    "value": 6
+                },
+                {
+                    "id": 3,
+                    "ranga": 2,
+                    "cecha": "Cialo",
+                    "nazwa": "Unik",
+                    "value": 6
+                }
+            ]
+        }
+    ]
+  }

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import pageType from "../../config/types/pageType"
 import usePlayer from "../../hooks/usePlayer"
-import { dbPath, loginPageID, mainPageID } from "../../config/config";
+import { loginPageID, mainPageID } from "../../config/config";
 import RefreshButton from "../../components/RefreshButton/RefreshButton";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import React from "react";
@@ -11,10 +11,10 @@ import umiejetnosciType from "../../config/types/umiejetnosciType";
 import sqlPush from "../../hooks/backend/sqlPush";
 import singlePlayerType from "../../config/types/databaseType";
 
-import fs from 'vite-plugin-fs/browser';
+// import fs from 'vite-plugin-fs/browser';
 
 // To read a file
-const file = await fs.readFile(dbPath);
+// const file = await fs.readFile(dbPath);
 // console.log("file: ",file);
 
 // console.log(JSON.parse(file))
@@ -68,12 +68,10 @@ const AdminPage = ({setPage}: pageType) => {
         console.log(JSON.stringify(player))
     }
 
-    let db = JSON.parse(file)
+    // let db = JSON.parse(file)
     
 
     useEffect(()=>{
-
-        const data = db.accounts as singlePlayerType[]
 
         if(player.idUzytkownika!=-999){
             player.clear();
@@ -83,7 +81,7 @@ const AdminPage = ({setPage}: pageType) => {
         }
 
         try{
-            // fetch("https://my-json-server.typicode.com/lestardev/mlp/accounts").then(response=>response.json()).then((data: singlePlayerType[])=>{
+            fetch("https://my-json-server.typicode.com/lestardev/mlp/accounts").then(response=>response.json()).then((data: singlePlayerType[])=>{
             // console.log(data);
                 setAllUsers([]);
                 setIsNowPending(preV=>!preV);
@@ -116,7 +114,7 @@ const AdminPage = ({setPage}: pageType) => {
                         </button>
                     </p>])
                 })
-            // })
+            })
         }catch(e){
             setIsNowPending(false);
             setErrorHere("Blad: "+(e as string));
@@ -277,32 +275,32 @@ const AdminPage = ({setPage}: pageType) => {
                                 <input type="hidden" name="id" value={umiejkaToChange.id} />
                                 <input type="submit" value="Usun" onClick={(e)=>{
                                     e.preventDefault();
-                                    (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents = (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.filter(singleTalent => singleTalent.id!=umiejkaToChange.id)
+                                    // (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents = (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.filter(singleTalent => singleTalent.id!=umiejkaToChange.id)
                                     
-                                    console.log(JSON.stringify(db))
-                                    fs.writeFile(dbPath, JSON.stringify(db));
+                                    // console.log(JSON.stringify(db))
+                                    // fs.writeFile(dbPath, JSON.stringify(db));
                                     // setPage(loginPageID);
                                     // player.rerollPage();
                                 }} />
                                 <input type="submit" value="Zapisz zmiany" onClick={(e)=>{
                                     e.preventDefault();
-                                    (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents = (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.map(el => {
-                                        return el.id==umiejkaToChange.id ? {
-                                            id: el.id,
-                                            cecha: el.cecha,
-                                            nazwa: refNazwa.current!.value,
-                                            ranga: Number(refRanga.current!.value),
-                                            value: Number(refKostka.current!.value)
-                                        } as umiejetnosciType : el
-                                    });
-                                    (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.sort(function(a, b) {
-                                            return a.ranga - b.ranga;
-                                        });
-                                        // console.log((db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.sort(function(a, b) {
-                                        //     return a.ranga - b.ranga;
-                                        // }))
-                                    // console.log(db.accounts)
-                                    fs.writeFile(dbPath, JSON.stringify(db))
+                                    // (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents = (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.map(el => {
+                                    //     return el.id==umiejkaToChange.id ? {
+                                    //         id: el.id,
+                                    //         cecha: el.cecha,
+                                    //         nazwa: refNazwa.current!.value,
+                                    //         ranga: Number(refRanga.current!.value),
+                                    //         value: Number(refKostka.current!.value)
+                                    //     } as umiejetnosciType : el
+                                    // });
+                                    // (db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.sort(function(a, b) {
+                                    //         return a.ranga - b.ranga;
+                                    //     });
+                                    //     // console.log((db.accounts as singlePlayerType[])[typeOfForm.idUz-1].talents.sort(function(a, b) {
+                                    //     //     return a.ranga - b.ranga;
+                                    //     // }))
+                                    // // console.log(db.accounts)
+                                    // fs.writeFile(dbPath, JSON.stringify(db))
                                     // fetch(sqlPush(`UPDATE talenty SET nazwa='${refNazwa.current!.value}', kostka='${refKostka.current!.value}', id_talentType='${refRanga.current!.value}' WHERE id='${umiejkaToChange.id}';`)).then(response=>response.text()).then((data: string)=>{
                                     //     console.log(data);
                                     //     player.rerollPage();
