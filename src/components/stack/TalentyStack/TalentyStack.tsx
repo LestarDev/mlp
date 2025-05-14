@@ -91,6 +91,11 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
     return <div className="allTalenty">
         
         <input type="search" name="searchUmiejka" id="searchUmiejka" placeholder="Szukaj" onChange={(e)=>setSearch(e.target.value)} />
+        {/* <form>
+            <label>Cialo<input type="radio" name="Cialo" /></label>
+            <label>Umysl<input type="radio" name="Umysl" /></label>
+            <label>Urok<input type="radio" name="Urok" /></label>
+        </form> */}
         {
             allTalentyJSX
         }

@@ -1,11 +1,13 @@
 .otherRanga{
     font-weight: 500;
-    font-size: larger;
+    font-size: x-large;
     color: var(--text);
     width: 100%;
     display: block;
-    border-bottom: 1px solid var(--text);
+    margin-top: 1rem;
+    /* border-bottom: 1px solid var(--text); */
     padding: 0.5rem;
+    text-shadow: -1px -1px 10px black;
 }
 
 .allTalenty{
