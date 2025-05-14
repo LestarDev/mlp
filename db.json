@@ -7,7 +7,7 @@
             "exp": 2,
             "cialo": 8,
             "umysl": 8,
-            "urok": 4,
+            "urok": 6,
             "talents": [
                 {
                     "id": 1,
@@ -27,7 +27,8 @@
                     "id": 3,
                     "ranga": 2,
                     "cecha": "Cialo",
-                    "value": 6
+                    "value": 6,
+                    "nazwa": "Unik"
                 },
                 {
                     "id": 4,
@@ -62,6 +63,20 @@
                     "cecha":"Cialo",
                     "nazwa":"Spostrzegawczosc",
                     "ranga": 2,
+                    "value":4
+                },
+                {
+                    "id":9,
+                    "cecha":"Umysl",
+                    "nazwa": "Znawstwo: Magia",
+                    "ranga": 2,
+                    "value": 6
+                },
+                {
+                    "id":10,
+                    "cecha":"Urok",
+                    "nazwa":"Przekonywanie",
+                    "ranga":2,
                     "value":4
                 }
             ]
@@ -142,6 +157,13 @@
                     "nazwa":"Unik",
                     "ranga":2,
                     "value":6
+                },
+                {
+                    "id":11,
+                    "cecha":"Umysl",
+                    "nazwa":"Znawstwo: Magia",
+                    "ranga": 2,
+                    "value":4
                 }
             ],
             "umysl": 10,
