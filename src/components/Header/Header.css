@@ -57,6 +57,12 @@
     align-items: flex-start;
 }
 
+.expLvlHajs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 .expLvlHajs > div{
     display: flex;
 }

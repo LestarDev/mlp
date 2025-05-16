@@ -61,10 +61,10 @@ const Header = () => {
                 <div><div><span>{player.zloteGalopy}</span></div><img src={goldIcon} alt="gold" /></div>
             </div>
         </div>
-        {
-            wireWave
-        }
-            {/* <img src={wireWave} alt="wire" height={25} /> */}
+            <picture>
+                <source type="image/svg+xml" srcSet={wireWave}/>
+                <img src={wireWave} alt="wire" height={25} />
+            </picture>
     </header>
 }
 
