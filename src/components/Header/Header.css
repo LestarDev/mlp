@@ -55,3 +55,23 @@
     display: flex;
     flex-direction: column;
 }
+
+.expLvlHajs > div{
+    display: flex;
+}
+
+.expLvlHajs div span{
+    width: 35px;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 90px;
+}
+
+.expLvlHajs div img{
+    height: 100%;
+    width: 2rem;
+}
+
+.expLvlHajs div img:not(:last-child){
+    transform: scale(1.5);
+}
