@@ -11,6 +11,11 @@
     display: flex;
 }
 
+.showedButton + div > div{
+    width: 33.3333%;
+    height: 100vh;
+}
+
 .showedButton + div .backGround{
     background: black;
     opacity: 0.5;
