@@ -62,7 +62,7 @@ const Header = () => {
             </div>
         </div>
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xmlSpace="preserve">
+	 viewBox="0 0 480 200" xmlSpace="preserve">
 <g>
 	<path className="st0" d="M361.68,243.09c0.97,1.37,1.95,2.74,2.92,4.11c-6.03-4.54-11.95-5.34-18.07,0.53
 		c-0.07-0.36-0.14-0.72-0.2-1.08c0.88-1.13,1.76-2.25,3.18-4.07c-3.44,0-6.47-0.7-9.01,0.12c-9.59,3.1-18.99,3.19-28.55-0.01
