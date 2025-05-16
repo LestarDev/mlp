@@ -5,7 +5,7 @@
     /* justify-content: space-between; */
     /* justify-items: ; */
     align-content: center;
-    width: 80%;
+    width: 100%;
     height: 6rem;
     justify-content: space-evenly;
     color: var(--text);
@@ -16,10 +16,11 @@
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    border-radius: 15px;
 }
 
 .cechaBox img{
-    width: 43%;
+    width: 6rem;
 }
 
 .cechaBox div{

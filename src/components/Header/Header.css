@@ -61,13 +61,6 @@
     display: flex;
 }
 
-.expLvlHajs div span{
-    width: 35px;
-    height: 35px;
-    border: 1px solid;
-    border-radius: 90px;
-}
-
 .expLvlHajs div img{
     height: 100%;
     width: 2rem;
@@ -81,6 +74,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 90px;
 }
 
 header svg{
