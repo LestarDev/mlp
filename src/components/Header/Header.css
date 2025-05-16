@@ -72,6 +72,12 @@
     width: 2rem;
 }
 
-.expLvlHajs div img:not(:last-child){
+.expLvlHajs div:not(:last-child) img{
     transform: scale(1.5);
+}
+
+.expLvlHajs > div > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
