@@ -21,11 +21,11 @@ const StackSelect = () => {
             player.wybranyTyp=="Talenty" ? 
             <TalentyStack id={player.idUzytkownika} isAdmin={false} adminSet={setNothing} /> :
             player.wybranyTyp == "Cechy" ?
-            <>
+            <div className="mainCechy">
                 <CechaBox cecha="Cialo" showAs={1} value={player.Cialo} key={"cialo"} />
                 <CechaBox cecha="Umysl" showAs={2} value={player.Umysl} key={"Umysl"} />
                 <CechaBox cecha="Urok" showAs={3} value={player.Urok} key={"Urok"} />
-            </> :
+            </div> :
             nothing.nazwa
         }
     </>

@@ -1,3 +1,9 @@
+.mainCechy{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
 @keyframes showAsMove {
     from{
         transform: 
