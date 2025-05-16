@@ -54,9 +54,9 @@ const Header = () => {
                 </div>
             </div>
             <div className="expLvlHajs">
-                <div><span>{player.lvl}</span><img src="lvlIcon.svg" alt="lvl" /></div>
-                <div><span>{player.exp}</span><img src="expIcon.svg" alt="exp" /></div>
-                <div><span>{player.zloteGalopy}</span><img src="goldIcon.svg" alt="gold" /></div>
+                <div><span>{player.lvl}</span><img src={lvlIcon} alt="lvl" /></div>
+                <div><span>{player.exp}</span><img src={expIcon} alt="exp" /></div>
+                <div><span>{player.zloteGalopy}</span><img src={goldIcon} alt="gold" /></div>
             </div>
         </div>
     </header>
