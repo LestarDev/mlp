@@ -6,7 +6,7 @@ import ShowButton from "../showButton/showButton";
 import "./Header.css"
 // import React from "react";
 import lvlIcon from "./../../assets/LVL.svg"
-import expIcon from "./../../assets/exp.svg"
+import expIcon from "./../../assets/EXP.svg"
 import goldIcon from "./../../assets/pieniazek.svg"
 
 const Header = () => {
