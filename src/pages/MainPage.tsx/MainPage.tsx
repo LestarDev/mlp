@@ -9,7 +9,7 @@ import "./MainPage.css";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import "./Extension/Extension.css"
 import singlePlayerType from "../../config/types/databaseType";
-
+import cialoIcon from "./../../assets/cialo.svg"
 
 
 const MainPage = ({setPage}: pageType) => {
@@ -72,6 +72,8 @@ const MainPage = ({setPage}: pageType) => {
         <Header />
 
         <StackSelect />
+
+        <img src={cialoIcon} alt="reka" height={50} />
 
         <div className="buttons-down">
             <LogoutButton setPage={setPage} />

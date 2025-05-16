@@ -32,8 +32,8 @@ const Menu = ({setPage}: pageType) => {
                     </div>
                     <div>
                         <button onClick={()=>{
-                            player.setNewSection("Zaklecia");
-                        }}>Zaklęcia</button>
+                            player.setNewSection("Cechy");
+                        }}>Cechy</button>
                         <button onClick={()=>{
                             player.setNewSection("Handouty");
                         }}>Handouty</button>

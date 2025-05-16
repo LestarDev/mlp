@@ -1,4 +1,5 @@
 import usePlayer from "../../hooks/usePlayer"
+import ShowButton from "../showButton/showButton";
 // import CechaBox from "../CechaBox/CechaBox";
 // import lvlIcon from "./../../assets/lvl_icon.png"
 // import goldGalop from "./../../assets/galop.png"
@@ -42,7 +43,12 @@ const Header = () => {
                 <span>
                     todo - dodac rase
                 </span>
-                todo-show button
+                <div>
+                    <span>main umiejka todo</span>
+                    <ShowButton className="smallBox" 
+                    dataToPopOut={<span>"todo from main umiejka"</span>} 
+                    innerData={<span>2</span>} />
+                </div>
             </div>
             <div className="expLvlHajs">
                 <div><span>{player.lvl}</span><img src="lvlIcon.svg" alt="lvl" /></div>
