@@ -3,6 +3,8 @@ import cechyType from "../../config/types/cechyType"
 import usePlayer from "../../hooks/usePlayer"
 import "./CechaBox.css"
 import cialoIcon from "./../../assets/cialo.svg"
+import umyslIcon from "./../../assets/umysl.svg"
+import urokIcon from "./../../assets/urok.svg"
 
 type cechaBoxType = {
     cecha: cechyType,
@@ -18,7 +20,9 @@ const CechaBox = ({cecha, value, showAs}: cechaBoxType) => {
         {
             cecha=="Cialo" ?
             <img src={cialoIcon} alt="cialoIcon" /> :
-            ''
+            cecha == "Urok"?
+            <img src={urokIcon} alt="urokIcon" /> :
+            <img src={umyslIcon} alt="umyslIcon" />
         }
         <div>
             <span>{cecha}</span>
