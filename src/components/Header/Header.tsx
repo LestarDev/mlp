@@ -5,6 +5,9 @@ import ShowButton from "../showButton/showButton";
 // import goldGalop from "./../../assets/galop.png"
 import "./Header.css"
 // import React from "react";
+import lvlIcon from "./../../assets/lvl.svg"
+import expIcon from "./../../assets/exp.svg"
+import goldIcon from "./../../assets/pieniazek.svg"
 
 const Header = () => {
     const player = usePlayer();
