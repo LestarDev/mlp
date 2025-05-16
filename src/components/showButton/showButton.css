@@ -15,6 +15,8 @@
     width: 33.3333%;
     height: 100vh;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .showedButton + div > div > button{
@@ -25,6 +27,7 @@
 
 .showedButton + div > div > *:not(button){
     height: 33.3333%;
+    width: 100%;
 }
 
 .showedButton + div .backGround{
