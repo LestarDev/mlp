@@ -9,6 +9,7 @@ import lvlIcon from "./../../assets/LVL.svg"
 import expIcon from "./../../assets/EXP.svg"
 import goldIcon from "./../../assets/pieniazek.svg"
 import wireWave from "./../../assets/drut.svg"
+import ramka from "./../../assets/ramka.svg"
 
 const Header = () => {
     const player = usePlayer();
@@ -39,7 +40,7 @@ const Header = () => {
             
         </div> */}
         <div className="player-main-info">
-            <img src={player.imgLink} alt="Avatar" />
+            <img src={player.imgLink=="" ? ramka : player.imgLink} alt="Avatar" />
             <div className="nameRaceAndA">
                 <span>
                     {player.nick}
@@ -59,8 +60,8 @@ const Header = () => {
                 <div><div><span>{player.exp}</span></div><img src={expIcon} alt="exp" /></div>
                 <div><div><span>{player.zloteGalopy}</span></div><img src={goldIcon} alt="gold" /></div>
             </div>
-            <img src={wireWave} alt="wire" height={25} />
         </div>
+            <img src={wireWave} alt="wire" height={25} />
     </header>
 }
 
