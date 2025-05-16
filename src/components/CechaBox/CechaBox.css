@@ -5,14 +5,15 @@
     /* justify-content: space-between; */
     /* justify-items: ; */
     align-content: center;
-    width: 6rem;
+    width: 60%;
     height: 6rem;
     justify-content: space-evenly;
     color: var(--text);
     font-weight: 500;
     font-size: larger;
+    background: var(--violet);
 }
-
+/* 
 .cechaBox:nth-child(3n+1){
     background: var(--blue);
 }
@@ -27,4 +28,4 @@
 
 .cechaBox:nth-child(n+4){
     display: none;
-}
+} */
