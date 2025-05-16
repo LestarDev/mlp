@@ -61,7 +61,10 @@ const Header = () => {
                 <div><div><span>{player.zloteGalopy}</span></div><img src={goldIcon} alt="gold" /></div>
             </div>
         </div>
-            <img src={wireWave} alt="wire" height={25} />
+        {
+            wireWave
+        }
+            {/* <img src={wireWave} alt="wire" height={25} /> */}
     </header>
 }
 
