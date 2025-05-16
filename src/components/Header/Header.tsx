@@ -1,9 +1,9 @@
 import usePlayer from "../../hooks/usePlayer"
-import CechaBox from "../CechaBox/CechaBox";
-import lvlIcon from "./../../assets/lvl_icon.png"
-import goldGalop from "./../../assets/galop.png"
+// import CechaBox from "../CechaBox/CechaBox";
+// import lvlIcon from "./../../assets/lvl_icon.png"
+// import goldGalop from "./../../assets/galop.png"
 import "./Header.css"
-import React from "react";
+// import React from "react";
 
 const Header = () => {
     const player = usePlayer();
@@ -45,8 +45,8 @@ const Header = () => {
                 todo-show button
             </div>
             <div className="expLvlHajs">
-                <div><span>{player.exp}</span><img src="expIcon.svg" alt="exp" /></div>
                 <div><span>{player.lvl}</span><img src="lvlIcon.svg" alt="lvl" /></div>
+                <div><span>{player.exp}</span><img src="expIcon.svg" alt="exp" /></div>
                 <div><span>{player.zloteGalopy}</span><img src="goldIcon.svg" alt="gold" /></div>
             </div>
         </div>
