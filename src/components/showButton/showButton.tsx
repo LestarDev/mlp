@@ -14,7 +14,7 @@ const ShowButton = ({className, innerData, dataToPopOut}: {className: string, in
         <div className="backGround"></div>
         <div>
             <div className="backGround"></div>
-            <button>x</button>
+            <button onClick={()=>setClassTOShow(false)}>x</button>
             {dataToPopOut}
             <div className="backGround"></div>
         </div>
