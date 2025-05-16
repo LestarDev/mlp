@@ -12,6 +12,12 @@
     font-weight: 500;
     font-size: larger;
     background: var(--violet);
+    display: flex;
+    align-items: center;
+}
+
+.cechaBox img{
+    width: 43%;
 }
 /* 
 .cechaBox:nth-child(3n+1){
