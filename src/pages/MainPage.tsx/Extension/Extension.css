@@ -37,7 +37,7 @@
     }
     
     .cechaBox{
-        position: absolute;
+        /* position: absolute; */
         inset: 0 0 0 0;
         left: calc(50% - 3.5rem);
         transform: 
