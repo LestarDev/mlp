@@ -41,10 +41,10 @@ const Header = () => {
                     {player.nick}
                 </span>
                 <span>
-                    todo - dodac rase
+                    Duch - Boogeyman
                 </span>
                 <div>
-                    <span>main umiejka todo</span>
+                    <span>Przemiana</span>
                     <ShowButton className="smallBox" 
                     dataToPopOut={<span>"todo from main umiejka"</span>} 
                     innerData={<span>2</span>} />

@@ -20,6 +20,11 @@
 .cechaBox img{
     width: 43%;
 }
+
+.cechaBox div{
+    display: flex;
+    flex-direction: column;
+}
 /* 
 .cechaBox:nth-child(3n+1){
     background: var(--blue);
