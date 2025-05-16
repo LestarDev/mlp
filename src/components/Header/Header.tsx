@@ -63,7 +63,7 @@ const Header = () => {
         </div>
             <picture>
                 <source type="image/svg+xml" srcSet={wireWave}/>
-                <img src={wireWave} alt="wire" height={25} />
+                <img src="test.png" alt="wire" height={25} />
             </picture>
     </header>
 }
