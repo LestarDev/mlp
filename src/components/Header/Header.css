@@ -66,8 +66,17 @@
     width: 2rem;
 }
 
+.expLvlHajs div:nth-child(2) img{
+    scale: 1.2
+}
+
+.expLvlHajs div:last-child img{
+    filter: brightness(1) saturate(1) sepia(100%) saturate(0) hue-rotate(288deg) brightness(11);
+}
+
 .expLvlHajs div:not(:last-child) img{
     transform: scale(1.5);
+    filter: invert(1)
 }
 
 .expLvlHajs > div > div{
@@ -78,8 +87,4 @@
     height: 35px;
     border: 1px solid;
     border-radius: 90px;
-}
-
-header svg{
-    fill: white;
 }
