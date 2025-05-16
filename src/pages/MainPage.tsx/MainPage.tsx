@@ -39,7 +39,7 @@ const MainPage = ({setPage}: pageType) => {
             player.setNewCialo(playerData.cialo);
             player.setNewUmysl(playerData.umysl);
             player.setNewUrok(playerData.urok);
-            player.setNewSection("Talenty")
+            player.setNewSection("Cechy")
             player.setNewUmiejetnosci(playerData.talents.sort(function(a, b) {
                 return a.ranga - b.ranga;
             }));

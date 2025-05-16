@@ -2,6 +2,7 @@ import { useState } from "react";
 import umiejetnosciType from "../../../config/types/umiejetnosciType";
 import usePlayer from "../../../hooks/usePlayer"
 import TalentyStack from "../TalentyStack/TalentyStack";
+import CechaBox from "../../CechaBox/CechaBox";
 
 const StackSelect = () => {
 
@@ -19,6 +20,12 @@ const StackSelect = () => {
         {
             player.wybranyTyp=="Talenty" ? 
             <TalentyStack id={player.idUzytkownika} isAdmin={false} adminSet={setNothing} /> :
+            player.wybranyTyp == "Cechy" ?
+            <>
+                <CechaBox cecha="Cialo" showAs={1} value={player.Cialo} key={"cialo"} />
+                <CechaBox cecha="Umysl" showAs={2} value={player.Umysl} key={"Umysl"} />
+                <CechaBox cecha="Urok" showAs={3} value={player.Urok} key={"Urok"} />
+            </> :
             nothing.nazwa
         }
     </>

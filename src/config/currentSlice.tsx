@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import umiejetnosciType from "./types/umiejetnosciType";
 
-export type choosenType = 'Ekwipunek' | 'Talenty' | 'Zaklecia' | 'Handouty';
+export type choosenType = 'Ekwipunek' | 'Talenty' | 'Handouty' | 'Cechy';
 
 
 export interface CurrentState {

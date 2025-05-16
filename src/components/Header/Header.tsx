@@ -8,7 +8,7 @@ import React from "react";
 const Header = () => {
     const player = usePlayer();
     return <header className="characterStats">
-        <div className="player-main-info">
+        {/* <div className="player-main-info">
             <img src={player.imgLink} alt="Avatar" />
             <div className="player-main-info-expAndName">
                 <p>{player.nick}</p>
@@ -32,6 +32,23 @@ const Header = () => {
                 <CechaBox cecha="Urok" value={player.Urok} showAs={6} />
             </div>
             
+        </div> */}
+        <div className="player-main-info">
+            <img src={player.imgLink} alt="Avatar" />
+            <div className="nameRaceAndA">
+                <span>
+                    {player.nick}
+                </span>
+                <span>
+                    todo - dodac rase
+                </span>
+                todo-show button
+            </div>
+            <div className="expLvlHajs">
+                <div><span>{player.exp}</span><img src="expIcon.svg" alt="exp" /></div>
+                <div><span>{player.lvl}</span><img src="lvlIcon.svg" alt="lvl" /></div>
+                <div><span>{player.zloteGalopy}</span><img src="goldIcon.svg" alt="gold" /></div>
+            </div>
         </div>
     </header>
 }
