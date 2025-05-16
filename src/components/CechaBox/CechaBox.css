@@ -5,7 +5,7 @@
     /* justify-content: space-between; */
     /* justify-items: ; */
     align-content: center;
-    width: 60%;
+    width: 80%;
     height: 6rem;
     justify-content: space-evenly;
     color: var(--text);
@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .cechaBox img{
@@ -24,6 +25,7 @@
 .cechaBox div{
     display: flex;
     flex-direction: column;
+    width: -webkit-fill-available;
 }
 /* 
 .cechaBox:nth-child(3n+1){
