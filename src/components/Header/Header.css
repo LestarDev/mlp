@@ -1,6 +1,7 @@
 .characterStats{
     display: flex;
     height: 10rem;
+    margin: 0 0 3rem 0;
 }
 
 .characterStats img{
@@ -94,4 +95,12 @@
     height: 35px;
     border: 1px solid;
     border-radius: 90px;
+}
+
+img[alt="drut"]{
+    position: absolute;
+    top: -3rem;
+    left: 0;
+    width: 100vw;
+
 }
