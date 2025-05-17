@@ -11,7 +11,7 @@
 .player-main-info{
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 90%;
 }
 
 .player-main-info-expAndName{
