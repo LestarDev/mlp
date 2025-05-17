@@ -101,5 +101,7 @@ img[alt="drut"]{
     /* position: absolute; */
     /* top: -5rem; */
     /* left: 0; */
-    heigh: 15px
+    /* heigh: 15px; */
+    margin: 5px 0 5px -10px;
+    transform: scale(1.255);
 }
