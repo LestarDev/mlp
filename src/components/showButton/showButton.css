@@ -1,3 +1,8 @@
+button.smallBox{
+    background: rgb(121,91,137,0.5);
+    border: 1px solid;
+}
+
 .toShowButton + div{
     display: none;
 }

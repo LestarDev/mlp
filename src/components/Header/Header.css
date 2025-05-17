@@ -95,7 +95,8 @@
     height: 35px;
     border: 1px solid;
     border-radius: 90px;
-    background: #795B89;
+    background: rgb(121,91,137,0.5);
+    /* opacity: 0.5; */
 }
 
 .expLvlHajs > div > div span{

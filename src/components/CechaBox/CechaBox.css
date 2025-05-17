@@ -18,8 +18,8 @@
     justify-content: space-between;
     border-radius: 15px;
     color:black;
-    opacity: 0.7;
-    background: #795B89;
+    /* opacity: 0.7; */
+    background: rgb(121,91,137,0.5);
 }
 
 .cechaBox img{
