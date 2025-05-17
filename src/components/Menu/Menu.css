@@ -127,9 +127,6 @@
         height: unset;
         padding: 1rem 0;
     }
-    .player-main-info{
-        width: 100%;
-    }
     .player-main-info > img{
         height: 10rem;
     }
