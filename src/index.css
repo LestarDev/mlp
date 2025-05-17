@@ -12,6 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./assets/TLO_80.svg');
+  background-blend-mode: color;
+  background-size: cover
 }
 
 a {
