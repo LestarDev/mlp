@@ -95,6 +95,11 @@
     height: 35px;
     border: 1px solid;
     border-radius: 90px;
+    background: #795B89;
+}
+
+.expLvlHajs > div > div span{
+    font-weight: 700;
 }
 
 img[alt="drut"]{
