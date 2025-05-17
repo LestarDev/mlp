@@ -9,6 +9,7 @@ import "./MainPage.css";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import "./Extension/Extension.css"
 import singlePlayerType from "../../config/types/databaseType";
+import FooterIcons from "../../components/FooterIcons/FooterIcons";
 
 const MainPage = ({setPage}: pageType) => {
 
@@ -71,10 +72,13 @@ const MainPage = ({setPage}: pageType) => {
 
         <StackSelect />
 
-        <div className="buttons-down">
+        {/* <div className="buttons-down">
             <LogoutButton setPage={setPage} />
             <RefreshButton />
-        </div>
+        </div> */}
+
+
+            <FooterIcons />
 
     </>
 }
