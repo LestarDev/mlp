@@ -4,9 +4,9 @@ import pageType from "../../config/types/pageType";
 import usePlayer from "../../hooks/usePlayer";
 import Menu from "../../components/Menu/Menu";
 import StackSelect from "../../components/stack/StackSelect/StackSelect";
-import RefreshButton from "../../components/RefreshButton/RefreshButton";
+// import RefreshButton from "../../components/RefreshButton/RefreshButton";
 import "./MainPage.css";
-import LogoutButton from "../../components/LogoutButton/LogoutButton";
+// import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import "./Extension/Extension.css"
 import singlePlayerType from "../../config/types/databaseType";
 import FooterIcons from "../../components/FooterIcons/FooterIcons";
