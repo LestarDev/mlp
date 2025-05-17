@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Header from "../../components/Header/Header";
 import pageType from "../../config/types/pageType";
 import usePlayer from "../../hooks/usePlayer";
-import Menu from "../../components/Menu/Menu";
+// import Menu from "../../components/Menu/Menu";
 import StackSelect from "../../components/stack/StackSelect/StackSelect";
 import RefreshButton from "../../components/RefreshButton/RefreshButton";
 import "./MainPage.css";
@@ -65,7 +65,7 @@ const MainPage = ({setPage}: pageType) => {
 
     return <>
 
-        <Menu setPage={setPage} />
+        {/* <Menu setPage={setPage} /> */}
 
         <Header />
 
