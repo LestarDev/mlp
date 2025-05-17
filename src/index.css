@@ -75,6 +75,7 @@ footer{
   justify-content: space-around;
   height: 50px;
   align-items: center;
+  margin: 1rem 0 0 0;
 }
 
 footer svg{
