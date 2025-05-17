@@ -6,3 +6,6 @@ export const shopPageID = 2;
 export const adminPageID = 3;
 
 export const dbPath = 'mlp/db.json';
+
+export const nazwyUmiejetnosci = ["Wampiryzm", "Przemiana", "Pakt", "Kamienny Wzrok", "Kamienna Skóra"];
+export const rasyGraczy = ["Wampir","Duch - Boogeyman", "Demon", "Meduza", "Gargulec"]

@@ -10,6 +10,7 @@ import expIcon from "./../../assets/EXP.svg"
 import goldIcon from "./../../assets/pieniazek.svg"
 import wireWave from "./../../assets/druut.svg"
 import ramka from "./../../assets/ramka.svg"
+import { nazwyUmiejetnosci, rasyGraczy } from "../../config/config";
 
 const Header = () => {
     const player = usePlayer();
@@ -46,10 +47,10 @@ const Header = () => {
                     {player.nick}
                 </span>
                 <span>
-                    Duch - Boogeyman
+                    {rasyGraczy[player.idUzytkownika-1]}
                 </span>
                 <div>
-                    <span>Przemiana</span>
+                    <span>{nazwyUmiejetnosci[player.idUzytkownika-1]}</span>
                     <ShowButton className="smallBox" 
                     dataToPopOut={<span>"todo from main umiejka"</span>} 
                     innerData={<span>
