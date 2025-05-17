@@ -39,3 +39,8 @@ button.smallBox{
     background: black;
     opacity: 0.5;
 }
+
+.showedButton div > span{
+    background: var(--violet);
+    position: relative;
+}
