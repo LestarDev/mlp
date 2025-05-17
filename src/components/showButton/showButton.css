@@ -33,14 +33,11 @@ button.smallBox{
 .showedButton + div > div > *:not(button){
     height: 33.3333%;
     width: 100%;
+    background: var(--violet);
+    position: relative;
 }
 
 .showedButton + div .backGround{
     background: black;
     opacity: 0.5;
-}
-
-.showedButton div > span{
-    background: var(--violet);
-    position: relative;
 }
