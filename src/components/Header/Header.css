@@ -112,3 +112,8 @@ img[alt="drut"]{
     margin: 5px 0;
     /* transform: scale(1.255); */
 }
+
+.nameRaceAndA > div{
+    display: flex;
+    gap: 5px;
+}
