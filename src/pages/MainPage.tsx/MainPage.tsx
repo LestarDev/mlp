@@ -78,7 +78,7 @@ const MainPage = ({setPage}: pageType) => {
         </div> */}
 
 
-            <FooterIcons />
+            <FooterIcons setPage={setPage} />
 
     </>
 }
