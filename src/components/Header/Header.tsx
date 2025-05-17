@@ -52,7 +52,9 @@ const Header = () => {
                     <span>Przemiana</span>
                     <ShowButton className="smallBox" 
                     dataToPopOut={<span>"todo from main umiejka"</span>} 
-                    innerData={<span>2</span>} />
+                    innerData={<span>
+                        {player.lvl>20?6:2+Math.floor(player.lvl/5)}
+                    </span>} />
                 </div>
             </div>
             <div className="expLvlHajs">
