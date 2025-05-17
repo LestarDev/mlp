@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
-    align-items: center;
+    margin: 0 auto;
 }
 
 .player-main-info-expAndName{
@@ -116,4 +116,5 @@ img[alt="drut"]{
 .nameRaceAndA > div{
     display: flex;
     gap: 5px;
+    align-items: center;
 }
