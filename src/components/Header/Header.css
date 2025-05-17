@@ -1,7 +1,7 @@
 .characterStats{
     display: flex;
     height: 10rem;
-    margin: 0 0 3rem 0;
+    /* margin: 0 0 3rem 0; */
 }
 
 .characterStats img{
@@ -98,9 +98,8 @@
 }
 
 img[alt="drut"]{
-    position: absolute;
-    top: -5rem;
-    left: 0;
-    width: 100vw;
-
+    /* position: absolute; */
+    /* top: -5rem; */
+    /* left: 0; */
+    heigh: 15px
 }
