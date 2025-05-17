@@ -8,7 +8,7 @@ import "./Header.css"
 import lvlIcon from "./../../assets/LVL.svg"
 import expIcon from "./../../assets/EXP.svg"
 import goldIcon from "./../../assets/pieniazek.svg"
-// import wireWave from "./../../assets/drut.svg"
+import wireWave from "./../../assets/druut.svg"
 import ramka from "./../../assets/ramka.svg"
 
 const Header = () => {
@@ -61,7 +61,7 @@ const Header = () => {
                 <div><div><span>{player.zloteGalopy}</span></div><img src={goldIcon} alt="gold" /></div>
             </div>
         </div>
-
+            <img src={wireWave} alt="drut" />
     </header>
 }
 
