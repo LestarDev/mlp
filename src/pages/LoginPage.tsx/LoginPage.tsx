@@ -92,7 +92,7 @@ const LoginPage = ({setPage}: pageType) => {
     <div className="background-fixed background-login" />
 
     
-    <form className="loginForm">
+    <form className="loginForm animated-border-box">
         <span>LOGOWANIE</span>
         <div>
             <label><span>Login</span> <input type="text" ref={refLogin} /></label>
@@ -108,6 +108,13 @@ const LoginPage = ({setPage}: pageType) => {
             setTryToLogin(preV=>increment(preV))
             }}>ZALOGUJ</button>
         
-    </form></>
+    </form>
+
+    <div className="animated-border-box-container">
+
+        <div className="animated-border-box-glow"></div>
+    </div>
+    
+    </>
 }
 export default LoginPage

@@ -8,6 +8,10 @@
     gap: 1rem;
     display: flex;
     flex-direction: column;
+    background: black;
+    height: 320px;
+    position: relative;
+    overflow: hidden; 
 }
 
 .loginForm > span{
@@ -51,3 +55,73 @@
     background: rgb(121,91,137,0.35);
     padding: 0.5rem 1rem;
 }
+
+.animated-border-box-container{
+    height: 356px;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    transform: translateY(calc(-100% + 10px));
+    z-index: -1;
+    padding: 10px 0;
+    overflow: hidden; 
+}
+
+.animated-border-box-glow{
+    height: 356px;
+    width: 270px;
+    /* left:0; */
+    display: flex;
+    margin: auto;
+}
+
+.animated-border-box:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+  /* border width */
+	left: 5px;
+	top: 5px;
+  /* double the px from the border width left */
+	width: calc(100% - 10px);
+	height: calc(100% - 10px);
+  /*bg color*/
+	background: #292a2e;
+  /*box border radius*/
+	border-radius: 7px;
+}
+
+@keyframes rotate {
+	100% {
+		transform: translate(-50%, -50%) rotate(1turn);
+	}
+}
+
+.animated-border-box:before, .animated-border-box-glow:before {
+    content: '';
+    z-index: -2;
+    text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+    position: absolute;
+      width: 99999px;
+      height: 99999px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    /*border color, change middle color*/
+      background-image: conic-gradient(rgba(0,0,0,0), rgb(121,91,137) 100%, rgba(0,0,0,0)25%);
+    /* change speed here */
+      animation: rotate 6s linear infinite;
+  }
+
+  .animated-border-box-glow{
+    overflow: hidden;
+    /* Glow Blur */
+    filter: blur(20px);
+  } 
+
+
+
+
+  
