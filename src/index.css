@@ -113,6 +113,10 @@ footer svg{
   height: 2rem;
 }
 
+.search-section form > div:first-child{
+  padding: 0 0.5rem;
+}
+
 .search-section form > div:first-child::after,
 .search-section form > div:not(:first-child)::before,
 .search-section form > label::before{
