@@ -148,3 +148,8 @@ footer svg{
     border: none;
     font-size: large;
 }
+
+form + div > div > *{
+  border: 1px solid;
+  background: rgb(121,91,137,0.35);
+}
