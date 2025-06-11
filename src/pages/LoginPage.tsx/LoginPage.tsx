@@ -87,10 +87,16 @@ const LoginPage = ({setPage}: pageType) => {
         return v+1;
     }
 
-    return <form className="loginForm">
+    return <>
+    
+    <div className="background-fixed background-login" />
+
+    
+    <form className="loginForm">
+        <span>LOGOWANIE</span>
         <div>
-            <label>Login: <input type="text" ref={refLogin} /></label>
-            <label>Hasło: <input type="password" ref={refPassword} /></label>
+            <label><span>Login</span> <input type="text" ref={refLogin} /></label>
+            <label><span>Haslo</span> <input type="password" ref={refPassword} /></label>
         </div>
         {
             tryToLogin>0 ? <p>Fetching...</p> : 
@@ -100,8 +106,8 @@ const LoginPage = ({setPage}: pageType) => {
         <button role="submit" onClick={(e)=>{
             e.preventDefault();
             setTryToLogin(preV=>increment(preV))
-            }}>Login</button>
+            }}>ZALOGUJ</button>
         
-    </form>
+    </form></>
 }
 export default LoginPage

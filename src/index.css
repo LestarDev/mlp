@@ -25,6 +25,10 @@
   height: 100vh;
 }
 
+.background-login{
+  background-image: url("./assets/strona_logowania_tlo.svg");
+}
+
   @font-face {
     font-family: "BigMovie";
     src: url("./assets/Big_Movie.otf") format("opentype");
