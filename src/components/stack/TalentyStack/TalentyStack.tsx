@@ -5,6 +5,7 @@ import Talent from "../../Talent/Talent";
 import "./TalentyStack.css"
 import React from "react";
 import CechaBox from "../../CechaBox/CechaBox";
+import cechyType from "../../../config/types/cechyType";
 
 const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminSet: React.Dispatch<React.SetStateAction<umiejetnosciType>>}) => {
 
@@ -20,6 +21,8 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
     // })
 
     const [allTalentyJSX, setAllTalentyJSX] = useState<React.JSX.Element[]>([]);
+
+    const [cechaToSet, SetCechaToSet] = useState<cechyType | "">("");
 
     // const [search, setSearch] = useState("");
 
@@ -73,20 +76,23 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
             
             player.umiejetnosci.forEach((el,i)=>{
                 // if(!(el.nazwa.includes(capitalizeFirstLetter(search)) || el.nazwa.includes(search.toLowerCase()))) return;
-                if(lastValue!=el.ranga){
-                    setAllTalentyJSX(preV=>[...preV, <span className="otherRanga" key={"1"+i+talentyStackId}>{player.getRangaOfUmiejka(el.ranga)}</span>]);
-                    lastValue=el.ranga;
+                if(cechaToSet=="" || cechaToSet==el.cecha){
+                    if(lastValue!=el.ranga){
+                        setAllTalentyJSX(preV=>[...preV, <span className="otherRanga" key={"1"+i+talentyStackId}>{player.getRangaOfUmiejka(el.ranga)}</span>]);
+                        lastValue=el.ranga;
+                    }
+                    setAllTalentyJSX(preV=>[...preV, 
+                    <div className={isAdmin ? "admin-talent" : ''} key={"2"+i+talentyStackId} onClick={()=>adminSet(el)}>
+                        <Talent umiejka={el} key={i+talentyStackId}/>
+                    </div>])
                 }
-                setAllTalentyJSX(preV=>[...preV, 
-                <div className={isAdmin ? "admin-talent" : ''} key={"2"+i+talentyStackId} onClick={()=>adminSet(el)}>
-                    <Talent umiejka={el} key={i+talentyStackId}/>
-                </div>])
+                
             })
 
             // player.rerollPage();
 
 
-    },[player.umiejetnosci])
+    },[player.umiejetnosci,cechaToSet])
 
 
     return <div className="allTalenty">
@@ -99,9 +105,9 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
         </form> */}
 
         <div className="cechy-to-click">
-            <CechaBox cecha="Cialo" showAs={1} value={player.Cialo} />
-            <CechaBox cecha="Umysl" showAs={1} value={player.Umysl} />
-            <CechaBox cecha="Urok" showAs={1} value={player.Urok} />
+            <CechaBox cecha="Cialo" showAs={1} value={player.Cialo} setCecha={SetCechaToSet} cechaToSet={cechaToSet} />
+            <CechaBox cecha="Umysl" showAs={1} value={player.Umysl} setCecha={SetCechaToSet} cechaToSet={cechaToSet} />
+            <CechaBox cecha="Urok" showAs={1} value={player.Urok} setCecha={SetCechaToSet} cechaToSet={cechaToSet} />
         </div>
 
         {

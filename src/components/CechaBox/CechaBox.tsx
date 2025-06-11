@@ -9,14 +9,27 @@ import urokIcon from "./../../assets/urok.svg"
 type cechaBoxType = {
     cecha: cechyType,
     value: number,
-    showAs: number
+    showAs: number,
+    setCecha?: React.Dispatch<React.SetStateAction<cechyType | "">>
+    cechaToSet?: cechyType | ""
 }
 
-const CechaBox = ({cecha, value, showAs}: cechaBoxType) => {
+const CechaBox = ({cecha, value, showAs, setCecha, cechaToSet}: cechaBoxType) => {
     
     const player = usePlayer();
 
-    return <div className="cechaBox" style={{"--showAs": showAs} as React.CSSProperties}>
+    return <div className="cechaBox" style={{"--showAs": showAs} as React.CSSProperties} onClick={()=>{
+        if(setCecha)
+            
+        if(cecha==cechaToSet){
+            setCecha("");
+        }else
+        setCecha(cecha);
+            
+        
+        
+        
+    }}>
         {showAs==0?(
             cecha=="Cialo" ?
             <img src={cialoIcon} alt="cialoIcon" /> :
