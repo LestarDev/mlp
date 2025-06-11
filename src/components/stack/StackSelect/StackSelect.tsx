@@ -3,6 +3,8 @@ import umiejetnosciType from "../../../config/types/umiejetnosciType";
 import usePlayer from "../../../hooks/usePlayer"
 import TalentyStack from "../TalentyStack/TalentyStack";
 import CechaBox from "../../CechaBox/CechaBox";
+import EqStack from "../EqStack/EqStack";
+import SearchStack from "../SearchStack/SearchStack";
 
 const StackSelect = () => {
 
@@ -26,6 +28,10 @@ const StackSelect = () => {
                 <CechaBox cecha="Umysl" showAs={2} value={player.Umysl} key={"Umysl"} />
                 <CechaBox cecha="Urok" showAs={3} value={player.Urok} key={"Urok"} />
             </div> :
+            player.wybranyTyp=="Ekwipunek"?
+            <EqStack isAdmin></EqStack> :
+            player.wybranyTyp=="Search" ?
+            <SearchStack /> :
             nothing.nazwa
         }
     </>

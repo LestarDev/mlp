@@ -12,7 +12,7 @@ const FooterIcons = ({setPage}: pageType) => {
 
     return <footer>
         <BsSearchHeart onClick={()=>{
-
+            player.setNewSection("Search");
         }} />
         <PiListHeart onClick={()=>{
             player.setNewSection("Talenty")

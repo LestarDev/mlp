@@ -34,8 +34,9 @@ const MainPage = ({setPage}: pageType) => {
     },[])
 
     useEffect(()=>{
-        fetch(`https://my-json-server.typicode.com/lestardev/mlp/accounts?id=${player.idUzytkownika}`).then(data => data.json()).then(v => {
-            const playerData = v[0] as singlePlayerType;
+        fetch(`https://my-json-server.typicode.com/lestardev/mlp/accounts`).then(data => data.json()).then(v => {
+            console.log(v);
+            const playerData = v[player.idUzytkownika-1] as singlePlayerType;
             player.setNewNick(playerData.nick);
             document.title=`Uniwerse RPG - ${playerData.nick}`
             player.setNewLvl(playerData.lvl);
