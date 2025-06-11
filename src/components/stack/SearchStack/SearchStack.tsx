@@ -6,7 +6,7 @@ const SearchStack = () => {
     return <div className="search-section">
         <form>
             <div><img src={kostkaIcon} alt="kostka" /></div>
-            <input type="search" name="search" id="search" />
+            <input type="search" name="search" placeholder="Szukaj" id="search" />
             <div>
                 <IoClose />
             </div>

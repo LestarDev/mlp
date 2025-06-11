@@ -35,8 +35,8 @@ const Menu = ({setPage}: pageType) => {
                             player.setNewSection("Cechy");
                         }}>Cechy</button>
                         <button onClick={()=>{
-                            player.setNewSection("Handouty");
-                        }}>Handouty</button>
+                            player.setNewSection("Search");
+                        }}>Search</button>
                     </div>
                     <div>
                         <LogoutButton setPage={setPage} />
