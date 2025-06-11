@@ -80,6 +80,10 @@ const MainPage = ({setPage}: pageType) => {
 
     return <>
 
+        <div className="background-fixed">
+
+        </div>
+
         <Menu setPage={setPage} />
 
         <Header />

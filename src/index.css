@@ -11,9 +11,18 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+.background-fixed{
   background-image: url('./assets/TLO_80.svg');
   background-blend-mode: color;
-  background-size: cover
+  background-size: cover;
+  position: fixed;
+  top:0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
 }
 
   @font-face {
