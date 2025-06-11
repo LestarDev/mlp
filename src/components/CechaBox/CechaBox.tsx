@@ -17,13 +17,13 @@ const CechaBox = ({cecha, value, showAs}: cechaBoxType) => {
     const player = usePlayer();
 
     return <div className="cechaBox" style={{"--showAs": showAs} as React.CSSProperties}>
-        {
+        {showAs==0?(
             cecha=="Cialo" ?
             <img src={cialoIcon} alt="cialoIcon" /> :
             cecha == "Urok"?
             <img src={urokIcon} alt="urokIcon" /> :
             <img src={umyslIcon} alt="umyslIcon" />
-        }
+        ):""}
         <div>
             <span>{cecha}</span>
             <span>{player.recalculateToDices(value)}</span>

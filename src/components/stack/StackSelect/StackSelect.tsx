@@ -24,9 +24,9 @@ const StackSelect = () => {
             <TalentyStack id={player.idUzytkownika} isAdmin={false} adminSet={setNothing} /> :
             player.wybranyTyp == "Cechy" ?
             <div className="mainCechy">
-                <CechaBox cecha="Cialo" showAs={1} value={player.Cialo} key={"cialo"} />
-                <CechaBox cecha="Umysl" showAs={2} value={player.Umysl} key={"Umysl"} />
-                <CechaBox cecha="Urok" showAs={3} value={player.Urok} key={"Urok"} />
+                <CechaBox cecha="Cialo" showAs={0} value={player.Cialo} key={"cialo"} />
+                <CechaBox cecha="Umysl" showAs={0} value={player.Umysl} key={"Umysl"} />
+                <CechaBox cecha="Urok" showAs={0} value={player.Urok} key={"Urok"} />
             </div> :
             player.wybranyTyp=="Ekwipunek"?
             <EqStack isAdmin></EqStack> :

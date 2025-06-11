@@ -16,6 +16,15 @@
   background-size: cover
 }
 
+  @font-face {
+    font-family: "BigMovie";
+    src: url("./assets/Big_Movie.otf") format("opentype");
+  }
+
+  *{
+    font-family: "BigMovie";
+  }
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -146,10 +155,34 @@ footer svg{
     height: 3rem;
     background: transparent;
     border: none;
-    font-size: large;
+    font-size: 40px;
 }
 
 form + div > div > *{
   border: 1px solid;
   background: rgb(121,91,137,0.35);
+}
+
+.cechy-to-click{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cechy-to-click > div{
+  width: calc(33.3333% - (5rem / 3));
+  height: 5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: rgb(121,91,137,0.35);
+}
+
+.cechy-to-click .cechaBox div{
+  justify-content: center;
+  gap: 0.5rem;
+
+  flex-direction: row;
+}
+
+.player-main-info button{
+  padding: 0.5rem 1rem;
 }

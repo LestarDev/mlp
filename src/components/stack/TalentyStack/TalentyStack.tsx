@@ -4,6 +4,7 @@ import umiejetnosciType from "../../../config/types/umiejetnosciType";
 import Talent from "../../Talent/Talent";
 import "./TalentyStack.css"
 import React from "react";
+import CechaBox from "../../CechaBox/CechaBox";
 
 const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminSet: React.Dispatch<React.SetStateAction<umiejetnosciType>>}) => {
 
@@ -20,13 +21,13 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
 
     const [allTalentyJSX, setAllTalentyJSX] = useState<React.JSX.Element[]>([]);
 
-    const [search, setSearch] = useState("");
+    // const [search, setSearch] = useState("");
 
     // console.log(player)
 
-    function capitalizeFirstLetter(val: string) {
-        return String(val).charAt(0).toUpperCase() + String(val).slice(1);
-    }
+    // function capitalizeFirstLetter(val: string) {
+    //     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+    // }
 
     useEffect(()=>{
 
@@ -71,7 +72,7 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
         // })
             
             player.umiejetnosci.forEach((el,i)=>{
-                if(!(el.nazwa.includes(capitalizeFirstLetter(search)) || el.nazwa.includes(search.toLowerCase()))) return;
+                // if(!(el.nazwa.includes(capitalizeFirstLetter(search)) || el.nazwa.includes(search.toLowerCase()))) return;
                 if(lastValue!=el.ranga){
                     setAllTalentyJSX(preV=>[...preV, <span className="otherRanga" key={"1"+i+talentyStackId}>{player.getRangaOfUmiejka(el.ranga)}</span>]);
                     lastValue=el.ranga;
@@ -85,17 +86,24 @@ const TalentyStack = ({isAdmin, adminSet}: {id: number, isAdmin: boolean, adminS
             // player.rerollPage();
 
 
-    },[search, player.umiejetnosci])
+    },[player.umiejetnosci])
 
 
     return <div className="allTalenty">
         
-        <input type="search" name="searchUmiejka" id="searchUmiejka" placeholder="Szukaj" onChange={(e)=>setSearch(e.target.value)} />
+        {/* <input type="search" name="searchUmiejka" id="searchUmiejka" placeholder="Szukaj" onChange={(e)=>setSearch(e.target.value)} /> */}
         {/* <form>
             <label>Cialo<input type="radio" name="Cialo" /></label>
             <label>Umysl<input type="radio" name="Umysl" /></label>
             <label>Urok<input type="radio" name="Urok" /></label>
         </form> */}
+
+        <div className="cechy-to-click">
+            <CechaBox cecha="Cialo" showAs={1} value={player.Cialo} />
+            <CechaBox cecha="Umysl" showAs={1} value={player.Umysl} />
+            <CechaBox cecha="Urok" showAs={1} value={player.Urok} />
+        </div>
+
         {
             allTalentyJSX
         }
