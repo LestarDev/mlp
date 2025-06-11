@@ -10,13 +10,13 @@
     gap: 0.5rem;
 }
 
-.allTalenty div:nth-child(odd) .singleTalent{
+.allTalenty div.singleTalent{
     border: 1px solid;
     border-radius: 45px;
     box-shadow: 1px 1px 10px black;
     height: 32px;
 }
 
-.allTalenty div:nth-child(odd) .singleTalent img{
+.allTalenty div .singleTalent img{
     display: none;
 }
