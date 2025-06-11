@@ -10,7 +10,7 @@ import "./MainPage.css";
 import "./Extension/Extension.css"
 import singlePlayerType from "../../config/types/databaseType";
 import FooterIcons from "../../components/FooterIcons/FooterIcons";
-import iconAmbrose from "./../../assets/ambrosee.png"
+import iconAmbrose from "./../../assets/ramkaAMBROSE.svg"
 import iconErin from "./../../assets/ramka_erin.svg"
 import iconKayn from "./../../assets/ramka_kayn.svg"
 
