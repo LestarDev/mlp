@@ -109,11 +109,10 @@ const LoginPage = ({setPage}: pageType) => {
             }}>ZALOGUJ</button>
         
     </form>
-
-    <div className="animated-border-box-container">
-
         <div className="animated-border-box-glow"></div>
-    </div>
+
+
+
     
     </>
 }

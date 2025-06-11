@@ -57,19 +57,20 @@
 }
 
 .animated-border-box-container{
-    height: 356px;
     width: 100vw;
-    position: absolute;
     display: flex;
-    transform: translateY(calc(-100% + 10px));
-    z-index: -1;
     padding: 10px 0;
     overflow: hidden; 
 }
 
 .animated-border-box-glow{
+    z-index: -1;
+    position: absolute;
+    transform: translateY(calc(-100% + 5px)) translateX(calc(25% - 10px));
     height: 356px;
+    border-radius: 15px;
     width: 270px;
+    padding: 5px;
     /* left:0; */
     display: flex;
     margin: auto;
@@ -80,11 +81,11 @@
 	position: absolute;
 	z-index: -1;
   /* border width */
-	left: 5px;
-	top: 5px;
+	left: 10px;
+	top: 10px;
   /* double the px from the border width left */
-	width: calc(100% - 10px);
-	height: calc(100% - 10px);
+	width: calc(100% - 20px);
+	height: calc(100% - 20px);
   /*bg color*/
 	background: #292a2e;
   /*box border radius*/
@@ -99,7 +100,8 @@
 
 .animated-border-box:before, .animated-border-box-glow:before {
     content: '';
-    z-index: -2;
+    overflow: hidden;
+    z-index: -1;
     text-align: center;
       top: 50%;
       left: 50%;
@@ -110,15 +112,17 @@
       background-repeat: no-repeat;
       background-position: 0 0;
     /*border color, change middle color*/
-      background-image: conic-gradient(rgba(0,0,0,0), rgb(121,91,137) 100%, rgba(0,0,0,0)25%);
+      background-image: conic-gradient(rgba(0,0,0,0), rgb(121,91,137), rgba(0,0,0,0)25%);
     /* change speed here */
       animation: rotate 6s linear infinite;
+      border-radius: 15px;
+      box-shadow: 1px 1px 1px white;
   }
 
   .animated-border-box-glow{
     overflow: hidden;
     /* Glow Blur */
-    filter: blur(20px);
+    /* filter: blur(20px); */
   } 
 
 
