@@ -156,6 +156,7 @@ footer svg{
     background: transparent;
     border: none;
     font-size: 40px;
+    width: 50%;
 }
 
 form + div > div > *{

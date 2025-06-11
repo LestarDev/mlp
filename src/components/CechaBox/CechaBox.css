@@ -20,12 +20,12 @@
     color:black;
     /* opacity: 0.7; */
     background: rgb(121,91,137,0.5);
-    font-size: 55px;
+    font-size: 250%;
 }
 
 .cechaBox span{
     height: 2rem;
-    transform: translateY(-75%);
+    transform: translateY(-50%);
 }
 
 .cechaBox img{
