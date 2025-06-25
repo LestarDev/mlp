@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import pageType from "../../config/types/pageType"
 import usePlayer from "../../hooks/usePlayer";
 import "./LoginPage.css"
-import { adminPageID, mainPageID } from "../../config/config";
+import { adminPageID } from "../../config/config";
 import sql from "../../hooks/backend/sql";
 
 const LoginPage = ({setPage}: pageType) => {
