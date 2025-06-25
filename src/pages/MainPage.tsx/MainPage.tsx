@@ -20,6 +20,8 @@ const MainPage = ({setPage}: pageType) => {
 
     const player = usePlayer();
 
+    console.log(player);
+
     useEffect(()=>{
         const saveIdToLocalHost = () => {
             localStorage.setItem("id", player.idUzytkownika.toString());

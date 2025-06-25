@@ -46,17 +46,19 @@ const LoginPage = ({setPage}: pageType) => {
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
 
+            console.log(data);
+
             if(Number(data[0])!=1 && tryToLogin!=0) {
                 setTryToLogin(-1);
                 return;
             }
 
-            player.setNewIdUzytkownika(Number(data[0]));
-            player.setNewNick(data[1]);
-            player.setNewRasa(data[2]);
-            player.setNewLvl(Number(data[3]));
+            player.setNewIdUzytkownika(Number(data[1]));
+            player.setNewNick(data[2]);
+            player.setNewRasa(data[3]);
+            player.setNewLvl(Number(data[4]));
             console.log("lvl",player.lvl)
-            setPage(mainPageID)
+            // setPage(mainPageID)
         })
 
 
