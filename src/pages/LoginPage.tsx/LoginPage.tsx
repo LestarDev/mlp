@@ -47,11 +47,11 @@ const LoginPage = ({setPage}: pageType) => {
             player.setNewMonety(Number(data[9]))
             player.setNewImgLink(data[10])
             player.setNewSection("Cechy")
-            
-        });
-
             setPage(mainPageID);
             return;
+        });
+
+            
         }
 
         const login = refLogin.current?.value;
