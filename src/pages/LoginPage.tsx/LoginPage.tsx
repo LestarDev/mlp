@@ -30,6 +30,7 @@ const LoginPage = ({setPage}: pageType) => {
         postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.id='${player.idUzytkownika}';`;
 
         fetch(sql(queryRestore)).then(response=>response.json()).then((data: string[])=>{
+            console.log(data);
             player.setNewNick(data[1]);
             player.setNewRasa(data[2]);
             player.setNewLvl(Number(data[3]));
