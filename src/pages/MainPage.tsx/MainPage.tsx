@@ -60,8 +60,8 @@ const MainPage = ({setPage}: pageType) => {
            )
 
            fetch(sql(`SELECT umiejetnosci.Id, umiejetnosci.nazwa, umiejetnosci.id_ranga, rangi_talenty.nazwa, umiejetnosci.value, cechy.nazwa FROM umiejetnosci INNER JOIN rangi_talenty ON rangi_talenty.Id=umiejetnosci.id_ranga INNER JOIN cechy ON cechy.Id=umiejetnosci.id_cecha WHERE umiejetnosci.id_player=${player.idUzytkownika};`)).then(v=>v.json()).then((data: []) => {
-            data.shift();
             console.log(data)
+            data.shift();
             const umiejetnosciList: umiejetnosciType[] = [];
             const przeskok = 6;
             for(let i=0; i<data.length/przeskok;i+=przeskok){
