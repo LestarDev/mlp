@@ -14,6 +14,7 @@ import iconAmbrose from "./../../assets/ramkaAMBROSE.svg"
 import iconErin from "./../../assets/ramka_erin.svg"
 import iconKayn from "./../../assets/ramka_kayn.svg"
 import sql from "../../hooks/backend/sql";
+import umiejetnosciType from "../../config/types/umiejetnosciType";
 
 // const iconNeferii:string = "", iconMalphite:string = "";
 
@@ -58,9 +59,21 @@ const MainPage = ({setPage}: pageType) => {
             iconKayn
            )
 
-           fetch(sql(`SELECT umiejetnosci.nazwa, umiejetnosci.id_ranga, rangi_talenty.nazwa, umiejetnosci.value, cechy.nazwa FROM umiejetnosci INNER JOIN rangi_talenty ON rangi_talenty.Id=umiejetnosci.id_ranga INNER JOIN cechy ON cechy.Id=umiejetnosci.id_cecha WHERE umiejetnosci.id_player=${player.idUzytkownika};`)).then(v=>v.json()).then((data: []) => {
+           fetch(sql(`SELECT umiejetnosci.Id, umiejetnosci.nazwa, umiejetnosci.id_ranga, rangi_talenty.nazwa, umiejetnosci.value, cechy.nazwa FROM umiejetnosci INNER JOIN rangi_talenty ON rangi_talenty.Id=umiejetnosci.id_ranga INNER JOIN cechy ON cechy.Id=umiejetnosci.id_cecha WHERE umiejetnosci.id_player=${player.idUzytkownika};`)).then(v=>v.json()).then((data: []) => {
             data.shift();
             console.log(data)
+            const umiejetnosciList: umiejetnosciType[] = [];
+            const przeskok = 6;
+            for(let i=0; i<data.length/przeskok;i+=przeskok){
+                umiejetnosciList.push({
+                    id: Number(data[i]),
+                    nazwa: data[i+1],
+                    ranga: Number(data[i+2]),
+                    cecha: data[i+5],
+                    value: data[i+4]
+                })
+            }
+            player.setNewUmiejetnosci([...player.umiejetnosci, ...umiejetnosciList])
            })
 
         // });
