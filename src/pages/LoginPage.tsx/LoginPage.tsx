@@ -46,6 +46,7 @@ const LoginPage = ({setPage}: pageType) => {
             player.setNewExp(Number(data[8]))
             player.setNewMonety(Number(data[9]))
             player.setNewImgLink(data[10])
+            player.setNewSection("Cechy")
             
         });
 
@@ -97,6 +98,7 @@ const LoginPage = ({setPage}: pageType) => {
             player.setNewExp(Number(data[9]))
             player.setNewMonety(Number(data[10]))
             player.setNewImgLink(data[11])
+            player.setNewSection("Cechy")
             setPage(mainPageID)
         })
 
