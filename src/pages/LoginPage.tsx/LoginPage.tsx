@@ -27,7 +27,7 @@ const LoginPage = ({setPage}: pageType) => {
 
             const queryRestore = `SELECT postac.nick, rasy.name, postac.lvl, 
         rasy.main_ability_name, postac.cialo, postac.umysl, postac.urok, 
-        postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.Id='${player.idUzytkownika}';`;
+        postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.Id='${tryItem}';`;
 
         fetch(sql(queryRestore)).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
