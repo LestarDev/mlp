@@ -19,14 +19,14 @@ const LoginPage = ({setPage}: pageType) => {
 
     useEffect(()=>{
 
-        // const tryItem = localStorage.getItem("id");
+        const tryItem = localStorage.getItem("id");
 
-        // if(tryItem){
-        //     localStorage.removeItem("id");
-        //     player.setNewIdUzytkownika(Number(tryItem));
-        //     setPage(mainPageID);
-        //     return;
-        // }
+        if(tryItem){
+            localStorage.removeItem("id");
+            player.setNewIdUzytkownika(Number(tryItem));
+            setPage(mainPageID);
+            return;
+        }
 
         const login = refLogin.current?.value;
         const password = refPassword.current?.value;
@@ -42,7 +42,9 @@ const LoginPage = ({setPage}: pageType) => {
             return;
         }
 
-        const query = `SELECT postac.Id, postac.nick, rasy.name, postac.lvl, rasy.main_ability_name, postac.cialo, postac.umysl, postac.urok, postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.login='${login}' AND postac.password='${password}';`;
+        const query = `SELECT postac.Id, postac.nick, rasy.name, postac.lvl, 
+        rasy.main_ability_name, postac.cialo, postac.umysl, postac.urok, 
+        postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.login='${login}' AND postac.password='${password}';`;
 
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
 
@@ -64,7 +66,12 @@ const LoginPage = ({setPage}: pageType) => {
                 ranga: 6,
                 value: player.lvl > 20 ? 5 : Math.ceil(player.lvl/5 + 1)
             }]);
-            console.log("lvl",player.lvl)
+            player.setNewCialo(Number(data[6]))
+            player.setNewUmysl(Number(data[7]))
+            player.setNewUrok(Number(data[8]))
+            player.setNewExp(Number(data[9]))
+            player.setNewMonety(Number(data[10]))
+            player.setNewImgLink(data[11])
             setPage(mainPageID)
         })
 
