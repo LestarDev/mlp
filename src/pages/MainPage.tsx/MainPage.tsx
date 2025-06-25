@@ -10,9 +10,9 @@ import "./MainPage.css";
 import "./Extension/Extension.css"
 // import singlePlayerType from "../../config/types/databaseType";
 import FooterIcons from "../../components/FooterIcons/FooterIcons";
-// import iconAmbrose from "./../../assets/ramkaAMBROSE.svg"
-// import iconErin from "./../../assets/ramka_erin.svg"
-// import iconKayn from "./../../assets/ramka_kayn.svg"
+import iconAmbrose from "./../../assets/ramkaAMBROSE.svg"
+import iconErin from "./../../assets/ramka_erin.svg"
+import iconKayn from "./../../assets/ramka_kayn.svg"
 
 // const iconNeferii:string = "", iconMalphite:string = "";
 
@@ -51,14 +51,11 @@ const MainPage = ({setPage}: pageType) => {
         //         return a.ranga - b.ranga;
         //     }));
             
-        //    player.setNewImgLink(
-        //     player.idUzytkownika==1?iconAmbrose:
-        //     player.idUzytkownika==2?iconErin:
-        //     player.idUzytkownika==3?iconKayn:
-        //     player.idUzytkownika==4?iconNeferii:
-        //     iconMalphite
-
-        //    )
+           player.setNewImgLink(
+            player.idUzytkownika==1?iconErin:
+            player.idUzytkownika==2?iconAmbrose:
+            iconKayn
+           )
         // });
         // console.log("Player id:",player.idUzytkownika);
         // fetch(sql(`SELECT nick, lvl, exp, cialo, umysl, urok, monety, portret, rnHP, maxChar, dodNici, dodHP FROM postac WHERE Id_uzytkownika="${player.idUzytkownika}"`)).then(response=>response.json()).then((data: string[])=>{
