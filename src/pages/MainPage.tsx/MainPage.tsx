@@ -58,8 +58,9 @@ const MainPage = ({setPage}: pageType) => {
             iconKayn
            )
 
-           fetch(sql(`SELECT umiejetnosci.nazwa, umiejetnosci.id_ranga, rangi_talenty.nazwa, umiejetnosci.value, cechy.nazwa FROM umiejetnosci INNER JOIN rangi_talenty ON rangi_talenty.Id=umiejetnosci.id_ranga INNER JOIN cechy ON cechy.Id=umiejetnosci.id_cecha WHERE umiejetnosci.id_player=${player.idUzytkownika};`)).then(v=>v.json()).then(data => {
-            console.log(data);
+           fetch(sql(`SELECT umiejetnosci.nazwa, umiejetnosci.id_ranga, rangi_talenty.nazwa, umiejetnosci.value, cechy.nazwa FROM umiejetnosci INNER JOIN rangi_talenty ON rangi_talenty.Id=umiejetnosci.id_ranga INNER JOIN cechy ON cechy.Id=umiejetnosci.id_cecha WHERE umiejetnosci.id_player=${player.idUzytkownika};`)).then(v=>v.json()).then((data: []) => {
+            const dataTODO = data.pop();
+            console.log(dataTODO)
            })
 
         // });
