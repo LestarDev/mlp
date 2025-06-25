@@ -48,7 +48,7 @@ const LoginPage = ({setPage}: pageType) => {
             player.setNewImgLink(data[10])
             player.setNewSection("Cechy")
             setPage(mainPageID);
-            return;
+            // return;
         });
 
             
