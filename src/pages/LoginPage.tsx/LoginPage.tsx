@@ -78,6 +78,7 @@ const LoginPage = ({setPage}: pageType) => {
             <label><span>Haslo</span> <input type="password" ref={refPassword} /></label>
         </div>
         { 
+            tryToLogin>0 ? <p>Fetching...</p> :
             tryToLogin!=0 ? <p className="wrongLogin">Zly login lub haslo</p> :
             ""
         }
