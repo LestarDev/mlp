@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import pageType from "../../config/types/pageType"
 import usePlayer from "../../hooks/usePlayer";
 import "./LoginPage.css"
-import { adminPageID } from "../../config/config";
+import { adminPageID, mainPageID } from "../../config/config";
 import sql from "../../hooks/backend/sql";
 
 const LoginPage = ({setPage}: pageType) => {
@@ -65,7 +65,7 @@ const LoginPage = ({setPage}: pageType) => {
                 value: player.lvl > 20 ? 5 : Math.ceil(player.lvl/5 + 1)
             }]);
             console.log("lvl",player.lvl)
-            // setPage(mainPageID)
+            setPage(mainPageID)
         })
 
 
