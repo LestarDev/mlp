@@ -64,7 +64,7 @@ const MainPage = ({setPage}: pageType) => {
             data.shift();
             const umiejetnosciList: umiejetnosciType[] = [];
             const przeskok = 6;
-            for(let i=0; i<data.length/przeskok;i+=przeskok){
+            for(let i=0; i<data.length;i+=przeskok){
                 umiejetnosciList.push({
                     id: Number(data[i]),
                     nazwa: data[i+1],
