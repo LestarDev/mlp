@@ -58,7 +58,7 @@ const LoginPage = ({setPage}: pageType) => {
             player.setNewRasa(data[3]);
             player.setNewLvl(Number(data[4]));
             console.log("lvl",player.lvl)
-            // setPage(mainPageID)
+            setPage(mainPageID)
         })
 
 
