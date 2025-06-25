@@ -19,14 +19,14 @@ const LoginPage = ({setPage}: pageType) => {
 
     useEffect(()=>{
 
-        const tryItem = localStorage.getItem("id");
+        // const tryItem = localStorage.getItem("id");
 
-        if(tryItem){
-            localStorage.removeItem("id");
-            player.setNewIdUzytkownika(Number(tryItem));
-            setPage(mainPageID);
-            return;
-        }
+        // if(tryItem){
+        //     localStorage.removeItem("id");
+        //     player.setNewIdUzytkownika(Number(tryItem));
+        //     setPage(mainPageID);
+        //     return;
+        // }
 
         const login = refLogin.current?.value;
         const password = refPassword.current?.value;
@@ -57,8 +57,15 @@ const LoginPage = ({setPage}: pageType) => {
             player.setNewNick(data[2]);
             player.setNewRasa(data[3]);
             player.setNewLvl(Number(data[4]));
+            player.setNewUmiejetnosci([{
+                cecha: "Cialo",
+                id: -1,
+                nazwa: data[5],
+                ranga: 6,
+                value: player.lvl > 20 ? 5 : Math.ceil(player.lvl/5 + 1)
+            }]);
             console.log("lvl",player.lvl)
-            setPage(mainPageID)
+            // setPage(mainPageID)
         })
 
 
