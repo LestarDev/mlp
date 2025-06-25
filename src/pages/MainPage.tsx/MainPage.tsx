@@ -13,6 +13,7 @@ import FooterIcons from "../../components/FooterIcons/FooterIcons";
 import iconAmbrose from "./../../assets/ramkaAMBROSE.svg"
 import iconErin from "./../../assets/ramka_erin.svg"
 import iconKayn from "./../../assets/ramka_kayn.svg"
+import sql from "../../hooks/backend/sql";
 
 // const iconNeferii:string = "", iconMalphite:string = "";
 
@@ -56,6 +57,11 @@ const MainPage = ({setPage}: pageType) => {
             player.idUzytkownika==2?iconAmbrose:
             iconKayn
            )
+
+           fetch(sql(`SELECT umiejetnosci.nazwa, umiejetnosci.id_ranga, rangi_talenty.nazwa, umiejetnosci.value, cechy.nazwa FROM umiejetnosci INNER JOIN rangi_talenty ON rangi_talenty.Id=umiejetnosci.id_ranga INNER JOIN cechy ON cechy.Id=umiejetnosci.id_cecha WHERE umiejetnosci.id_player=${player.idUzytkownika};`)).then(v=>v.json()).then(data => {
+            console.log(data);
+           })
+
         // });
         // console.log("Player id:",player.idUzytkownika);
         // fetch(sql(`SELECT nick, lvl, exp, cialo, umysl, urok, monety, portret, rnHP, maxChar, dodNici, dodHP FROM postac WHERE Id_uzytkownika="${player.idUzytkownika}"`)).then(response=>response.json()).then((data: string[])=>{
