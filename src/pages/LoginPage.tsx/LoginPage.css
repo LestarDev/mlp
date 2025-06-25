@@ -35,6 +35,8 @@
 .wrongLogin{
     color: red;
     font-style: italic;
+    position: absolute;
+    top: 2.5rem;
 }
 
 .loginForm input{

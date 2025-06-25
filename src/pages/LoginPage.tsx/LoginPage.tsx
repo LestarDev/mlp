@@ -24,6 +24,31 @@ const LoginPage = ({setPage}: pageType) => {
         if(tryItem){
             localStorage.removeItem("id");
             player.setNewIdUzytkownika(Number(tryItem));
+
+            const queryRestore = `SELECT postac.nick, rasy.name, postac.lvl, 
+        rasy.main_ability_name, postac.cialo, postac.umysl, postac.urok, 
+        postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.id='${player.idUzytkownika}';`;
+
+        fetch(sql(queryRestore)).then(response=>response.json()).then((data: string[])=>{
+            player.setNewNick(data[1]);
+            player.setNewRasa(data[2]);
+            player.setNewLvl(Number(data[3]));
+            player.setNewUmiejetnosci([{
+                cecha: "Cialo",
+                id: -1,
+                nazwa: data[4],
+                ranga: 6,
+                value: player.lvl > 20 ? 5 : Math.ceil(player.lvl/5 + 1)
+            }]);
+            player.setNewCialo(Number(data[5]))
+            player.setNewUmysl(Number(data[6]))
+            player.setNewUrok(Number(data[7]))
+            player.setNewExp(Number(data[8]))
+            player.setNewMonety(Number(data[9]))
+            player.setNewImgLink(data[10])
+            
+        });
+
             setPage(mainPageID);
             return;
         }
