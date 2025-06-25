@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
-import { choosenType, setCialo, setExp, setIdUzytkownika, setImgLink, setLvl, setNick, setRefreshPage, setSzczescie, setUmiejetnosci, setUmysl, setUrok, setWybranyTyp, setZloteGalopy } from "../config/currentSlice";
+import { choosenType, setCialo, setExp, setIdUzytkownika, setImgLink, setLvl, setNick, setRasa, setRefreshPage, setUmiejetnosci, setUmysl, setUrok, setWybranyTyp, setZloteGalopy } from "../config/currentSlice";
 import umiejetnosciType from "../config/types/umiejetnosciType";
 
 const usePlayer = () => {
 
     const dispatch = useDispatch();
 
-    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Szczescie, Urok, wybranyTyp, exp, umiejetnosci, imgLink, zloteGalopy}: {
-        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, Szczescie: number, wybranyTyp: choosenType, exp: number, umiejetnosci: umiejetnosciType[], imgLink: string, zloteGalopy: string,       
+    const {nick,dodHP, lvl, Umysl, refreshPage, Cialo, idUzytkownika, Urok, wybranyTyp, exp, umiejetnosci, imgLink, zloteGalopy, rasa}: {
+        nick: string, dodHP: number, lvl: number, Cialo: number, Umysl: number, Urok: number, refreshPage: boolean, idUzytkownika: number, wybranyTyp: choosenType, exp: number, umiejetnosci: umiejetnosciType[], imgLink: string, zloteGalopy: string, rasa:string,       
     } = (useSelector((state: any) => state) as any).currency;
 
     // const cechy: cechyType[] = ["Cialo", "Umysl", "Urok"]
@@ -49,8 +49,8 @@ const usePlayer = () => {
         dispatch(setUrok(newUrok));
     }
 
-    const setNewSzczescie = (newSzczescie: number) => {
-        dispatch(setSzczescie(newSzczescie));
+    const setNewRasa = (newRasa: string) => {
+        dispatch(setRasa(newRasa));
     }
 
     const setNewNick = (newNick: string) => {
@@ -92,7 +92,7 @@ const usePlayer = () => {
         setNewLvl(0);
         setNewMonety(0);
         setNewNick("");
-        setNewSzczescie(0);
+        setNewRasa("");
         setNewUmiejetnosci([]);
         setNewUmysl(0);
         setNewUrok(0);
@@ -101,8 +101,8 @@ const usePlayer = () => {
 
     return ({
         getRangaOfUmiejka, runRefreshPage, calculateHP, recalculateToDices, clear, rerollPage,
-        setNewIdUzytkownika, setNewSzczescie, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety, setNewUmiejetnosci, setNewImgLink, setNewSection,
-        nick, Cialo, Szczescie, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp, umiejetnosci, imgLink, zloteGalopy,
+        setNewIdUzytkownika, setNewRasa, setNewCialo, setNewUmysl, setNewUrok, setNewNick, setNewLvl, setNewExp, setNewMonety, setNewUmiejetnosci, setNewImgLink, setNewSection,
+        nick, Cialo, Umysl, Urok, dodHP, lvl, idUzytkownika, wybranyTyp, refreshPage, exp, umiejetnosci, imgLink, zloteGalopy, rasa,
     })
 }
 

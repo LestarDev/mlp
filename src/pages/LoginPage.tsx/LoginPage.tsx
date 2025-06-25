@@ -3,6 +3,7 @@ import pageType from "../../config/types/pageType"
 import usePlayer from "../../hooks/usePlayer";
 import "./LoginPage.css"
 import { adminPageID, mainPageID } from "../../config/config";
+import sql from "../../hooks/backend/sql";
 
 const LoginPage = ({setPage}: pageType) => {
 
@@ -41,47 +42,25 @@ const LoginPage = ({setPage}: pageType) => {
             return;
         }
 
-        // const query = `SELECT id FROM uzytkownik WHERE login="${login}" and password="${password}";`;
+        const query = `SELECT postac.Id, postac.nick, rasy.name, postac.lvl, rasy.main_ability_name, postac.cialo, postac.umysl, postac.urok, postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.login='${login}' AND postac.password='${password}';`;
 
-        // fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
+        fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
 
-        //     if(Number(data[0])!=1 && tryToLogin!=0) {
-        //         setTryToLogin(-1);
-        //         return;
-        //     }
+            if(Number(data[0])!=1 && tryToLogin!=0) {
+                setTryToLogin(-1);
+                return;
+            }
 
-        //     player.setNewIdUzytkownika(Number(data[1]));
-        //     setPage(mainPageID)
-        // })
-
-        if (login=="x" && password=="x"){
-            player.setNewIdUzytkownika(1);
-            setPage(mainPageID);
-        } 
-
-        if(login=="Erin" && password=="11037"){
-            player.setNewIdUzytkownika(2)
+            player.setNewIdUzytkownika(Number(data[0]));
+            player.setNewNick(data[1]);
+            player.setNewRasa(data[2]);
+            player.setNewLvl(Number(data[3]));
+            console.log("lvl",player.lvl)
             setPage(mainPageID)
-        }
+        })
 
-        if(login=="Kwiatuszek" && password=="KochamGo"){
-            player.setNewIdUzytkownika(4)
-            setPage(mainPageID)
-        }
 
-        if(login=="haslo" && password=="1234"){
-            player.setNewIdUzytkownika(3)
-            setPage(mainPageID)
-        }
-
-        if(login=="chęć" && password=="4321"){
-            player.setNewIdUzytkownika(5)
-            setPage(mainPageID)
-        }
-
-        
-
-    },[tryToLogin])
+    },[tryToLogin,player.refreshPage])
 
     const increment = (v: number) => {
         return v+1;
@@ -98,9 +77,8 @@ const LoginPage = ({setPage}: pageType) => {
             <label><span>Login</span> <input type="text" ref={refLogin} /></label>
             <label><span>Haslo</span> <input type="password" ref={refPassword} /></label>
         </div>
-        {
-            tryToLogin>0 ? <p>Fetching...</p> : 
-            tryToLogin==-1 ? <p className="wrongLogin">Zly login lub haslo</p> :
+        { 
+            tryToLogin!=0 ? <p className="wrongLogin">Zly login lub haslo</p> :
             ""
         }
         <button role="submit" onClick={(e)=>{

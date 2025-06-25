@@ -8,13 +8,13 @@ import StackSelect from "../../components/stack/StackSelect/StackSelect";
 import "./MainPage.css";
 // import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import "./Extension/Extension.css"
-import singlePlayerType from "../../config/types/databaseType";
+// import singlePlayerType from "../../config/types/databaseType";
 import FooterIcons from "../../components/FooterIcons/FooterIcons";
-import iconAmbrose from "./../../assets/ramkaAMBROSE.svg"
-import iconErin from "./../../assets/ramka_erin.svg"
-import iconKayn from "./../../assets/ramka_kayn.svg"
+// import iconAmbrose from "./../../assets/ramkaAMBROSE.svg"
+// import iconErin from "./../../assets/ramka_erin.svg"
+// import iconKayn from "./../../assets/ramka_kayn.svg"
 
-const iconNeferii:string = "", iconMalphite:string = "";
+// const iconNeferii:string = "", iconMalphite:string = "";
 
 const MainPage = ({setPage}: pageType) => {
 
@@ -34,30 +34,30 @@ const MainPage = ({setPage}: pageType) => {
     },[])
 
     useEffect(()=>{
-        fetch(`https://my-json-server.typicode.com/lestardev/mlp/accounts`).then(data => data.json()).then(v => {
-            console.log(v);
-            const playerData = v[player.idUzytkownika-1] as singlePlayerType;
-            player.setNewNick(playerData.nick);
-            document.title=`Uniwerse RPG - ${playerData.nick}`
-            player.setNewLvl(playerData.lvl);
-            player.setNewExp(playerData.exp);
-            player.setNewCialo(playerData.cialo);
-            player.setNewUmysl(playerData.umysl);
-            player.setNewUrok(playerData.urok);
-            player.setNewSection("Cechy")
-            player.setNewUmiejetnosci(playerData.talents.sort(function(a, b) {
-                return a.ranga - b.ranga;
-            }));
+        // fetch(`https://my-json-server.typicode.com/lestardev/mlp/accounts`).then(data => data.json()).then(v => {
+        //     console.log(v);
+        //     const playerData = v[player.idUzytkownika-1] as singlePlayerType;
+        //     player.setNewNick(playerData.nick);
+        //     document.title=`Uniwerse RPG - ${playerData.nick}`
+        //     player.setNewLvl(playerData.lvl);
+        //     player.setNewExp(playerData.exp);
+        //     player.setNewCialo(playerData.cialo);
+        //     player.setNewUmysl(playerData.umysl);
+        //     player.setNewUrok(playerData.urok);
+        //     player.setNewSection("Cechy")
+        //     player.setNewUmiejetnosci(playerData.talents.sort(function(a, b) {
+        //         return a.ranga - b.ranga;
+        //     }));
             
-           player.setNewImgLink(
-            player.idUzytkownika==1?iconAmbrose:
-            player.idUzytkownika==2?iconErin:
-            player.idUzytkownika==3?iconKayn:
-            player.idUzytkownika==4?iconNeferii:
-            iconMalphite
+        //    player.setNewImgLink(
+        //     player.idUzytkownika==1?iconAmbrose:
+        //     player.idUzytkownika==2?iconErin:
+        //     player.idUzytkownika==3?iconKayn:
+        //     player.idUzytkownika==4?iconNeferii:
+        //     iconMalphite
 
-           )
-        });
+        //    )
+        // });
         // console.log("Player id:",player.idUzytkownika);
         // fetch(sql(`SELECT nick, lvl, exp, cialo, umysl, urok, monety, portret, rnHP, maxChar, dodNici, dodHP FROM postac WHERE Id_uzytkownika="${player.idUzytkownika}"`)).then(response=>response.json()).then((data: string[])=>{
         //     console.log(data);

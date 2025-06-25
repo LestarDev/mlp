@@ -11,7 +11,6 @@ export interface CurrentState {
     Umysl: number,
     Cialo: number,
     Urok: number,
-    Szczescie: number,
     idUzytkownika: number,
     wybranyTyp: choosenType,
     refreshPage: boolean,
@@ -19,6 +18,7 @@ export interface CurrentState {
     exp: number,
     umiejetnosci: umiejetnosciType[],
     imgLink: string,
+    rasa: string
 }
 
 
@@ -28,7 +28,7 @@ export const initialState: CurrentState = {
     dodHP: 0,
     idUzytkownika: 0,
     lvl: 0,
-    Szczescie: 0,
+    rasa: "",
     Umysl: 0,
     Urok: 0,
     wybranyTyp: 'Talenty',
@@ -43,6 +43,9 @@ export const thisSlice = createSlice({
     name: "current",
     initialState,
     reducers: {
+        setRasa: (state, action: PayloadAction<string>) => {
+            state.rasa = action.payload;
+        },
         setNick: (state, action: PayloadAction<string>) =>{
             state.nick=action.payload;
         },
@@ -57,9 +60,6 @@ export const thisSlice = createSlice({
         },
         setIdUzytkownika: (state, action: PayloadAction<number>) => {
             state.idUzytkownika = action.payload;
-        },
-        setSzczescie: (state, action: PayloadAction<number>) => {
-            state.Szczescie = action.payload;
         },
         setLvl: (state, action: PayloadAction<number>) => {
             state.lvl = action.payload;
@@ -88,6 +88,6 @@ export const thisSlice = createSlice({
     }
 })
 
-export const {setNick, setCialo, setDodHP, setExp,setIdUzytkownika,setLvl,setSzczescie,setUmysl,setUrok,setZloteGalopy, setRefreshPage, setUmiejetnosci, setImgLink, setWybranyTyp  } = thisSlice.actions
+export const {setNick, setCialo, setDodHP, setExp,setIdUzytkownika,setLvl,setRasa,setUmysl,setUrok,setZloteGalopy, setRefreshPage, setUmiejetnosci, setImgLink, setWybranyTyp  } = thisSlice.actions
 
 export default thisSlice.reducer
