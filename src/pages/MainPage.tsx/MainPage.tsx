@@ -73,7 +73,9 @@ const MainPage = ({setPage}: pageType) => {
                     value: data[i+4]
                 })
             }
-            player.setNewUmiejetnosci([...player.umiejetnosci, ...umiejetnosciList])
+            const tmpList = [...player.umiejetnosci, ...umiejetnosciList];
+            tmpList.sort((a,b)=>a.ranga-b.ranga)
+            player.setNewUmiejetnosci(tmpList)
            })
 
         // });
