@@ -31,6 +31,7 @@ const LoginPage = ({setPage}: pageType) => {
 
         fetch(sql(queryRestore)).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
+            alert(data);
             player.setNewNick(data[1]);
             player.setNewRasa(data[2]);
             player.setNewLvl(Number(data[3]));
