@@ -79,7 +79,7 @@ const LoginPage = ({setPage}: pageType) => {
         rasy.main_ability_name, postac.cialo, postac.umysl, postac.urok, 
         postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.login='${login}' AND postac.password='${password}';`;
         
-        fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
+        fetch(sql(query)).then(response=>response.json()).then((data: any[])=>{
             console.log(data);
             alert(data.toString());
             if(Number(data[0])!=1) {
@@ -107,7 +107,7 @@ const LoginPage = ({setPage}: pageType) => {
             player.setNewSection("Cechy")
             setPage(mainPageID)
         }).catch(error=>{
-            alert(error.toString());
+            alert(error);
             setTryToLogin(-2);
         })
 
