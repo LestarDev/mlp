@@ -21,10 +21,12 @@ const LoginPage = ({setPage}: pageType) => {
 
         const tryItem = localStorage.getItem("id");
 
+
+
         if(tryItem){
             localStorage.removeItem("id");
             player.setNewIdUzytkownika(Number(tryItem));
-
+            alert("restore session");
             const queryRestore = `SELECT postac.nick, rasy.name, postac.lvl, 
         rasy.main_ability_name, postac.cialo, postac.umysl, postac.urok, 
         postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.Id='${tryItem}';`;
@@ -76,7 +78,7 @@ const LoginPage = ({setPage}: pageType) => {
         const query = `SELECT postac.Id, postac.nick, rasy.name, postac.lvl, 
         rasy.main_ability_name, postac.cialo, postac.umysl, postac.urok, 
         postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.login='${login}' AND postac.password='${password}';`;
-
+        
         fetch(sql(query)).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
             alert(data.toString());
@@ -104,6 +106,9 @@ const LoginPage = ({setPage}: pageType) => {
             player.setNewImgLink(data[11])
             player.setNewSection("Cechy")
             setPage(mainPageID)
+        }).catch(error=>{
+            alert(error.toString());
+            setTryToLogin(-2);
         })
 
 
