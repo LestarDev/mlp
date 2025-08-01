@@ -123,15 +123,15 @@ const LoginPage = ({setPage}: pageType) => {
             <label><span>Login</span> <input type="text" ref={refLogin} /></label>
             <label><span>Haslo</span> <input type="password" ref={refPassword} /></label>
         </div>
+        { 
+            tryToLogin>0 ? <p>Fetching...</p> :
+            tryToLogin==0 ? <p className="wrongLogin">Error</p> : 
+            <p className="wrongLogin">Zly login lub haslo</p>
+        }
         <button role="submit" onClick={(e)=>{
             e.preventDefault();
             setTryToLogin(preV=>increment(preV))
         }}>ZALOGUJ</button>
-        { 
-            tryToLogin>0 ? <p>Fetching...</p> :
-            tryToLogin==0 ? "Error" : 
-            <p className="wrongLogin">Zly login lub haslo</p>
-        }
         
     </form>
         <div className="animated-border-box-glow"></div>
