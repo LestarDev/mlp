@@ -78,7 +78,7 @@ const LoginPage = ({setPage}: pageType) => {
         const query = `SELECT postac.Id, postac.nick, rasy.name, postac.lvl, 
         rasy.main_ability_name, postac.cialo, postac.umysl, postac.urok, 
         postac.exp, postac.monety, postac.img_link FROM postac INNER JOIN rasy ON rasy.Id=postac.id_rasa WHERE postac.login='${login}' AND postac.password='${password}';`;
-        alert(fetch(sql("SELECT 1")).then(response=>response.text()).then(v=>alert(v)));        
+        fetch(sql("SELECT 1")).then(response=>response.text()).then(v=>alert(v));        
         fetch(sql(query)).then(response=>response.json()).then((data: any[])=>{
             console.log(data);
             alert(data.toString());
