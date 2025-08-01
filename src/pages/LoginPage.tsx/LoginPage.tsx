@@ -31,7 +31,7 @@ const LoginPage = ({setPage}: pageType) => {
 
         fetch(sql(queryRestore)).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
-            alert(data);
+            alert(data.toString());
             player.setNewNick(data[1]);
             player.setNewRasa(data[2]);
             player.setNewLvl(Number(data[3]));
@@ -110,10 +110,6 @@ const LoginPage = ({setPage}: pageType) => {
 
     },[tryToLogin,player.refreshPage])
 
-    const increment = (v: number) => {
-        return v+1;
-    }
-
     return <>
     
     <div className="background-fixed background-login" />
@@ -133,7 +129,7 @@ const LoginPage = ({setPage}: pageType) => {
         }
         <button role="submit" onClick={(e)=>{
             e.preventDefault();
-            setTryToLogin(preV=>increment(preV))
+            setTryToLogin(1);
         }}>ZALOGUJ</button>
         
     </form>
