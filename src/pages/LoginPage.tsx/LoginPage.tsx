@@ -52,7 +52,7 @@ const LoginPage = ({setPage}: pageType) => {
             // return;
         }).catch((error)=>{
             console.log(error);
-            setTryToLogin(-1);
+            setTryToLogin(-2);
         });
 
             
@@ -80,7 +80,7 @@ const LoginPage = ({setPage}: pageType) => {
 
             console.log(data);
 
-            if(Number(data[0])!=1 && tryToLogin!=0) {
+            if(Number(data[0])!=1) {
                 setTryToLogin(-1);
                 return;
             }
@@ -126,8 +126,9 @@ const LoginPage = ({setPage}: pageType) => {
         </div>
         { 
             tryToLogin>0 ? <p>Fetching...</p> :
-            tryToLogin==-1 ? <p className="wrongLogin">Error</p> : 
-            <p className="wrongLogin">Zly login lub haslo</p>
+            tryToLogin==-2 ? <p className="wrongLogin">Error</p> : 
+            tryToLogin==-1 ? <p className="wrongLogin">Zly login lub haslo</p> : 
+            ""
         }
         <button role="submit" onClick={(e)=>{
             e.preventDefault();
